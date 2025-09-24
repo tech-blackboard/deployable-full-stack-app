@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
+import './Login.css';
 
 export default function Login(){
     const [email,setEmail] = useState("");
@@ -61,37 +62,33 @@ export default function Login(){
     event.preventDefault()
         const isEmail=validationEmail();
         const isPwd=validatationPwd();
-
         if(isEmail&&isPwd&&userdata&&email===userdata.Email&&pwd===userdata.password){
            toast.success("Login Successful!");
-           navigate('/Register')
+           navigate('/Dashboard')
            setSignUp(false)
-
          }
-        
         else{
           toast.error("User not found! ")
           setSignUp(true)
 
         }    
     }
-
     return(
-        <div id="login">
+        <div className="login">
             <form>
-            <p id="head">Task Manager</p>
-            <h3>Wellcome Back</h3>
-            <p  id="join">Sign into your account</p>
-            <label id="el">Email</label><br></br>
+            <p className="head">Task Manager</p>
+            <h4 className="WellCome">WellcomeBack</h4>
+            <p  ClassName="join">Sign into your account</p>
+            <label className="el">Email</label><br></br>
             < InputComponent inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
-            <span id="span">{emailError}</span><br></br>
-            <label id="pwd">Password</label><br></br>
+            <span className="lspan">{emailError}</span><br></br>
+            <label className="pwd">Password</label><br></br>
             < InputComponent inputTypes="password" inputValue={pwd} inputId="password" inputOnChange={password} pwdError={pwdError}/><br></br>
-            <span id="span">{pwdError}</span><br></br>
-             <button id="SignIn" onClick={handleSignIn}>Sign In</button><br>
-             </br>
+            <span className="lspan">{pwdError}</span><br></br><br></br>
+             <button className="SignIn" onClick={handleSignIn}>Sign In</button>
+             <br></br>
             {
-            signUp&&<p>Don't have an account? <Link to="/Register">Register here</Link></p>
+            signUp&&<p >Don't have an account? <Link to="/Register" className="re">Register here</Link></p>
             }
            </form>
         </div>
