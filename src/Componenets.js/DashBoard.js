@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import './Dashboard.css';
 
 export default function DashBoard(){
@@ -34,14 +34,14 @@ export default function DashBoard(){
             </div>
             <div id="web">
              <h4>E-commerce Website</h4>
-             <p>12 tasks ● 3 completed</p>
+             <p>12 tasks • 3 completed</p>
              <div id="progress-container">
                <div id="progress-bar"  ></div>
              </div>
             </div>
             <div id="web">
              <h4>Mobile App Redesign</h4>
-             <p>8 tasks ● 6 completed</p>
+             <p>8 tasks • 6 completed</p>
              <div id="progress-container">
                <div id="progress-bar"></div>
              </div>
