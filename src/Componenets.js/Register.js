@@ -1,7 +1,8 @@
 import InputComponent from './InputComponent';
 import {useState} from 'react';
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 export default function Register(){
     const [FullName,setFullName] = useState("");
@@ -13,7 +14,8 @@ export default function Register(){
     const [emailError,setEmailError] = useState("");
     const [pwdError,setPwdError] = useState("");
     const [cPwdError,setCpwdError] = useState("");
-
+    
+    const navigate=useNavigate()
 
     function fullName(e){
         setFullName(e.target.value)
@@ -113,9 +115,8 @@ export default function Register(){
 
             }
             localStorage.setItem(email,JSON.stringify(local))
-            toast.success("Login Successful!");
-           
-
+            toast.success("Register Successful!");
+            navigate('/Login')
         }
         else(
            toast.error("please login ")
@@ -124,9 +125,9 @@ export default function Register(){
     }
 
     return(
-    <div>
+    
         <div id="register">
-             <form>
+            <form>
             <p id="head">Task Manager</p>
             <h3>Create Account</h3>
             <p  id="join">Join Us To Manage Your Tasks</p>
@@ -142,12 +143,12 @@ export default function Register(){
             <label>Confirm Password</label><br></br>
             < InputComponent inputTypes="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd} cPwdError={cPwdError} /><br></br>
             <span id="span">{cPwdError}</span><br></br>
-<br></br>
+            <br></br>
             <button id="signUp" onClick={handleSignUp}>Create Account</button>
-            <p>Already have an Account? <a href="Login.js">Sign in</a></p>
+            <p>Already have an Account? <Link to="/Login">Sign in</Link></p>
            </form>
         </div>
        
-    </div>
+
     )
 }

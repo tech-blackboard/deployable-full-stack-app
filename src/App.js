@@ -1,8 +1,13 @@
 import './App.css';
-// import InputComponent from './Componenets.js/InputComponent';
-import Register from './Componenets.js/Register';
+// import { Routes } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
+// import Register from './Componenets.js/Register';
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";function App() {
+import ProjectView from './Componenets.js/ProjectView';
+// import Login from './Componenets.js/Login';
+import DashBoard from './Componenets.js/DashBoard';
+import "react-toastify/dist/ReactToastify.css";
+function App() {
   return (
     <div className="App">
       {/* Global Toast Container - customize here */}
@@ -18,7 +23,17 @@ import "react-toastify/dist/ReactToastify.css";function App() {
         pauseOnHover
         theme="colored"
       />
-      <Register/>
+     <DashBoard/>
+     <ProjectView/>
+{/* 
+      <Routes>
+         <Route path='/' element={ <Login/>}/>
+        <Route path='/Login' element={ <Login/>}/>
+        <Route path='/Register' element={<Register/>}/>
+
+           
+        
+      </Routes> */}
     </div>
   );
 }
