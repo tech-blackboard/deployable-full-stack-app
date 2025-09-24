@@ -87,9 +87,9 @@ export default function Register(){
 
     }
     function validationConfirmPwd(){
-         if (!cPwd || cPwd === "") {
+    if (!cPwd || cPwd === "") {
     setCpwdError("Enter your confirm password");
-    return true;
+    return false;
   } else if (cPwd !== pwd) {
     setCpwdError("Passwords do not match");
     return false;
@@ -118,6 +118,7 @@ export default function Register(){
             localStorage.setItem(email,JSON.stringify(local))
             toast.success("Register Successful!");
             navigate('/Login')
+
         }
         else(
            toast.error("please login ")
