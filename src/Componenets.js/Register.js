@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
+import './Register.css';
 
 export default function Register(){
     const [FullName,setFullName] = useState("");
@@ -35,7 +36,7 @@ export default function Register(){
       const regName = /^[A-Za-z]+$/;
 
     if (!FullName || FullName.trim() === "") {
-       setFnameError("Please enter your first name");
+       setFnameError("Please enter your Full name");
         return  false;
   }
    else if (!regName.test(FullName)) {
@@ -129,7 +130,7 @@ export default function Register(){
         <div id="register">
             <form>
             <p id="head">Task Manager</p>
-            <h3>Create Account</h3>
+            <h2 className="createAcc">Create Account</h2>
             <p  id="join">Join Us To Manage Your Tasks</p>
             <label id="fn">Full Name</label><br></br>
             < InputComponent inputTypes="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} fullNameError={fullNameError}/><br></br>
@@ -144,7 +145,7 @@ export default function Register(){
             < InputComponent inputTypes="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd} cPwdError={cPwdError} /><br></br>
             <span id="span">{cPwdError}</span><br></br>
             <br></br>
-            <button id="signUp" onClick={handleSignUp}>Create Account</button>
+            <button className="signUp" onClick={handleSignUp}>Create Account</button>
             <p>Already have an Account? <Link to="/Login">Sign in</Link></p>
            </form>
         </div>
