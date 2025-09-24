@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import './ProjectView.css';
 
 export default function ProjectView(){
