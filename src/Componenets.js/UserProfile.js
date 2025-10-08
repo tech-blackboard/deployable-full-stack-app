@@ -2,7 +2,7 @@ import InputComponent from './InputComponent'
 import './UserProfile.css'
 export default function UserProfile(){
 return(
-    <div className="Userprofile">
+    <div className="UserProfile">
         <div className="UserNav">
         <h1>TaskManager</h1>
         <nav>
