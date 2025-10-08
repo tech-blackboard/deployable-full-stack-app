@@ -7,7 +7,10 @@ import ProjectView from './Componenets.js/ProjectView';
 import Login from './Componenets.js/Login';
 import DashBoard from './Componenets.js/DashBoard';
 import TaskListView from './Componenets.js/TaskListView';
+import EditTask from './Componenets.js/EditTask'
+import UserProfile from './Componenets.js/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
+import CreateNewProject from './Componenets.js/CreateNewProject';
 function App() {
   return (
     <div className="App">
@@ -26,7 +29,11 @@ function App() {
       />
     
      {/* <ProjectView/> */}
-     <TaskListView/>
+     {/* <TaskListView/> */}
+     {/* <EditTask/> */}
+     <UserProfile/>
+          {/* <CreateNewProject/> */}
+
 
       {/* <Routes>
          <Route path='/' element={ <Login/>}/>
