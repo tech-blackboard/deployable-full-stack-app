@@ -1,15 +1,17 @@
-/* .ecom{
-    border-radius: 20px;
-    box-shadow: 3px 5px 4px rgba(rgb(74, 28, 224), rgb(9, 11, 9), rgb(48, 48, 199), alpha);
-    width: 700px;
-    height: 950px;
-    border: 1px solid rgb(162, 162, 163);
-    border-radius: 10px;
-    margin:auto;
-    cursor: pointer;
-    margin-top: 60px;
-    border-top: none; 
-    background-color: white;
+ .nav{
+    display:flex;
+    justify-content:space-evenly;
+    background-color: rgb(85, 88, 88);
+    color:white;   
+    position:fixed;
+    width:100%;
+    margin-top: 0 ;
+     margin-bottom: 0;
+}
+ nav{
+   
+    margin-top: 20px;
+ 
 }
 .task{
    display:flex;
@@ -44,23 +46,21 @@
     border: 1px solid rgb(178, 175, 175);
     padding-bottom:70px;   
     border-bottom: 30px;
-    font-size:larger; */
-/* } */
-
-/* a{ */
-    /* width: 80px;
+    font-size:18px;
+}
+a{
+    width: 80px;
     height: 50px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(128, 126, 122); 
-    margin-left: 40px;
+    margin-left: 90px;
     color:whitesmoke;
-    text-decoration: none;
-     
-} */ 
-/* .tasklists{
-    display: flex;
-    justify-content: space-evenly;
+    text-decoration: none;    
+}
+.tasklists{
+   display: flex;
+   justify-content: space-evenly;
 }
 .high ,h6{
    font-weight: bold;
@@ -89,9 +89,14 @@
    color: white;
    box-shadow:  0 2px 5px rgba(0,0,0,0.05);
 }
-.nav ,h2{
-margin-right: 170px;
+h2{
+    margin-right: 40%;
+    /* padding-bottom: 10px; */
 }
 .ecomweb{
-    margin-left:170px;
-} */
+    margin-left:590px;
+    padding-top: 110px;
+   
+   
+}
+
