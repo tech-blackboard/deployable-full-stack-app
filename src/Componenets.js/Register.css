@@ -1,18 +1,24 @@
-/* .login{
+#register{
     border-radius: 20px;
     box-shadow: 3px 5px 4px rgba(rgb(74, 28, 224), rgb(9, 11, 9), rgb(48, 48, 199), alpha);
     width: 500px;
-    height: 270px;
-    border: 2px solid rgb(198, 197, 202);
+    height: 500px;
+    border: 2px solid rgb(219, 218, 224);
     border-radius: 10px;
     margin-left: 35%;
     cursor: pointer;
     margin-top: 60px;
     padding-bottom:180px;
-    border-top:none;
-   
+    border-top: none;
 }
-.head{
+
+
+.createAcc{
+  color:rgb(85, 85, 250);
+   margin-top:1px; 
+   margin-left: 30px;
+}
+#head{
   color:rgb(255, 255, 255);
   background-color: rgb(112, 112, 255);
   padding:15px;
@@ -20,14 +26,8 @@
   border-top-left-radius: 10px;
   font-weight: bold;
   font-size: 20px;
-}
-.WellCome{
-   color:rgb(81, 81, 253);
-   margin-top:1px;
-   margin-left: 185px; 
-   font-size: 20px;
-}
 
+}
 input{
     border-radius: 6px;
     border-color: rgb(170, 168, 168);
@@ -37,37 +37,41 @@ input{
     padding:10px;
     width:400px;
     border-radius: 10px ;
-
+    
+ 
 }
-.join{
-    color :rgb(113, 110, 110);
-    font-weight:lighter;
+#join{
+color :rgb(113, 110, 110);
+font-weight:lighter;
+
+
+
 }
 label{
-    margin-right: 258px;
-    font-weight: bold;
-    font-size: 20px;
+ margin-right: 258px;
+ font-weight: bold;
+      font-size: 20px;
 
 }
-.fn{
+#fn{
    margin-right: 330px;
    font-weight: bold;
-   font-size: 20px;
+      font-size: 20px;
 
 }
-.pwd{
+#pwd{
    margin-right: 340px;
    font-weight: bold;
-   font-size: 20px;
+      font-size: 20px;
 
 }
-.el{
+#el{
    margin-right: 370px;
-   font-weight: bold;
-   font-size: 20px;
+    font-weight: bold;
+      font-size: 20px;
 
 }
-.SignIn{
+.signUp{
   color:white;
   background-color: rgb(110, 110, 251);
   padding:10px;
@@ -75,14 +79,14 @@ label{
   border-radius: 10px ;
   font-weight: bold;
 }
-.SignIn:hover{
+.signUp:hover{
   color:white;
-  background-color: rgb(54, 54, 203);
+  background-color: rgb(85, 85, 251);
   padding:10px;
   width:430px;
-  border-radius: 10px ;
-  font-weight:bold;
+  border-radius: 10px;
+  font-weight: bold;
 }
-.lspan{
+#span{
   color:red;
-} */
+}
