@@ -2,8 +2,8 @@ import './Dashboard.css';
 
 export default function DashBoard(){
     return(
-        <div className="main">
-            <div className="nav">
+        <div>
+            <div className="navbar">
                  <h2>TaskManager</h2>
             <nav>
                 <a href='/DashBoard'>DashBoard</a>
