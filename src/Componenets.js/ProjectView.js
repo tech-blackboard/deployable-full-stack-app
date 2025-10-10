@@ -3,7 +3,7 @@ import './ProjectView.css';
 export default function ProjectView(){
     return(
         <div className="ecom">
-            <div id="nav">
+            <div className="nav">
                  <h2>← Back to Dashboard</h2>
             <nav>
                 <a href='/EditProfile'>Edit Profile</a>
@@ -12,7 +12,7 @@ export default function ProjectView(){
             </div>
             <h2 className="ecomweb">E-commerce Website</h2>
             <p>Front development project with Rect and Node.js</p><br></br>
-            <input style={{width:"80%"}}type="text" placeholder="Search task...."/><br></br><br></br>
+            <input style={{width:"82%"}}type="text" placeholder="Search task...."/><br></br><br></br>
             <select style={{width:"84%",borderRadius:"10px",padding:"10px"}}>
                 <option>All Task</option>
                 <option>To Do</option>
