@@ -3,7 +3,7 @@ import './Dashboard.css';
 export default function DashBoard(){
     return(
         <div>
-            <div className="nav">
+            <div className="navbar">
                  <h2>TaskManager</h2>
             <nav>
                 <a href='/DashBoard'>DashBoard</a>
