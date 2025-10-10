@@ -24,7 +24,7 @@ function App() {
         theme="colored"
       />
      <DashBoard/>
-     <ProjectView/>
+     {/* <ProjectView/> */}
 {/* 
       <Routes>
          <Route path='/' element={ <Login/>}/>
