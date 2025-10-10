@@ -2,7 +2,7 @@ import './ProjectView.css';
 
 export default function ProjectView(){
     return(
-        <div className="ecom">
+        <div>
             <div className="nav">
                  <h2>← Back to Dashboard</h2>
             <nav>
