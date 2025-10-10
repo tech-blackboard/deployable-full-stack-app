@@ -27,15 +27,10 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-    
+     <DashBoard/>
      {/* <ProjectView/> */}
-     {/* <TaskListView/> */}
-     {/* <EditTask/> */}
-     <UserProfile/>
-          {/* <CreateNewProject/> */}
-
-
-      {/* <Routes>
+{/* 
+      <Routes>
          <Route path='/' element={ <Login/>}/>
         <Route path='/Login' element={ <Login/>}/>
         <Route path='/Register' element={<Register/>}/>
