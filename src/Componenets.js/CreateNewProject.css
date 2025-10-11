@@ -1,6 +1,6 @@
 .createnewproject{
     width:500px;
-    height:600px;
+    height:550px;
     border-radius: 20px;
     box-shadow: 1px 1px 7px 1px hsla(0, 1%, 60%, 0.871);
     margin: auto;
@@ -8,7 +8,7 @@
     position:relative;
 }
 
-h1{
+.createnewproject h1{
     margin-right:220px;
     font-size: 22px;   
 }
@@ -27,7 +27,7 @@ label{
     font-size: 20px;
     cursor: pointer;
 }
-input{
+/* input{
     border-radius: 1px;
     border-color: 2px solid rgba(135, 134, 134, 0.932);
     border-radius: 1px;
@@ -38,7 +38,7 @@ input{
     margin-top: 15px;
     margin-bottom: 20px;
     color:black;
-}
+} */
 .date{
     display: flex;
     justify-content: center;

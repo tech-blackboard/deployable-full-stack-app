@@ -31,7 +31,7 @@ export default function ErrorLoadingStates(){
                     <figure style={{fontSize:"290%"}}>📋</figure>
                     <figurecaption style={{fontWeight:"bold",color:"grey"}}>No projects yet</figurecaption>
                     <p  style={{fontWeight:"lighter",color:"grey"}}>Create your first project to <br></br>get started with task <br></br>management.</p><br></br>
-                    <button className="createproject" >Create Project</button>
+                    <button className="createprojects" >Create Project</button>
 
                 </div>
 
@@ -41,7 +41,7 @@ export default function ErrorLoadingStates(){
                     <p style={{fontWeight:"bold", fontSize:"18px",marginRight:"60%",marginBottom:"10px" ,marginTop:"0px"}}>✅ Success!</p>
                     <span>Project "E-commerce Website"<br></br> has been created successfully.</span>
                  </div>
-                 <div className="newproject">
+                 <div className="newprojects">
                   <p>🎉Welcome to your new project!</p>
                   <span>Start by adding your first task</span>
                  </div>
@@ -51,13 +51,13 @@ export default function ErrorLoadingStates(){
             <div className="FormValidationExamples">
             <h3  style={{marginRight:"66%"}}>Form Validation Examples</h3>
             <label style={{marginRight:"72%"}}>Project Name *</label>
-            <InputComponent  style={{color:"red"}} inputType="text"/>
+            <InputComponent  style={{color:"red",width:"0%"}} inputType="text"/>
             <span>Project name is required</span><br></br>
              <label style={{marginRight:"77%"}}>Email</label>
-            <InputComponent inputType="email"/>
+            <InputComponent style={{color:"red",width:"0%"}}  inputType="email"/>
             <span>Please enter a valid email address</span><br></br>
-            <label  style={{marginRight:"75%"}}>Due Date</label>
-            <InputComponent inputType="date"/>
+            <label  style={{marginRight:"75%",width:"0%"}}>Due Date</label>
+            <InputComponent style={{marginRight:"75%",width:"0%"}} inputType="date"/>
             <span>✓ Valid date selected</span>
             </div>
           </div>   

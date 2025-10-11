@@ -77,8 +77,8 @@ export default function Login(){
         <div className="login">
             <form>
             <p className="head">Task Manager</p>
-            <h4 className="WellCome">WellcomeBack</h4>
-            <p  ClassName="join">Sign into your account</p>
+            <span className="WellCome">Well Come Back</span><br></br>
+            <span  className="join">Sign into your account</span><br></br>
             <label className="el">Email</label><br></br>
             < InputComponent inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
             <span className="lspan">{emailError}</span><br></br>
@@ -88,7 +88,7 @@ export default function Login(){
              <button className="SignIn" onClick={handleSignIn}>Sign In</button>
              <br></br>
             {
-            signUp&&<p >Don't have an account? <Link to="/Register" className="re">Register here</Link></p>
+            signUp&&<p id="paragraph">Don't have an account? <Link to="/Register" className="re">Register here</Link></p>
             }
           </form>
         </div>

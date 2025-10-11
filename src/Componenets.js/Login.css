@@ -1,8 +1,8 @@
-/* .login{
+ .login{
     border-radius: 20px;
     box-shadow: 3px 5px 4px rgba(rgb(74, 28, 224), rgb(9, 11, 9), rgb(48, 48, 199), alpha);
     width: 500px;
-    height: 270px;
+    height: 300px;
     border: 2px solid rgb(198, 197, 202);
     border-radius: 10px;
     margin-left: 35%;
@@ -20,12 +20,21 @@
   border-top-left-radius: 10px;
   font-weight: bold;
   font-size: 20px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .WellCome{
    color:rgb(81, 81, 253);
-   margin-top:1px;
-   margin-left: 185px; 
+   font-weight: bold;
    font-size: 20px;
+}
+#paragraph a{
+ padding: 0;
+    border-radius: 0;
+    background-color:whitesmoke;
+    margin-left: 0;
+    color:blue;
+    text-decoration:underline;
 }
 
 input{
@@ -35,13 +44,17 @@ input{
     border-radius: 10px;
     background-color:rgb(255, 255, 255);
     padding:10px;
-    width:400px;
+    /* width:400px; */
     border-radius: 10px ;
+    margin-bottom: 10px;
+    margin-top: 10px; 
 
 }
 .join{
     color :rgb(113, 110, 110);
     font-weight:lighter;
+  
+    
 }
 label{
     margin-right: 258px;
@@ -85,4 +98,8 @@ label{
 }
 .lspan{
   color:red;
-} */
+} 
+#paragragh{
+  font-size: medium;
+  font-weight: lighter;
+}

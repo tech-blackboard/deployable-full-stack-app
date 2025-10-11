@@ -5,8 +5,9 @@
     color:white;   
     position:fixed;
     width:100%;
-    margin-top: 0 ;
-     margin-bottom: 0;
+    top: 0 ;
+     left: 0;
+     right: 0;
 }
  nav{
     margin-left: 50%;
@@ -44,17 +45,18 @@
     padding-bottom:70px;   
   
 }
-a{
+nav a{
     width: 80px;
     height: 60px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(128, 126, 122); 
-    margin-left: 40px;
+    margin-left: 10px;
     color:whitesmoke;
-    text-decoration: none;     
+    text-decoration: none;    
+   
 }
-h3{
+#h3{
     color: rgb(36, 36, 217); 
     margin-right: 70%;
     font-size: 28px;
@@ -69,7 +71,7 @@ h3{
     margin-right: 69%;
     cursor: pointer;
     font-size: 18px;
-
+}
 .recentp{
     display:flex;
     justify-content:space-between;
@@ -128,13 +130,19 @@ h3{
    margin-left: 40%;
 }
 
-.web, h4{
+.h4{
    margin-top: 24px;
    margin-right: 68%;
    margin-bottom: 10px;
    margin-left: 10px;    
-
+   color:black;
 } 
+.web{
+   margin-top: 24px;
+   margin-right: 68%;
+   margin-bottom: 10px;
+   margin-left: 10px;  
+}
 .web p{
    margin-top: 4px;
    margin-right: 68%;
@@ -142,7 +150,7 @@ h3{
    font-weight: lighter;
    color: rgb(107, 104, 104);
 }
-.progress-container {
+.progress-containers {
    background-color: #e5e7eb;  /* light gray */
    border-radius: 6px;
    height: 8px;

@@ -30,7 +30,7 @@ const TaskCompletionChart = () => {
         height: "290px",
       }}
     >
-      <h3 style={{ fontSize: "16px", marginLeft: "10px" }}>
+      <h3 style={{ fontSize: "20px", marginRight: "100px" }}>
         Task Completion Trend
       </h3>
 

@@ -3,9 +3,9 @@ export default function HeaderComponent({Dashboard,Projects,Analytics,Profile,Lo
         <div>
 <nav>
     <a href="/Dashboard">{Dashboard}</a>
-    <a href="/Projects">{Projects}</a>
-    <a href="/Analytics">{Analytics}</a>
-    <a href="/Profile">{Profile}</a>
+    {Projects && <a href="/Projects">{Projects}</a>}
+   {Analytics && <a href="/Analytics">{Analytics}</a>}
+   {Profile && <a href="/Profile">{Profile}</a>}
     {/* Render Logout only if it’s passed */}
       {Logout && <a href="/logout">{Logout}</a>}
 </nav>

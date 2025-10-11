@@ -5,7 +5,7 @@ return(
     <div className="UserProfile">
         <div className="UserNav">
         <h1>TaskManager</h1>
-        <nav>
+        <nav className="navs">
             <a href="Dashboard">Dashboard</a>
             <a href="Projects">Projects</a>
             <a href="Profile">Profile</a>
@@ -25,14 +25,14 @@ return(
     </div>
  <div className="AccountSettings">
     <h2>Account Settings</h2>
-    <label style={{marginRight:"65%"}}>FullName</label>
+    <label style={{marginRight:"58%"}}>FullName</label>
     <InputComponent inputType='text' />
-    <label  style={{marginRight:"73%"}}>Email</label>
+    <label  style={{marginRight:"65%"}}>Email</label>
     <InputComponent inputType='email'/>
-    <label style={{marginRight:"57%"}}>Phone(Optional)</label>
+    <label style={{marginRight:"48%"}}>Phone(Optional)</label>
     <InputComponent inputType="tel"  id="phone"  inputmode="numeric" placeholder="+91 8688868234" pattern="[0-9]{10}" required/>
-    <label  style={{marginRight:"70%"}}>Timezone</label>
-    <select name="timezone" required style={{width:"480px", borderRadius:"9px",marginLeft:"30px",marginTop:"10px" ,height:"34px"}}>
+    <label  style={{marginRight:"58%"}}>Timezone</label>
+    <select name="timezone" required style={{width:"420px", borderRadius:"9px",marginLeft:"30px",marginTop:"10px" ,height:"34px"}}>
     <options>--select Time zone value--</options>
     <option value="">--Select Time Zone--</option>
     <option value="Asia/Kolkata">(GMT+05:30) Asia/Kolkata</option>

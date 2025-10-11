@@ -14,7 +14,7 @@ export default function DashBoard(){
 
             </div>
          
-                <h3>Welcome back, Pooja!👋</h3>
+                <h3 id="h3">Welcome back, Pooja!👋</h3>
                 <p className="headp">Here's What's happening with your project </p>
 
              <div className="body">
@@ -33,17 +33,17 @@ export default function DashBoard(){
                 <button className="newproject">New Project</button>
             </div>
             <div className="web">
-               <h4>E-commerce Website</h4>
+               <h4 className="h4">E-commerce Website</h4>
                <p>12 tasks • 3 completed</p>
-                 <div className="progress-container">
+                 <div className="progress-containers">
                     <div className="progress-bar"  ></div>
                   </div>
             </div>
 
             <div className="web">
-               <h4>Mobile App Redesign</h4>
+               <h4 className="h4">Mobile App Redesign</h4>
                <p>8 tasks • 6 completed</p>
-                 <div className="progress-container">
+                 <div className="progress-containers">
                     <div className="progress-bar"></div>
                   </div>
             </div>

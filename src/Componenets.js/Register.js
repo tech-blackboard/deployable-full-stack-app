@@ -134,20 +134,20 @@ export default function Register(){
             <h2 className="createAcc">Create Account</h2>
             <p  id="join">Join Us To Manage Your Tasks</p>
             <label id="fn">Full Name</label><br></br>
-            < InputComponent inputTypes="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} fullNameError={fullNameError}/><br></br>
+            < InputComponent id="inputs" inputTypes="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} fullNameError={fullNameError}/><br></br>
             <span id="span">{fullNameError}</span><br></br>
             <label id="el">Email</label><br></br>
-            < InputComponent inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
+            < InputComponent id="inputs" inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
             <span id="span">{emailError}</span><br></br>
             <label id="pwd">Password</label><br></br>
-            < InputComponent inputTypes="password" inputValue={pwd} inputId="password" inputOnChange={password} pwdError={pwdError}/><br></br>
+            < InputComponent className="inputs" inputTypes="password" inputValue={pwd} inputId="password" inputOnChange={password} pwdError={pwdError}/><br></br>
             <span id="span">{pwdError}</span><br></br>
             <label>Confirm Password</label><br></br>
-            < InputComponent inputTypes="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd} cPwdError={cPwdError} /><br></br>
+            < InputComponent className="inputs"  inputTypes="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd} cPwdError={cPwdError} /><br></br>
             <span id="span">{cPwdError}</span><br></br>
             <br></br>
             <button className="signUp" onClick={handleSignUp}>Create Account</button>
-            <p>Already have an Account? <Link to="/Login">Sign in</Link></p>
+            <p className="para">Already have an Account? <Link to="/Login">Sign in</Link></p>
            </form>
         </div>
        

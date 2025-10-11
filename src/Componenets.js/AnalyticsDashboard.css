@@ -19,10 +19,6 @@
     font-size: 30px;
     font-weight: bolder;
 }
-span{
-    margin-top:90px;
-    font-size: 20px;
-}
 .graphPriority{
     display: flex;
     justify-content: space-around;
@@ -61,6 +57,7 @@ span{
 .progress-bar{
   /* width: 25%;            progress percentage */
   height: 100%;
+
   /* background-color: #e53935; red fill */
   /* border-radius: 10px 0 0 10px; round only left side */
 }
@@ -85,15 +82,46 @@ span{
 #spanhead{
     font-size: 20px;
     font-weight: bold;
-    margin-right: 11%;
+    margin-right: 14%;
 }
 #secondspan{
     color:grey;
-    margin-right: 102px;
+    margin-right: 141px;
+     font-size: 20px;
 }
 hr{
     width:80%;
 }
 h1{
     font-size: 25px;
+    /* margin-right: 100px; */
+    margin-right: 480px;
 }
+#tasknames ,p{
+     color:grey;
+      font-size: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+}
+.prioritypara,p{
+    color:rgb(8, 8, 8);
+      font-size: 20px;
+      margin-bottom: 20px;
+}
+.UsersNav{
+    display:flex;
+    justify-content:space-evenly;
+    background-color: rgb(85, 88, 88);
+    color:white;   
+    position:fixed;
+    width:100%;
+    top: 0 ;
+     left: 0;
+     right: 0;
+}
+ .UsersNav nav{
+    margin-left: 10px;
+    margin-top: 30px;
+    
+
+ }

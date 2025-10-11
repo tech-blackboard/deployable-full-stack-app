@@ -11,6 +11,8 @@ import EditTask from './Componenets.js/EditTask'
 import UserProfile from './Componenets.js/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
 import CreateNewProject from './Componenets.js/CreateNewProject';
+import ErrorLoadingStates from './Componenets.js/ErrorLoadingStates'
+import AnalyticsDashboard from './Componenets.js/AnalyticsDashboard'
 function App() {
   return (
     <div className="App">
@@ -27,9 +29,19 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-     <DashBoard/>
+     {/* <DashBoard/>  */}
+     {/* <EditTask/> */}
+     {/* <ErrorLoadingStates/> */}
      {/* <ProjectView/> */}
-{/* 
+     {/* <Register/> 
+      <Login/> */}
+     {/* <UserProfile/> */}
+     {/* <TaskListView/>  */}
+     {/* <AnalyticsDashboard/>   */}
+     {/* <CreateNewProject/> */}
+   
+     
+ 
       <Routes>
          <Route path='/' element={ <Login/>}/>
         <Route path='/Login' element={ <Login/>}/>
@@ -38,7 +50,7 @@ function App() {
  
            
         
-      </Routes> */}
+      </Routes> 
     </div>
   );
 }

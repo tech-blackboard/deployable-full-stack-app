@@ -9,7 +9,7 @@
 }
 .UserNav{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     width: 100%;;
     background-color:rgb(57, 56, 56);
     position: fixed;
@@ -19,18 +19,17 @@
 
 }
 h1{
-    margin-left: 60px;
+  
     padding:10px;
     color:rgb(251, 253, 254);
 
 }
-a{
-    margin-right: 55px;
+.navs {
     text-decoration:none;
     color:white;
-    background-color: rgb(122, 120, 120);
     padding:10px;
     border-radius: 5px;
+    margin-left:20px;
   
   
 }

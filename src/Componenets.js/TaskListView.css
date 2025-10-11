@@ -1,26 +1,12 @@
-/* .ecomweb{
-    border-radius: 20px;
-    box-shadow: 3px 5px 4px rgba(rgb(74, 28, 224), rgb(9, 11, 9), rgb(48, 48, 199), alpha);
-    width: 700px;
-    height: 750px;
-    border: 1px solid rgb(162, 162, 163);
-    border-radius: 10px;
-    margin:auto;
-    cursor: pointer;
-    margin-top: 60px;
-    border-top: none; 
-    background-color: white;
 
-}
 .ecomnav{
     display:flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
     background-color: rgb(85, 88, 88);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-
+    position: fixed;
+    top: 0;
+    width:100%;
 }
-
  a{
     padding: 10px;
     border-radius: 10px;
@@ -47,34 +33,48 @@ h2{
    color: white;
    box-shadow:  0 2px 5px rgba(0,0,0,0.05);
 }
-.tasklist{
-    width:590px;
-    box-shadow: 0px 0px 10px  0px rgb(199, 197, 197);
-    margin-left: 60px;
+.taskBlock{
+     display: flex;
+   
     
+}
+.tasklist{
+  width:400%;
+  box-shadow: 0px 0px 10px  0px rgb(199, 197, 197);
+  margin-left: 90px;
+   height:190px;
    
 } 
 .Hb{
-    display:flex;
-    gap:10px;
-    margin-left: 30px;
-   border-color:white;
+  display:flex;
+  gap:10px;
+  margin-left: 90px;
+  border-color:white;
+  margin-top: 30px;
+  
    
 }
 .tasklist,p{
-        margin-right: 160px;
+        margin-right: 200px;
         margin-bottom:10px;
         
 }
 .MB{
     display:flex;
     gap:10px;
-    margin-left: 30px;
+    margin-left: 80px;
    border-color:white;
    
 }
 .due{
-    margin-right: 199px;
+    margin-right: 54%;
+   margin-left: 0%;
+}
+.dueweek{
+       margin-right: 59%;
+       margin-bottom:20px;
+         
+ 
 }
 h5{
       margin-right: 280px;
@@ -86,7 +86,8 @@ h5{
     justify-content: flex-end;
     gap:20px;
     padding:20px;
-    height:30px;
+ 
+   
 }
 .Edit{
     background-color:gray;
@@ -96,4 +97,4 @@ h5{
     width:70px;
     border:none; 
     width:50px;
-} */
+} 
