@@ -1,18 +1,18 @@
 import './App.css';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Register from './Componenets.js/Register';
+import Register from './Componenets/Register';
 import { ToastContainer } from "react-toastify";
-import ProjectView from './Componenets.js/ProjectView';
-import Login from './Componenets.js/Login';
-import DashBoard from './Componenets.js/DashBoard';
-import TaskListView from './Componenets.js/TaskListView';
-import EditTask from './Componenets.js/EditTask'
-import UserProfile from './Componenets.js/UserProfile'
+import ProjectView from './Componenets/ProjectView';
+import Login from './Componenets/Login';
+import DashBoard from './Componenets/DashBoard';
+import TaskListView from './Componenets/TaskListView';
+import EditTask from './Componenets/EditTask'
+import UserProfile from './Componenets/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
-import CreateNewProject from './Componenets.js/CreateNewProject';
-import ErrorLoadingStates from './Componenets.js/ErrorLoadingStates'
-import AnalyticsDashboard from './Componenets.js/AnalyticsDashboard'
+import CreateNewProject from './Componenets/CreateNewProject';
+import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
+import AnalyticsDashboard from './Componenets/AnalyticsDashboard'
 function App() {
   return (
     <div className="App">
@@ -29,16 +29,16 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-     {/* <DashBoard/>  */}
-     {/* <EditTask/> */}
-     {/* <ErrorLoadingStates/> */}
-     {/* <ProjectView/> */}
-     {/* <Register/> 
-      <Login/> */}
-     {/* <UserProfile/> */}
-     {/* <TaskListView/>  */}
-     {/* <AnalyticsDashboard/>   */}
-     {/* <CreateNewProject/> */}
+     {/* <DashBoard/>   */}
+     {/* <EditTask/> 
+    <ErrorLoadingStates/> 
+    <ProjectView/>  */}
+    {/* <Register/> 
+      <Login/>  */}
+     {/* /<UserProfile/> 
+    <TaskListView/>  
+    <AnalyticsDashboard/>    */}
+      {/* <CreateNewProject/> */}
    
      
  
