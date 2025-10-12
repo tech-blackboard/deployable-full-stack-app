@@ -30,7 +30,7 @@ return(
     <label  style={{marginRight:"65%"}}>Email</label>
     <InputComponent inputType='email'/>
     <label style={{marginRight:"48%"}}>Phone(Optional)</label>
-    <InputComponent inputType="tel"  id="phone"  inputmode="numeric" placeholder="+91 8688868234" pattern="[0-9]{10}" required/>
+    <InputComponent inputType="tel"  id="phone"  inputMode="numeric" placeholder="+91 8688868234" pattern="[0-9]{10}" required/>
     <label  style={{marginRight:"58%"}}>Timezone</label>
     <select name="timezone" required style={{width:"420px", borderRadius:"9px",marginLeft:"30px",marginTop:"10px" ,height:"34px"}}>
     <options>--select Time zone value--</options>

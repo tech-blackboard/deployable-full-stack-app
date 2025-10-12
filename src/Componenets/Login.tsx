@@ -11,18 +11,32 @@ export default function Login(){
     const [emailError,setEmailError] = useState("");
     const [pwdError,setPwdError] = useState("");
     const[signUp,setSignUp] = useState(false)
-    const getLocalUserData=localStorage.getItem(email)
-    console.log(getLocalUserData)
-    const userdata=JSON.parse(getLocalUserData)
-    console.log("userdata",userdata)
+     interface UserData{
+        fullName:string;
+        Email:string;
+        password:string;
+        confirmPwd:string;
+    }
+    // const getLocalUserData=localStorage.getItem(email)
+
+    // if(getLocalUserData){
+    //  const user:UserData=JSON.parse(getLocalUserData)
+    //   console.log("userdata",user)
+    //   setSignUp(true)
+
+    // }
+//    else{
+//       toast.error("User not found in localstore! ")
+//    }
     const navigate=useNavigate()
-     function emailId(e){
+
+     function emailId(e:React.ChangeEvent<HTMLInputElement>){
         setEmail(e.target.value)
     }
-     function password(e){
+     function password(e:React.ChangeEvent<HTMLInputElement>){
         setPwd(e.target.value)
     }
-    function validationEmail() {
+    function validationEmail():boolean {
         let regExpEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email === null || email === "") {
             setEmailError("Please enter your email");
@@ -38,7 +52,7 @@ export default function Login(){
         }
 
     }
-    function validatationPwd() {
+    function validatationPwd():boolean {
            const onlyDigits = /^\d+$/;
         if (pwd === "") {
             setPwdError("enter your password ");
@@ -58,21 +72,35 @@ export default function Login(){
         }
 
     }
-   function handleSignIn(event){
-    event.preventDefault()
-        const isEmail=validationEmail();
-        const isPwd=validatationPwd();
-        if(isEmail&&isPwd&&userdata&&email===userdata.Email&&pwd===userdata.password){
-           toast.success("Login Successful!");
-           navigate('/Dashboard')
-           setSignUp(false)
-         }
-        else{
-          toast.error("User not found! ")
-          setSignUp(true)
+  
 
-        }    
+  function handleSignIn(event: React.FormEvent) {
+    event.preventDefault();
+
+    const isEmail = validationEmail();
+    const isPwd = validatationPwd();
+
+    const getLocalUserData = localStorage.getItem(email);
+
+    // Check if user data does NOT exist
+    if (!getLocalUserData) {
+        toast.error("No user found in local storage!");
+        setSignUp(true);
+        return;
     }
+
+    const user: UserData = JSON.parse(getLocalUserData);
+
+    if (isEmail && isPwd && email === user.Email && pwd === user.password) {
+        toast.success("Login Successful!");
+        navigate('/Dashboard');
+        setSignUp(false);
+    } else {
+        toast.error("Incorrect email or password!");
+        setSignUp(true);
+    }
+}
+
     return(
         <div className="login">
             <form>
@@ -80,10 +108,10 @@ export default function Login(){
             <span className="WellCome">Well Come Back</span><br></br>
             <span  className="join">Sign into your account</span><br></br>
             <label className="el">Email</label><br></br>
-            < InputComponent inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
+            < InputComponent inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId} /><br></br>
             <span className="lspan">{emailError}</span><br></br>
             <label className="pwd">Password</label><br></br>
-            < InputComponent inputTypes="password" inputValue={pwd} inputId="password" inputOnChange={password} pwdError={pwdError}/><br></br>
+            < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/><br></br>
             <span className="lspan">{pwdError}</span><br></br><br></br>
              <button className="SignIn" onClick={handleSignIn}>Sign In</button>
              <br></br>

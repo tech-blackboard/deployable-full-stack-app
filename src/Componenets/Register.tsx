@@ -1,9 +1,9 @@
-import InputComponent from './InputComponent';
 import {useState} from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
-import './Register.css';
+import InputComponent from "./InputComponent";
+import "./Register.css";
 
 export default function Register(){
     const [FullName,setFullName] = useState("");
@@ -18,21 +18,21 @@ export default function Register(){
     
     const navigate=useNavigate()
 
-    function fullName(e){
+    function fullName(e: React.ChangeEvent<HTMLInputElement>){
         setFullName(e.target.value)
        
     }
-     function emailId(e){
+     function emailId(e: React.ChangeEvent<HTMLInputElement>){
         setEmail(e.target.value)
     }
-     function password(e){
+     function password(e: React.ChangeEvent<HTMLInputElement>){
         setPwd(e.target.value)
     }
-     function confirmPwd(e){
+     function confirmPwd(e: React.ChangeEvent<HTMLInputElement>){
         setCpwd(e.target.value)
     }
 
-    function validationFullName(){
+    function validationFullName():boolean{
       const regName = /^[A-Za-z]+$/;
 
     if (!FullName || FullName.trim() === "") {
@@ -50,7 +50,7 @@ export default function Register(){
   }
     }
 
- function validationEmail() {
+ function validationEmail():boolean {
         let regExpEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email === null || email === "") {
             setEmailError("Please enter your email");
@@ -66,7 +66,7 @@ export default function Register(){
         }
 
     }
-    function validatationPwd() {
+    function validatationPwd():boolean {
            const onlyDigits = /^\d+$/;
         if (pwd === "") {
             setPwdError("enter your password ");
@@ -86,7 +86,7 @@ export default function Register(){
         }
 
     }
-    function validationConfirmPwd(){
+    function validationConfirmPwd():boolean{
     if (!cPwd || cPwd === "") {
     setCpwdError("Enter your confirm password");
     return false;
@@ -100,7 +100,14 @@ export default function Register(){
   }
     }
 
-    function handleSignUp(event){
+    interface UserData{
+        fullName:string;
+        Email:string;
+        password:string;
+        confirmPwd:string;
+    }
+
+    function handleSignUp(event: React.FormEvent){
     event.preventDefault()
         const isFullName=validationFullName();
         const isEmail=validationEmail();
@@ -108,7 +115,7 @@ export default function Register(){
         const isCpwd=validationConfirmPwd();
 
         if(isFullName&&isEmail&&isPwd&&isCpwd){
-            const local={
+            const local:UserData={
                 fullName:FullName,
                 Email:email,
                 password:pwd,
@@ -134,16 +141,16 @@ export default function Register(){
             <h2 className="createAcc">Create Account</h2>
             <p  id="join">Join Us To Manage Your Tasks</p>
             <label id="fn">Full Name</label><br></br>
-            < InputComponent id="inputs" inputTypes="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} fullNameError={fullNameError}/><br></br>
+            < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} /><br></br>
             <span id="span">{fullNameError}</span><br></br>
             <label id="el">Email</label><br></br>
-            < InputComponent id="inputs" inputTypes="email" inputValue={email} inputId="email"  inputOnChange={emailId} emailError={emailError} /><br></br>
+            < InputComponent  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/><br></br>
             <span id="span">{emailError}</span><br></br>
             <label id="pwd">Password</label><br></br>
-            < InputComponent className="inputs" inputTypes="password" inputValue={pwd} inputId="password" inputOnChange={password} pwdError={pwdError}/><br></br>
+            < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/><br></br>
             <span id="span">{pwdError}</span><br></br>
             <label>Confirm Password</label><br></br>
-            < InputComponent className="inputs"  inputTypes="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd} cPwdError={cPwdError} /><br></br>
+            < InputComponent   inputType="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd}/><br></br>
             <span id="span">{cPwdError}</span><br></br>
             <br></br>
             <button className="signUp" onClick={handleSignUp}>Create Account</button>
