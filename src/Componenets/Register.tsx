@@ -136,21 +136,21 @@ export default function Register(){
 
     return(
     
-        <div className=' border-0 border-black-200 rounded-xl mx-44 pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
+        <div className=' border-1xl border-black-200 rounded-xl mx-44 pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
             <form>
             <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold  '>Task Manager</p>
-            <h2 className="font-sans text-xl pt-5 ">Create Account</h2>
-            <p  className="text-xs pb-4 ">Join Us To Manage Your Tasks</p>
-            <label className="text-xl mr-60 ">Full Name</label><br></br>
+            <h2 className="font-sans text-xl pt-5 font-semibold text-blue-600 ">Create Account</h2>
+            <p  className="text-xs pb-4 text-gray-500">Join Us To Manage Your Tasks</p>
+            <label className="text-xl ml-1">Full Name</label><br></br>
             < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName}/><br></br>
             <span className='text-red-600'>{fullNameError}</span><br></br>
-            <label className="text-xl mr-80 ">Email</label><br></br>
+            <label className="text-xl ml-1 ">Email</label><br></br>
             < InputComponent className=''  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/><br></br>
             <span className='text-red-600'>{emailError}</span><br></br>
-            <label className="text-xl mr-60 ">Password</label><br></br>
+            <label className="text-xl ml-1 ">Password</label><br></br>
             < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/><br></br>
             <span className='text-red-600'>{pwdError}</span><br></br>
-            <label className="text-xl mr-44 ">Confirm Password</label><br></br>
+            <label className="text-xl ml-1 ">Confirm Password</label><br></br>
             < InputComponent  className="" inputType="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd}/><br></br>
             <span className='text-red-600'>{cPwdError}</span><br></br><br></br>
             <button className="border-3 border-black-200  w-40 rounded-xl bg-blue-600 pb-4 text-white p-3 font-bold" onClick={handleSignUp}>Create Account</button>
