@@ -5,16 +5,24 @@ import {Link} from 'react-router-dom';
 import InputComponent from "./InputComponent";
 import "./Register.css";
 
+ // interface UserData{
+    //     fullName:string;
+    //     Email:string;
+    //     password:string;
+    //     confirmPwd:string;
+    // }
+  // these comment lines are used when userState is not mentioned type.
+  
 export default function Register(){
-    const [FullName,setFullName] = useState("");
-    const [email,setEmail] = useState("");
-    const [pwd,setPwd] = useState("");
-    const [cPwd,setCpwd] = useState("");
+    const [FullName,setFullName] = useState<string>("");
+    const [email,setEmail] = useState<string>("");
+    const [pwd,setPwd] = useState<string>("");
+    const [cPwd,setCpwd] = useState<string>("");
 
-    const [fullNameError,setFnameError] = useState("");
-    const [emailError,setEmailError] = useState("");
-    const [pwdError,setPwdError] = useState("");
-    const [cPwdError,setCpwdError] = useState("");
+    const [fullNameError,setFnameError] = useState<string>("");
+    const [emailError,setEmailError] = useState<string>("");
+    const [pwdError,setPwdError] = useState<string>("");
+    const [cPwdError,setCpwdError] = useState<string>("");
     
     const navigate=useNavigate()
 
@@ -100,13 +108,6 @@ export default function Register(){
   }
     }
 
-    interface UserData{
-        fullName:string;
-        Email:string;
-        password:string;
-        confirmPwd:string;
-    }
-
     function handleSignUp(event: React.FormEvent){
     event.preventDefault()
         const isFullName=validationFullName();
@@ -115,7 +116,7 @@ export default function Register(){
         const isCpwd=validationConfirmPwd();
 
         if(isFullName&&isEmail&&isPwd&&isCpwd){
-            const local:UserData={
+            const local={
                 fullName:FullName,
                 Email:email,
                 password:pwd,

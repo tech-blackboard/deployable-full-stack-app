@@ -54,21 +54,21 @@ export default function AnalyticsDashboard(){
                         <td>High Priority</td>
                         <td>35%</td>
                     </tr>
-                      <div class="progress-container">
+                      <div className="progress-container">
                          <div className="progress-bar" style={{marginLeft:"0%",width:"35%" , backgroundColor:"red"}}></div>
                    </div>
                     <tr>
                         <td>Medium  Priority</td>
                         <td>45%</td>
                     </tr>
-                     <div class="progress-container">
+                     <div className="progress-container">
                          <div className="progress-bar" style={{marginLeft:"0%",width:"45%" , backgroundColor:"orange"}}></div>
                    </div>
                     <tr>
                         <td>Low Priority</td>
                         <td>20%</td>
                     </tr>
-                     <div class="progress-container">
+                     <div className="progress-container">
                          <div className="progress-bar" style={{marginLeft:"0%",width:"20%" , backgroundColor:"green"}}></div>
                    </div>
                  </table>

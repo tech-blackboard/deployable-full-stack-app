@@ -5,29 +5,20 @@ import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import './Login.css';
 
+interface UserData{
+        fullName:string;
+        Email:string;
+        password:string;
+        confirmPwd:string;
+    }
+
 export default function Login(){
     const [email,setEmail] = useState("");
     const [pwd,setPwd] = useState("");
     const [emailError,setEmailError] = useState("");
     const [pwdError,setPwdError] = useState("");
     const[signUp,setSignUp] = useState(false)
-     interface UserData{
-        fullName:string;
-        Email:string;
-        password:string;
-        confirmPwd:string;
-    }
-    // const getLocalUserData=localStorage.getItem(email)
-
-    // if(getLocalUserData){
-    //  const user:UserData=JSON.parse(getLocalUserData)
-    //   console.log("userdata",user)
-    //   setSignUp(true)
-
-    // }
-//    else{
-//       toast.error("User not found in localstore! ")
-//    }
+    
     const navigate=useNavigate()
 
      function emailId(e:React.ChangeEvent<HTMLInputElement>){
@@ -85,7 +76,7 @@ export default function Login(){
     // Check if user data does NOT exist
     if (!getLocalUserData) {
         toast.error("No user found in local storage!");
-        setSignUp(true);
+        setSignUp(true);//it shows the sign up 
         return;
     }
 
@@ -94,7 +85,7 @@ export default function Login(){
     if (isEmail && isPwd && email === user.Email && pwd === user.password) {
         toast.success("Login Successful!");
         navigate('/Dashboard');
-        setSignUp(false);
+        setSignUp(false);// it stay on login form.
     } else {
         toast.error("Incorrect email or password!");
         setSignUp(true);

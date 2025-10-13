@@ -12,24 +12,28 @@
     justify-content:space-around;
     width: 100%;;
     background-color:rgb(57, 56, 56);
-    position: fixed;
     top: 0;
     left:0;
+    position: fixed;
     right: 0;
+    padding-top: 30px;
 
 }
 h1{
   
-    padding:10px;
+    margin-bottom:12px;
     color:rgb(251, 253, 254);
-
+     margin-right: 100px;
+     margin-top: 0px;
 }
-.navs {
-    text-decoration:none;
-    color:white;
-    padding:10px;
-    border-radius: 5px;
-    margin-left:20px;
+.navs a {
+     margin-bottom: 90px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(128, 126, 122); 
+    margin-left: 10px;
+    color:whitesmoke;
+    text-decoration: none; 
   
   
 }

@@ -3,15 +3,15 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Register from './Componenets/Register';
 import { ToastContainer } from "react-toastify";
-// import ProjectView from './Componenets/ProjectView';
+import ProjectView from './Componenets/ProjectView';
 import Login from './Componenets/Login';
-import DashBoard from './Componenets/DashBoard';
-// import TaskListView from './Componenets/TaskListView';
-// import EditTask from './Componenets/EditTask'
-//  import UserProfile from './Componenets/UserProfile'
+// import DashBoard from './Componenets/DashBoard';
+import TaskListView from './Componenets/TaskListView';
+import EditTask from './Componenets/EditTask'
+// import UserProfile from './Componenets/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
 // import CreateNewProject from './Componenets/CreateNewProject';
-// import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
+ import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
 // import AnalyticsDashboard from './Componenets/AnalyticsDashboard'
 function App() {
   return (
@@ -30,14 +30,14 @@ function App() {
         theme="colored"
       />
      {/* <DashBoard/>   */}
-     {/* <EditTask/> 
-    <ErrorLoadingStates/> 
-    <ProjectView/>  */}
-     <Register/> 
-      <Login/>  
-      {/* <UserProfile/>  */}
-    {/* <TaskListView/>  
-    <AnalyticsDashboard/>    */} 
+       <EditTask/> 
+     <ErrorLoadingStates/> 
+    <ProjectView/> 
+     {/* <Register/> 
+      <Login/>   */}
+     {/* <UserProfile/>   */}
+    <TaskListView/>  
+    {/* <AnalyticsDashboard/>    */}
       {/* <CreateNewProject/> */}
    
      
@@ -46,7 +46,7 @@ function App() {
          <Route path='/' element={ <Login/>}/>
         <Route path='/Login' element={ <Login/>}/>
         <Route path='/Register' element={<Register/>}/>
-        <Route path='/Dashboard' element={<DashBoard/>}/>
+        {/* <Route path='/Dashboard' element={<DashBoard/>}/> */}
  
            
         

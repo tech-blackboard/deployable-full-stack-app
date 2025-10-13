@@ -94,7 +94,10 @@ nav a{
     padding-top: 80px;
     color:black;
 }     
-
+#due{
+  
+    margin-right: 0;
+}
 
 #p{
     color:gray;

@@ -21,16 +21,18 @@ export default function ErrorLoadingStates(){
                 <div className="ErrorState"> 
                     <h1>ErrorState</h1>                   
                    <div className=" ConnectionError">
-                    <p>Unable to load projects.<br></br>Please check your <br></br> internet connection  <br></br>and try again.</p>
+                    <p id="error">Unable to load projects.<br></br>Please check your <br></br> internet connection  <br></br>and try again.</p>
                     <button>Retry</button>
                    </div>
                 </div>
 
                 <div className="EmptyState">  
                     <p style={{fontSize:"20px",fontWeight:"bold",color:"black", marginRight:"60%"}}>Empty State</p>              
-                    <figure style={{fontSize:"290%"}}>📋</figure>
-                    <figurecaption style={{fontWeight:"bold",color:"grey"}}>No projects yet</figurecaption>
-                    <p  style={{fontWeight:"lighter",color:"grey"}}>Create your first project to <br></br>get started with task <br></br>management.</p><br></br>
+                    <figure>
+                         <span role="img" aria-label="clipboard" style={{ fontSize: "450%"}}> 📋</span>
+                         <figcaption style={{fontWeight:"bold",color:"grey"}}>No projects yet</figcaption>
+                    </figure>
+                    <p  style={{fontWeight:"lighter",color:"grey",marginRight:"0" ,marginLeft:"10px"}}>Create your first project to <br></br>get started with task <br></br>management.</p><br></br>
                     <button className="createprojects" >Create Project</button>
 
                 </div>
@@ -51,13 +53,13 @@ export default function ErrorLoadingStates(){
             <div className="FormValidationExamples">
             <h3  style={{marginRight:"66%"}}>Form Validation Examples</h3>
             <label style={{marginRight:"72%"}}>Project Name *</label>
-            <InputComponent  style={{color:"red",width:"0%"}} inputType="text"/>
+            <InputComponent  style={{color:"red",width:"80%"}} inputType="text"/>
             <span>Project name is required</span><br></br>
              <label style={{marginRight:"77%"}}>Email</label>
-            <InputComponent style={{color:"red",width:"0%"}}  inputType="email"/>
+            <InputComponent style={{color:"red",width:"80%"}}  inputType="email"/>
             <span>Please enter a valid email address</span><br></br>
-            <label  style={{marginRight:"75%",width:"0%"}}>Due Date</label>
-            <InputComponent style={{marginRight:"75%",width:"0%"}} inputType="date"/>
+            <label  style={{marginRight:"75%",width:"80%"}}>Due Date</label>
+            <InputComponent style={{width:"80%"}} inputType="date"/>
             <span>✓ Valid date selected</span>
             </div>
           </div>   

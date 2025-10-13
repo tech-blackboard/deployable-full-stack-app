@@ -4,6 +4,7 @@ interface HeaderProps{
     Analytics?:string;
     Profile?:string;
     Logout?:string;
+    
 }
 
 

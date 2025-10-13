@@ -1,8 +1,9 @@
 .UserNav h1{
-    color:white;
-    padding: 10px;
+   
+    color: rgb(245, 245, 243);
+    padding: 2px;
     margin-left: 20px;
-    margin-right: 0;
+    margin-right: 20%;
 }
 .p{
 font-size: 30px;
@@ -19,9 +20,22 @@ color: rgba(3, 58, 31, 0.854);
     background-color: rgb(128, 126, 122); 
     color:whitesmoke;
     text-decoration: none; 
-      
+    margin-left: 50%;
+   
    
 }
+.UserNav{
+   
+background-color: black;
+display: flex;
+justify-content: space-around;
+position: fixed;
+top: 0%;
+left: 0%;
+right: 0%;
+
+}
+
  .manageStates{
     display:flex;
     flex-wrap: wrap;
@@ -44,7 +58,7 @@ padding: 30px;
   border: none;
   border-radius: 20px;
   box-shadow: 1px 1px 7px 1px hsla(0, 2%, 63%, 0.871);
-margin-left: 10%;
+  margin-left: 10%;
   padding: 20px;
   margin-left: 15%;
 
@@ -62,15 +76,18 @@ margin-left: 10%;
   width: 340px;
   margin-left: 10%;
   padding-top: 20px;
+
  
  }
-  .ConnectionError p{
+  #error{
     font-weight: lighter;
     color: rgb(143, 5, 5);
     font-size: 19px;
+
+      
   }
 button{
-    background-color: rgb(15, 107, 212);
+  background-color: rgb(15, 107, 212);
   border: none;
   border-radius: 10px;
   height:40px;

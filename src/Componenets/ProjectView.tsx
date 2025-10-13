@@ -37,23 +37,23 @@ export default function ProjectView(){
             <div className="task">
                 <div className="tasklists">
                     <h5 style={{color:" rgba(120, 120, 254, 1)" ,fontSize:"20px",fontWeight:"bolder",fontFamily:"Times New Roman",marginRight:"0%"}}>Setup Aythentication</h5>
-                    <p ClassName="due">Due: Tomorrow</p>
-                    <h6 ClassName="high"> High</h6>
+                    <p id="due">Due: Tomorrow</p>
+                    <h6 className="high"> High</h6>
 
                 </div>
                 <div className="tasklists"><h5 style={{color:" rgba(120, 120, 254, 1)" ,marginRight:"0%",fontWeight:"bolder",fontSize:"20px",fontFamily:"Times New Roman"}}>API Integration</h5>
-                    <p ClassNamed="due">Due: Friday</p>
-                    <h6 ClassName="high"> High</h6>
+                    <p id="due">Due: Friday</p>
+                    <h6 className="high"> High</h6>
                 </div>
                 <div className="tasklists">
                      <h5 style={{color:" rgba(120, 120, 254, 1)" ,fontWeight:"bolder",marginRight:"0%",fontSize:"20px",fontFamily:"Times New Roman"}}>ProjectSetUp</h5>
-                     <p ClassName="due">Complete: yesterday</p>
+                     <p id="due">Complete: yesterday</p>
                 </div>
                 
                 <div className="tasklists">
                     <h5 style={{color:" rgba(120, 120, 254, 1)" ,fontSize:"20px",marginRight:"0%",fontWeight:"bolder",fontFamily:"Times New Roman"}}>Design Homepage </h5>
-                    <p ClassName="due">Due: Next Week</p>
-                    <h6 ClassName="high"> Medium</h6>
+                    <p id="due">Due: Next Week</p>
+                    <h6 className="high"> Medium</h6>
                 </div>
             </div>
         </div>

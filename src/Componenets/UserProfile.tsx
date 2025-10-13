@@ -30,11 +30,10 @@ return(
     <label  style={{marginRight:"65%"}}>Email</label>
     <InputComponent inputType='email'/>
     <label style={{marginRight:"48%"}}>Phone(Optional)</label>
-    <InputComponent inputType="tel"  id="phone"  inputMode="numeric" placeholder="+91 8688868234" pattern="[0-9]{10}" required/>
+    <InputComponent inputType="tel"   inputmode="numeric" placeholder="+91 8688868234" pattern="[0-9]{10}" required/>
     <label  style={{marginRight:"58%"}}>Timezone</label>
-    <select name="timezone" required style={{width:"420px", borderRadius:"9px",marginLeft:"30px",marginTop:"10px" ,height:"34px"}}>
-    <options>--select Time zone value--</options>
-    <option value="">--Select Time Zone--</option>
+    <select name="timezone" required style={{width:"480px", borderRadius:"9px",marginTop:"10px" ,height:"34px"}}>
+    <option value="" selected disabled>--Select Time Zone--</option>
     <option value="Asia/Kolkata">(GMT+05:30) Asia/Kolkata</option>
     <option value="America/New_York">(GMT-05:00) America/New_York</option>
     <option value="Europe/London">(GMT+00:00) Europe/London</option>
@@ -44,6 +43,7 @@ return(
  <div className="ActivitySummary">
     <p>Activity Summary</p>
     <table>
+      <tbody>
         <tr>
         <td style={{marginRight:"60px"}}>Projects Created</td>
          <td style={{color:"black",fontWeight:"bold"}}>8</td>
@@ -56,6 +56,7 @@ return(
         <td style={{marginRight:"20px"}}>Productivity Score</td>
          <td style={{color:"green",fontWeight:"bold"}}>85%</td>
         </tr>
+      </tbody>
     </table>
   </div>
  <div className="Preferences">

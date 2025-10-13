@@ -1,17 +1,18 @@
 import './EditTask.css'
+import InputComponent from './InputComponent'
 export default function EditTask(){
     return(
         <div className="EditTask"> 
             <h3>Edit Task</h3>
           <button className="close-btn">&times;</button>
-            <lable className="Label"  style={{marginRight:"300px"}}>Task Title</lable><br></br>
-            <input className="input" type="text" style={{}}/><br></br><br></br>
-            <lable  className="Label" style={{marginRight:"280px"}}>Description</lable><br></br>
-            <textarea className="input" type="text" style={{width:"370px",marginBottom:"10px"}}/> 
+            <label className="Label"  style={{marginRight:"300px"}}>Task Title</label><br></br>
+            <InputComponent  inputType="text" style={{}}/><br></br><br></br>
+            <label  className="Label" style={{marginRight:"280px"}}>Description</label><br></br>
+            <textarea className="input" style={{width:"370px",marginBottom:"10px"}}/> 
 
             <div className="select">
                 <div className="Priority">
-                     <ladle className="label">Priority</ladle>
+                     <label className="label">Priority</label>
              <select>
                 <option>High</option>
                 <option>Medium</option>
@@ -21,7 +22,7 @@ export default function EditTask(){
                 </div>
                 <div  className="Status">
         
-                     <ladle className="label">Status</ladle>
+                     <label className="label">Status</label>
                  <select>
                    <option>To-do</option>
                    <option>In Prograss</option>
@@ -30,10 +31,10 @@ export default function EditTask(){
                 </div>
             </div>
 
-            <lable  className="Label" style={{marginRight:"300px"}}>Due Date</lable><br></br>
-            <input className="input" type="date" style={{}}/><br></br><br></br>
-            <lable  className="Label"  style={{marginRight:"330px"}}>Tags</lable><br></br>
-            <input  className="input" type="text" style={{marginBottom:"30px"}}/>
+            <label  className="Label" style={{marginRight:"300px"}}>Due Date</label><br></br>
+            <InputComponent inputType="date" style={{}}/><br></br><br></br>
+            <label  className="Label"  style={{marginRight:"330px"}}>Tags</label><br></br>
+            <InputComponent  inputType="text" style={{marginBottom:"30px"}}/>
 
             <div className='buttons'>
                 <div ><button className="cancel"> Cancel</button></div>

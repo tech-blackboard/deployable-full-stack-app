@@ -12,10 +12,10 @@ export default function TaskListView(){
             </div>
             <br></br><br></br>
             <input style={{width:"80%",marginTop:"60px"}}type="text" placeholder="auth"/><br></br><br></br>
-            <select style={{width:"82%",borderRadius:"10px",marginLeft:"24px"}}>
+            <select style={{width:"82%",borderRadius:"10px",padding:"9px"}}>
                 <option>All Status</option> 
             </select><br></br><br></br>
-            <select style={{width:"82%",borderRadius:"10px",marginLeft:"24px"}}>
+            <select style={{width:"82%",borderRadius:"10px",padding:"9px"}}>
                 <option>High Priority </option>
 
             </select>
