@@ -1,100 +1,113 @@
-
-.ecomnav{
-    display:flex;
-    justify-content:space-around;
+.ecomnav {
+    display: flex;
+    justify-content: space-around;
     background-color: rgb(85, 88, 88);
     position: fixed;
     top: 0;
-    width:100%;
+    width: 100%;
 }
- a{
+
+a {
     padding: 10px;
     border-radius: 10px;
-    background-color: rgb(128, 126, 122); 
+    background-color: rgb(128, 126, 122);
     margin-left: 10px;
-    color:whitesmoke;
+    color: whitesmoke;
     text-decoration: none;
- }
-h2{
+}
+
+h2 {
     color: white;
-    margin-right:190px ;
+    margin-right: 190px;
 
 }
-.newtask{
-   width:100px;
-   font-weight: bold;
-   font-size: 15px;
-   background-color: rgb(76, 76, 237);
-   border:1px solid black;
-   border-radius: 10px;
-   padding: 10px;
-   margin-top: 30px;
-   margin-bottom: 10px;
-   color: white;
-   box-shadow:  0 2px 5px rgba(0,0,0,0.05);
+
+.newtask {
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(76, 76, 237);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
-.taskBlock{
-     display: flex;
-   
-    
+
+.taskBlock {
+    display: flex;
+
+
 }
-.tasklist{
-  width:400%;
-  box-shadow: 0px 0px 10px  0px rgb(199, 197, 197);
-  margin-left: 90px;
-   height:190px;
-   
-} 
-.Hb{
-  display:flex;
-  gap:10px;
-  margin-left: 90px;
-  border-color:white;
-  margin-top: 30px;
-  
-   
+
+.tasklist {
+    width: 400%;
+    box-shadow: 0px 0px 10px 0px rgb(199, 197, 197);
+    margin-left: 90px;
+    height: 190px;
+
 }
-.tasklist,p{
-        margin-right: 200px;
-        margin-bottom:10px;
-        
+
+.Hb {
+    display: flex;
+    gap: 10px;
+    margin-left: 90px;
+    border-color: white;
+    margin-top: 30px;
+
+
 }
-.MB{
-    display:flex;
-    gap:10px;
+
+.tasklist,
+p {
+    margin-right: 200px;
+    margin-bottom: 10px;
+
+}
+
+.MB {
+    display: flex;
+    gap: 10px;
     margin-left: 80px;
-   border-color:white;
-   
+    border-color: white;
+
 }
-.due{
+
+.due {
     margin-right: 54%;
-   margin-left: 0%;
+    margin-left: 0%;
 }
-.dueweek{
-       margin-right: 59%;
-       margin-bottom:20px;
-         
- 
+
+.dueweek {
+    margin-right: 59%;
+    margin-bottom: 20px;
+
+
 }
-h5{
-      margin-right: 280px;
-      margin-bottom: 0;
-      
+
+h5 {
+    margin-right: 280px;
+    margin-bottom: 0;
+
 }
-.ecd{
+
+.ecd {
     display: flex;
     justify-content: flex-end;
-    gap:20px;
-    padding:20px;
- 
-   
+    gap: 20px;
+    padding: 20px;
+
+
 }
-.Edit{
-    background-color:gray;
-    color:white;
-    border-radius:3px;
-    font-weight:bolder;
-    width:70px;
-    border:none; 
-    width:50px;
-} 
+
+.Edit {
+    background-color: gray;
+    color: white;
+    border-radius: 3px;
+    font-weight: bolder;
+    width: 70px;
+    border: none;
+    width: 50px;
+}

@@ -9,15 +9,16 @@ interface InputComponentProps{
     inputOnChange?:(event: React.ChangeEvent<HTMLInputElement>) => void;
     required?:boolean;
     style?:React.CSSProperties;
-   
+   label?:string;
+   className?:string;
 }
 
 
-export default function InputComponent({name,inputmode,inputType,inputValue,pattern, placeholder,inputId,inputOnChange,style,required}: InputComponentProps){
+export default function InputComponent({className,name,inputmode,inputType,inputValue,pattern, placeholder,inputId,inputOnChange,style,required}: InputComponentProps){
     return(
     <div>
     
-            <input  name={name} inputMode={inputmode} type={inputType} value={inputValue}  placeholder={placeholder} id={inputId} pattern={pattern} onChange={inputOnChange} style={style} required={required}/>
+            <input className ={className="border-2 border-black-300 w-80 rounded-xl bg-white"} name={name} inputMode={inputmode} type={inputType} value={inputValue}  placeholder={placeholder} id={inputId} pattern={pattern} onChange={inputOnChange} style={style} required={required}/>
            
         
     </div>

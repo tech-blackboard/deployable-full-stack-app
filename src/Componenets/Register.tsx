@@ -12,7 +12,7 @@ import "./Register.css";
     //     confirmPwd:string;
     // }
   // these comment lines are used when userState is not mentioned type.
-  
+
 export default function Register(){
     const [FullName,setFullName] = useState<string>("");
     const [email,setEmail] = useState<string>("");
@@ -136,26 +136,25 @@ export default function Register(){
 
     return(
     
-        <div id="register">
+        <div className=' border-0 border-black-200 rounded-xl mx-44 pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
             <form>
-            <p id="head">Task Manager</p>
-            <h2 className="createAcc">Create Account</h2>
-            <p  id="join">Join Us To Manage Your Tasks</p>
-            <label id="fn">Full Name</label><br></br>
-            < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} /><br></br>
-            <span id="span">{fullNameError}</span><br></br>
-            <label id="el">Email</label><br></br>
-            < InputComponent  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/><br></br>
-            <span id="span">{emailError}</span><br></br>
-            <label id="pwd">Password</label><br></br>
+            <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold  '>Task Manager</p>
+            <h2 className="font-sans text-xl pt-5 ">Create Account</h2>
+            <p  className="text-xs pb-4 ">Join Us To Manage Your Tasks</p>
+            <label className="text-xl mr-60 ">Full Name</label><br></br>
+            < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName}/><br></br>
+            <span className='text-red-600'>{fullNameError}</span><br></br>
+            <label className="text-xl mr-80 ">Email</label><br></br>
+            < InputComponent className=''  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/><br></br>
+            <span className='text-red-600'>{emailError}</span><br></br>
+            <label className="text-xl mr-60 ">Password</label><br></br>
             < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/><br></br>
-            <span id="span">{pwdError}</span><br></br>
-            <label>Confirm Password</label><br></br>
-            < InputComponent   inputType="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd}/><br></br>
-            <span id="span">{cPwdError}</span><br></br>
-            <br></br>
-            <button className="signUp" onClick={handleSignUp}>Create Account</button>
-            <p className="para">Already have an Account? <Link to="/Login">Sign in</Link></p>
+            <span className='text-red-600'>{pwdError}</span><br></br>
+            <label className="text-xl mr-44 ">Confirm Password</label><br></br>
+            < InputComponent  className="" inputType="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd}/><br></br>
+            <span className='text-red-600'>{cPwdError}</span><br></br><br></br>
+            <button className="border-3 border-black-200  w-40 rounded-xl bg-blue-600 pb-4 text-white p-3 font-bold" onClick={handleSignUp}>Create Account</button>
+            <p >Already have an Account? <Link to="/Login">Sign in</Link></p>
            </form>
         </div>
        
