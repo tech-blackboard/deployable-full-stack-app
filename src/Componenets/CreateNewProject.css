@@ -1,4 +1,4 @@
-.createnewproject{
+/* .createnewproject{
     width:500px;
     height:550px;
     border-radius: 20px;
@@ -26,7 +26,7 @@ label{
     background-color: white;
     font-size: 20px;
     cursor: pointer;
-}
+} */
 /* input{
     border-radius: 1px;
     border-color: 2px solid rgba(135, 134, 134, 0.932);
@@ -39,7 +39,7 @@ label{
     margin-bottom: 20px;
     color:black;
 } */
-.date{
+/* .date{
     display: flex;
     justify-content: center;
     justify-content:space-around; 
@@ -106,7 +106,7 @@ label{
   .des{
     margin-left:30px;
     /* width:100px; */
-  }
+  /* }
 
   .date {
     flex-direction: column;
@@ -114,12 +114,12 @@ label{
     margin:20px;
   }
   .date input {
-    width: 90%; /* full width date inputs */
+    width: 90%; full width date inputs
   }
-  .cancelpro, .createpro {
-    width: 100%; /* stack buttons */
-    margin: 10px 0;
-  }
+  .cancelpro, .createpro { */
+    /* width: 100%; /* stack buttons */
+    /* margin: 10px 0;
+  } 
   .category{
     width:330px;
     margin-left: 40px;
@@ -133,4 +133,4 @@ label{
             margin-left:0px;
 
   }
-}
+} */ 

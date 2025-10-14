@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import InputComponent from "./InputComponent";
+import ButtonComponent from './ButtonComponent';
 import "./Register.css";
 
  // interface UserData{
@@ -44,11 +45,11 @@ export default function Register(){
       const regName = /^[A-Za-z]+$/;
 
     if (!FullName || FullName.trim() === "") {
-       setFnameError("Please enter your Full name");
+       setFnameError("please enter your Full name");
         return  false;
   }
    else if (!regName.test(FullName)) {
-     setFnameError("Allow characters only");
+     setFnameError("Allow characters only...");
      return  false;
   }
    else {
@@ -61,11 +62,11 @@ export default function Register(){
  function validationEmail():boolean {
         let regExpEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email === null || email === "") {
-            setEmailError("Please enter your email");
+            setEmailError("please enter your email*");
             return false;
         }
         else if (!regExpEmail.test(email)) {
-            setEmailError("please enter your Valid Email");
+            setEmailError("please enter your valid email");
             return false;
         }
         else {
@@ -81,7 +82,7 @@ export default function Register(){
             return false;
         }
         else if (!onlyDigits.test(pwd)) {
-            setPwdError("Here Password contains Didits only*");
+            setPwdError("Password contains Didits only*");
             return false;
         }
         else if (pwd.length < 4) {
@@ -89,14 +90,14 @@ export default function Register(){
             return false;
         }
         else {
-            setPwdError("")
+            setPwdError("");
             return true
         }
 
     }
     function validationConfirmPwd():boolean{
     if (!cPwd || cPwd === "") {
-    setCpwdError("Enter your confirm password");
+    setCpwdError("enter your confirm password");
     return false;
   } else if (cPwd !== pwd) {
     setCpwdError("Passwords do not match");
@@ -136,25 +137,30 @@ export default function Register(){
 
     return(
     
-        <div className=' border-1xl border-black-200 rounded-xl mx-44 pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
+        <div className=' border-1xl border-black-200 rounded-xl mx-auto pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
             <form>
-            <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold  '>Task Manager</p>
+            <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold'>Task Manager</p>
             <h2 className="font-sans text-xl pt-5 font-semibold text-blue-600 ">Create Account</h2>
-            <p  className="text-xs pb-4 text-gray-500">Join Us To Manage Your Tasks</p>
-            <label className="text-xl ml-1">Full Name</label><br></br>
-            < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName}/><br></br>
-            <span className='text-red-600'>{fullNameError}</span><br></br>
-            <label className="text-xl ml-1 ">Email</label><br></br>
-            < InputComponent className=''  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/><br></br>
-            <span className='text-red-600'>{emailError}</span><br></br>
-            <label className="text-xl ml-1 ">Password</label><br></br>
-            < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/><br></br>
-            <span className='text-red-600'>{pwdError}</span><br></br>
-            <label className="text-xl ml-1 ">Confirm Password</label><br></br>
+            <p  className="text-xs pb-4 font-medium text-gray-500">Join Us To Manage Your Tasks</p>
+
+            <label className="text-xl ml-1 mr-0 font-lighter">Full Name</label><br></br>
+            <span className='text-red-500 mr-40 text-xs'>{fullNameError}</span><br></br>
+            < InputComponent  inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName}/>
+
+            <label className="text-xl ml-1 mr-0 font-lighter ">Email</label><br></br>
+            <span className='text-red-500 text-xs  mr-40 ml-3'>{emailError}</span><br></br>
+            < InputComponent className=""  inputType="email" inputValue={email} inputId="email"  inputOnChange={emailId}/>
+
+            <label className="text-xl ml-1 mr-0 font-lighter">Password</label><br></br>
+            <span className='text-red-500  text-xs  mr-40  ml-3'>{pwdError}</span><br></br>
+            < InputComponent  inputType="password" inputValue={pwd} inputId="password" inputOnChange={password}/>
+            
+            <label className="text-xl ml-1 mr-0 font-lighter">Confirm Password</label><br></br>
+            <span className='text-red-500 mr-40 text-xs'>{cPwdError}</span>
             < InputComponent  className="" inputType="password" inputValue={cPwd} inputId="password"inputOnChange={confirmPwd}/><br></br>
-            <span className='text-red-600'>{cPwdError}</span><br></br><br></br>
-            <button className="border-3 border-black-200  w-40 rounded-xl bg-blue-600 pb-4 text-white p-3 font-bold" onClick={handleSignUp}>Create Account</button>
-            <p >Already have an Account? <Link to="/Login">Sign in</Link></p>
+            
+            <ButtonComponent name="Create Account" onClick={handleSignUp}/><br></br>
+            <p className=' text-black font-lighter'>Already have an Account? <Link to="/Login">Sign in</Link></p>
            </form>
         </div>
        

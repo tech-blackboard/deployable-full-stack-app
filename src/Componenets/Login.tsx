@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import ButtonComponent from './ButtonComponent';
 import './Login.css';
 
 interface UserData {
@@ -50,7 +51,7 @@ export default function Login() {
             return false;
         }
         else if (!onlyDigits.test(pwd)) {
-            setPwdError("Here Password contains Didits only*");
+            setPwdError("password contains Didits only*");
             return false;
         }
         else if (pwd.length < 4) {
@@ -93,18 +94,22 @@ export default function Login() {
     }
 
     return (
-        <div className="login">
+        <div className=' border-1xl border-black-200 rounded-xl mx-auto pt-2  mt-10 w-96 m-10 pb-9 border-t-0 shadow-xl '>
             <form>
-                <p className="head">Task Manager</p>
-                <span className="WellCome">Well Come Back</span><br></br>
-                <span className="join">Sign into your account</span><br></br>
-                <label className="el">Email</label><br></br>
+                <p className="text-2xl text-white mb-3 rounded-t-xl bg-blue-600 p-3 font-bold">Task Manager</p>
+                <span className="font-sans text-xl pt-9 font-bold text-blue-600">Well Come Back</span><br></br>
+                <span className="text-xm pb-4 font-lighter text-gray-500">Sign into your account</span><br></br>
+
+                <label  className="text-xl ml-1 mr-0 font-lighter">Email</label><br></br>
+                <span className="text-red-500 mr-40 text-xs">{emailError}</span><br></br>
                 < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} /><br></br>
-                <span className="lspan">{emailError}</span><br></br>
-                <label className="pwd">Password</label><br></br>
+                
+               
+                <label className="text-xl ml-8 mr-9 font-lighter">Password</label><br></br>
+                 <span className="text-red-500 mr-40 text-xs">{pwdError}</span><br></br>
                 < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} /><br></br>
-                <span className="lspan">{pwdError}</span><br></br><br></br>
-                <button className="SignIn" onClick={handleSignIn}>Sign In</button>
+                
+                <ButtonComponent name="Sign In" onClick={handleSignIn}/>
                 <br></br>
                 {
                     signUp && <p id="paragraph">Don't have an account? <Link to="/Register" className="re">Register here</Link></p>

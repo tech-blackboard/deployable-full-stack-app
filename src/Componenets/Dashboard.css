@@ -1,4 +1,4 @@
-.navbar{
+/* .navbar{
     display:flex;
     justify-content:space-evenly;
     background-color: rgb(85, 88, 88);
@@ -152,7 +152,7 @@ nav a{
 }
 .progress-containers {
    background-color: #e5e7eb;  /* light gray */
-   border-radius: 6px;
+   /* border-radius: 6px;
    height: 8px;
    width: 80%;
    overflow: hidden;
@@ -160,13 +160,13 @@ nav a{
    margin-left: 10%;
    cursor: pointer;
   
-}
+} */
 /* Blue progress */
-.progress-bar {
-   height: 100%;
+/* .progress-bar { */
+   /* height: 100%;
    background-color: #4f6ef7; /* blue */
-   border-radius: 6px;
-   width: 0%; /* dynamic value */
-   transition: width 0.4s ease;
+   /* border-radius: 6px; */
+   /* width: 0%; dynamic value */
+   /* transition: width 0.4s ease;
    margin-left: 10%;
-}
+}  */ 

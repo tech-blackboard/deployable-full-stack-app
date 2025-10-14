@@ -1,42 +1,45 @@
 import InputComponent from './InputComponent';
+import ButtonComponent from './ButtonComponent';
 import './CreateNewProject.css';
-export default function CreateNewProject(){
-    return(
-        <div className="createnewproject">
-        
-            <h1>Create New Project</h1>
-            <button className="close-button">&times;</button>
-            <label>Project Name *</label>
-            <InputComponent inputType="text"  />
-            <label className="des" style={{marginRight:"320px"}}>Description</label>
-            <InputComponent style={{padding:"200px"}} inputType="text"  />
-             <div className="date">
-                <div>
-                    <label style={{marginRight:"0"}}>Start Date</label>
-                    <InputComponent inputType="date" />
+export default function CreateNewProject() {
+    return (
+        <div className="relative shadow-xl border-2 rounded-xl w-[30%] ml-[30%] pb-2 mt-9">
 
-                </div>
-                <div>
-                    <label style={{marginRight:"0"}}>Target End Date</label>
-                    <InputComponent style={{marginRight:"800px"}} inputType="date"  />
+            <h1 className="mr-[40%] text-xl font-semibold  p-7">Create New Project</h1>
+            <button className="absolute top-[26px]  text-xl right-[30px]  ">&times;</button>
 
-                </div>
-             </div>
-            <div className="categorys">
-             <label>Project Category</label>
-            <select className="category" style={{borderRadius:"5px",border:"2px solid gray"}}> 
-                <option>Web Development</option>
-                <option>Mobile App</option>
-                <option>Designing</option>
-                <option>Marketing</option>
-                <option>other</option>
-            </select>
-         </div>
-            <h1 style={{marginRight:"186px",fontSize:"20px",marginBottom:"3px"}}>Team Members (Optional)</h1>
-            <InputComponent inputType="text"/>
+            <label className="mr-52 text-9xm font-semibold ">Project Name *</label>
+            <InputComponent inputType="text" /><br></br>
 
-            <button className="cancelpro">Cancel</button>
-            <button className="createpro">Create Project</button>
+            <label className="mr-56 text-9xm font-semibold  ">Description</label>
+            <InputComponent inputType="text" /><br></br>
+
+            <label className="  mr-56 text-9xm font-semibold">Start Date</label>
+            <InputComponent inputType="date" /><br></br>
+
+            <label className=" mr-48 text-9xm font-semibold">Target End Date</label>
+            <InputComponent inputType="date" />
+
+
+            <div className="flex flex-col">
+                <label className="  mr-44 text-9xm font-semibold mt-5">Project Category</label>
+                <select className="border-2 w-[70%] ml-[70px] p-1 rounded-xl">
+                    <option>Web Development</option>
+                    <option>Mobile App</option>
+                    <option>Designing</option>
+                    <option>Marketing</option>
+                    <option>other</option>
+                </select>
+            </div>
+
+            <h1 className="mr-28 text-9xm font-semibold mt-5">Team Members (Optional)</h1>
+            <InputComponent inputType="text" />
+
+            <div className="flex justify-center  gap-2 mt-5">
+                <ButtonComponent className="bg-gray-600 hover:bg-gray-700   " name="Cancel" />
+                <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 " name="Create New Project" />
+            </div>
+
         </div>
     )
 }
