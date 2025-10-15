@@ -39,7 +39,7 @@ export default function EditTask() {
             <div className='flex gap-7 justify-center mt-9'>
                 <ButtonComponent className="bg-gray-600 hover:bg-gray-700  w-[110%] " name="Cancel" />
                 <ButtonComponent className="bg-red-600 hover:bg-red-700  w-[110%]" name="Delete" />
-                <ButtonComponent className="bg-blue-600 hover:bg-blue-700   w-[100%]" name="Save Changes" />
+                <ButtonComponent className="bg-blue-600 hover:bg-blue-700   w-[100%] " name="Save Changes" />
             </div>
         </div>
     )

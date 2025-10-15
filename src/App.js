@@ -4,11 +4,11 @@ import { Route } from 'react-router-dom';
 import Register from './Componenets/Register';
 import { ToastContainer } from "react-toastify";
 import ProjectView from './Componenets/ProjectView';
-import Login from './Componenets/Login';
- import DashBoard from './Componenets/DashBoard';
-// import TaskListView from './Componenets/TaskListView';
+// import Login from './Componenets/Login';
+//  import DashBoard from './Componenets/DashBoard';
+import TaskListView from './Componenets/TaskListView';
 //  import EditTask from './Componenets/EditTask'
-//  import UserProfile from './Componenets/UserProfile'
+ import UserProfile from './Componenets/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
 // import CreateNewProject from './Componenets/CreateNewProject';
 //  import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
@@ -33,28 +33,28 @@ function App() {
      {/* <DashBoard/>   */}
        {/* <EditTask/>  */}
     {/* <ErrorLoadingStates/>  */}
-    <UserContext.Provider value="pooja">
+    {/* <UserContext.Provider value="pooja"> */}
     {/* <ProjectView/> */}
-      <DashBoard/>  
-    </UserContext.Provider>  
+      {/* <DashBoard/>   */}
+    {/* </UserContext.Provider>   */}
       {/* <Register/>  
        <Login/>    */}
-     {/* <UserProfile/>   */}
+     <UserProfile/>  
     {/* <TaskListView/>   */}
     {/* <AnalyticsDashboard/>    */}
       {/* <CreateNewProject/> */}
    
      
  
-      <Routes>
+      {/* <Routes>
          <Route path='/' element={ <Login/>}/>
         <Route path='/Login' element={ <Login/>}/>
-         <Route path='/Register' element={<Register/>}/> 
+         <Route path='/Register' element={<Register/>}/>  */}
          {/* <Route path='/Dashboard' element={<DashBoard/>}/> */}
  
            
-        
-      </Routes> 
+{/*         
+      </Routes>  */}
     </div>
   );
 }
