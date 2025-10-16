@@ -1,4 +1,4 @@
-.ecomnav {
+/* .ecomnav {
     display: flex;
     justify-content: space-around;
     background-color: rgb(85, 88, 88);
@@ -18,7 +18,7 @@ a {
 
 h2 {
     /* color: white; */
-    margin-right: 190px;
+    /* margin-right: 190px;
 
 }
 
@@ -30,8 +30,8 @@ h2 {
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 30px; */
+    /* margin-bottom: 10px;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
@@ -45,8 +45,8 @@ h2 {
 .tasklist {
     width: 400%;
     box-shadow: 0px 0px 10px 0px rgb(199, 197, 197);
-    margin-left: 90px;
-    height: 190px;
+    margin-left: 90px; */
+    /* height: 190px;
 
 }
 
@@ -63,9 +63,9 @@ h2 {
 .tasklist,
 p {
     margin-right: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
 
-}
+/* }
 
 .MB {
     display: flex;
@@ -81,11 +81,11 @@ p {
 }
 
 .dueweek {
-    margin-right: 59%;
-    margin-bottom: 20px;
+    margin-right: 59%; */
+    /* margin-bottom: 20px; */
 
 
-}
+/* }
 
 h5 {
     margin-right: 280px;
@@ -98,9 +98,9 @@ h5 {
     justify-content: flex-end;
     gap: 20px;
     padding: 20px;
+ */
 
-
-}
+/* }
 
 .Edit {
     background-color: gray;
@@ -110,4 +110,4 @@ h5 {
     width: 70px;
     border: none;
     width: 50px;
-}
+} */

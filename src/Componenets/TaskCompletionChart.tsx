@@ -21,16 +21,18 @@ const data = [
 const TaskCompletionChart = () => {
   return (
     <div
-      style={{
-        backgroundColor:"white",
-        borderRadius: "12px",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-        padding: "15px",
-        width: "380px",
-        height: "290px",
-      }}
+      // style={{
+      //   backgroundColor:"white",
+      //   borderRadius: "12px",
+      //   boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      //   padding: "15px",
+      //   width: "380px",
+      //   height: "290px",
+      // }}
+      className="bg-white-500 rounded-xl mr-11 shadow-xl p-9 w-[100%]  h-[190%]"
+
     >
-      <h3 style={{ fontSize: "20px", marginRight: "100px" }}>
+      <h3 className="text-xl font-bold">
         Task Completion Trend
       </h3>
 

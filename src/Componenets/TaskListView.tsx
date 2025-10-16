@@ -1,62 +1,68 @@
 import './TaskListView.css';
-
+import HeaderComponent from './HeaderComponent'
+import InputComponent from './InputComponent';
+import ButtonComponent from './ButtonComponent'
 export default function TaskListView() {
     return (
-        <div className="ecomweb">
-            <div className="ecomnav">
-                <h2>← E-commerce Wedsite</h2>
-                <nav>
+        <div className=" ">
+            <div className=" flex justify-between bg-gray-700">
+                <h2 className="text-white font-bold text-xl pt-3 ml-11" >← E-commerce Wedsite</h2>
+                {/* <nav>
                     <a href='/Listview'>List View</a>
                     <a href="/Boardview">Board View</a>
-                </nav>
+                </nav> */}
+                <HeaderComponent
+                    Listview="Listview"
+                    Boardview="Boardview" />
+
             </div>
-            <br></br><br></br>
-            <input style={{ width: "80%", marginTop: "60px" }} type="text" placeholder="auth" /><br></br><br></br>
-            <select style={{ width: "82%", borderRadius: "10px", padding: "9px" }}>
+            <InputComponent inputType='text' placeholder='Auth' className="w-[80%] p-2 mt-11" />
+            <select className='w-[80%] border-2 rounded-xl mt-9 p-2'>
                 <option>All Status</option>
-            </select><br></br><br></br>
-            <select style={{ width: "82%", borderRadius: "10px", padding: "9px" }}>
+            </select>
+            <select className='w-[80%] border-2 rounded-xl mt-9 p-2 '>
                 <option>High Priority </option>
 
             </select>
-            <br></br>
-            <button className="newtask">+New Task</button>
-            <br></br>
 
-            <div className="taskBlock">
-                <div className="tasklist">
-                    <h5 style={{ color: " rgba(7, 7, 13, 1)", fontSize: "20px", fontWeight: "bolder", fontFamily: "Times New Roman", marginRight: "70%" }}>Setup Aythentication</h5>
-                    <span className="due">JWT implementation with login/register • Due: Tomorrow</span>
+            <ButtonComponent className="bg-blue-500 hover:bg-blue-400 mt-6 mb-9 " name="+New Task" />
 
-                    <div className="Hb">
-                        <div style={{ color: "red", backgroundColor: " rgb(252, 138, 138)", width: "50px", fontWeight: "lighter", borderRadius: "5px" }}>High</div>
-                        <div style={{ color: "white", backgroundColor: " rgba(96, 93, 93, 1)", width: "80px", fontWeight: "lighter", borderRadius: "5px", height: "21px" }}>Backend</div>
-                    </div>
 
-                    <div className="ecd">
-                        <button className="Edit" >Edit</button>
-                        <button className="Complete" style={{ backgroundColor: "blue", color: "white", borderRadius: "3px", fontWeight: "bolder", width: "86px", border: "none" }}>Complete</button>
-                        <button className="delete" style={{ backgroundColor: "red", color: "white", borderRadius: "3px", fontWeight: "bolder", width: "75px", border: "none" }}>Delete</button>
+            <div className="flex justify-evenly flex-wrap  shadow-2xm border rounded-xl p-11 w-[90%] ml-20">
+                <div className="">
+                    <h5 className='text-xl mr-[54%] font-bold'>Setup Aythentication</h5>
+                    <span className="text-xm mr-11 ">JWT implementation with login/register • Due: Tomorrow</span>
 
+                    <div className="flex justify-center gap-3 mr-[70%] pt-3">
+                        <div className='text-white bg-red-500 w-32 rounded-xl' >High</div>
+                        <div className='text-white bg-gray-500 w-44 rounded-xl'>Backend</div>
                     </div>
                 </div>
+                <div className="flex gap-3 mt-6">
+                    <ButtonComponent className="bg-gray-500 hover:bg-gray-400  " name="Edit" />
+                    <ButtonComponent className="bg-blue-500 hover:bg-green-400  " name="Complete" />
+                    <ButtonComponent className="bg-red-500 hover:bg-red-400  " name="Delete" />
+
+                </div>
+
             </div>
 
-            <div className="taskBlock">
-                <div className="tasklist">
-                    <h5 style={{ color: " rgba(10, 10, 11, 1)", fontSize: "20px", fontWeight: "bolder", marginRight: "66%", fontFamily: "Times New Roman" }}>User Authentication Frontend</h5>
-                    <span className="dueweek">Login and register form in React • Due: Next Week</span>
 
-                    <div className="MB">
-                        <div style={{ color: "red", backgroundColor: " rgba(249, 165, 91, 1)", width: "80px", fontWeight: "lighter", borderRadius: "5px", marginTop: "20px" }}>Medium</div>
-                        <div style={{ color: "white", backgroundColor: " rgba(96, 93, 93, 1)", width: "80px", fontWeight: "lighter", borderRadius: "5px", height: "21px", marginTop: "20px" }}>Backend</div>
-                    </div>
+            <div className="flex justify-evenly flex-wrap mt-9 pb-9 mb-9  shadow-2xm border rounded-xl p-11 w-[90%] ml-20">
+                <div className="">
+                    <h5 className='text-xl mr-[94%] font-bold'>User Authentication Frontend</h5>
+                    <span className="text-xm mr-44 ">Login and register form in React • Due: Next Week</span>
 
-                    <div className="ecd">
-                        <button className="Edit">Edit</button>
-                        <button className="Start" style={{ backgroundColor: "blue", color: "white", borderRadius: "3px", fontWeight: "bolder", width: "80px", border: "none" }}>Start</button>
-                        <button className="delete" style={{ backgroundColor: "red", color: "white", borderRadius: "3px", fontWeight: "bolder", width: "75px", border: "none" }}>Delete</button>
+                    <div className="flex justify-center gap-3 mr-[70%] pt-3">
+                        <div className='text-white bg-orange-500  rounded-xl' >Medium</div>
+                        <div className='text-white bg-gray-500 w-96 rounded-xl'>Backend</div>
                     </div>
+                </div>
+                <div className="flex gap-3 mt-8">
+                    <ButtonComponent className="bg-gray-500 hover:bg-gray-400  " name="Edit" />
+                    <ButtonComponent className="bg-blue-500 hover:bg-blue-400  " name="Start" />
+                    <ButtonComponent className="bg-red-500 hover:bg-red-400  " name="Delete" />
+
                 </div>
 
             </div>

@@ -6,12 +6,14 @@ interface HeaderProps {
     Logout?: string;
     EditProfile?: string
     sittings?: string;
+    Listview?: string;
+    Boardview?: string;
 
 }
 
 
-export default function HeaderComponent({ Dashboard, Projects, Analytics, Profile, Logout, EditProfile, sittings }: HeaderProps) {
-    const className = "rounded-xl bg-gray-500 p-2 text-white";
+export default function HeaderComponent({ Dashboard, Projects, Analytics, Profile, Logout, EditProfile, sittings, Listview, Boardview }: HeaderProps) {
+    const className = "rounded-xl  bg-gray-500 p-2 text-white";
     return (
         <div>
             <nav className='flex flex-end gap-8 mr-9 p-3 '>
@@ -22,6 +24,8 @@ export default function HeaderComponent({ Dashboard, Projects, Analytics, Profil
                 {Logout && <a className={className} href="/logout">{Logout}</a>}
                 {EditProfile && <a className={className} href="/EditProfile">{EditProfile}</a>}
                 {sittings && <a className={className} href="/sittings">{sittings}</a>}
+                {Listview && <a className={className} href="/Listview">{Listview}</a>}
+                {Boardview && <a className={className} href="/Boardview">{Boardview}</a>}
             </nav>
         </div>
     )

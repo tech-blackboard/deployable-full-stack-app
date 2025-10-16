@@ -3,8 +3,9 @@ import './UserProfile.css';
 import HeaderComponent from './HeaderComponent';
 import ButtonComponent from './ButtonComponent';
 export default function UserProfile() {
+  const slider = 'span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-xl transition duration-300 peer-checked:bg-blue-500 before:content-"" before:absolute before:h-[16px] before:w-[16px] before:left-[2px] before:bottom-[2px] before:bg-white before:rounded-full before:transition-transform peer-checked:before:translate-x-[18px]';
   return (
-    <div className="UserProfile">
+    <div>
       <div className="flex justify-between  bg-gray-700 content-aroun">
         <h1 className='text-2xl text-white ml-4   p-3  font-bold'>TaskManager</h1>
         <HeaderComponent
@@ -24,8 +25,8 @@ export default function UserProfile() {
           <span className=" text-xm  text-gray-500 mt-0 ">Member Since may 2025</span><br></br>
           <ButtonComponent className="bg-blue-600 hover:bg-blue-700 mt-6 mb-9 " name=" Changes Avatar" />
         </div>
-        <div className="mt-20 border rounded-xl p-11 pt-0 ml-9">
-          <h2 className='text-2xl  text-black-300  ml-20 font-bold mt-9'>Account Settings</h2><br></br>
+        <div className="mt-20 border rounded-xl p-11 pt-0 ml-96  mr-11">
+          <h2 className='text-2xl  text-black-300  ml-3 font-bold mt-9'>Account Settings</h2><br></br>
           <label className="mr-60 text-9xm font-semibold mb-5">FullName</label>
           <InputComponent inputType='text' /><br></br>
           <label className="mr-[60%] text-9xm font-semibold mt-9">Email</label>
@@ -60,29 +61,41 @@ export default function UserProfile() {
             </tbody>
           </table>
         </div>
-        <div className="border border-l-4 border-l-red-400 border-gray-300 bg-white-300 mt-9  rounded-xl shadow-xl cursor-pointer">
-          <p className="text-2xl text-black-300 ml-4   p-3  font-bold">Preferences</p>
-          <div className="pl-20 p-3">
+        <div className="border border-l-4 border-l-red-400 border-gray-300 bg-white-300 mb-3 mt-9 p-9 rounded-xl shadow-xl cursor-pointer">
+          <p className="text-2xl text-black-300 ml-4 mb-6 font-bold">Preferences</p>
+          <div className="flex justify-around">
             <span>Email Notifications</span>
-            <label className="p-20">
-              <input type="checkbox" defaultChecked />
-              <span className="slider"></span>
+            <label className="ml-11 mb-3 relative inline-block w-[38px] h-[20px]">
+              {/* <input type="checkbox" defaultChecked /> */}
+              <input
+                type="checkbox"
+                className="opacity-0 w-0 h-0 peer"
+                defaultChecked />
+
+              <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-xl transition duration-300 peer-checked:bg-blue-500 before:content-[''] before:absolute before:h-[16px] before:w-[16px] before:left-[2px] before:bottom-[2px] before:bg-white before:rounded-full before:transition-transform peer-checked:before:translate-x-[18px]"></span>
             </label>
           </div>
-          <div className="pl-8 p-3">
+          <div className="flex justify-around">
             <span>Dark Mode</span>
-            <label className="p-20 relative ">
-              <input type="checkbox" defaultChecked />
-              <span className="slider"></span>
-            </label>
+            <label className=" ml-20 mb-3 relative inline-block w-[38px] h-[20px]">
+              <input
+                type="checkbox"
+                className="opacity-0 w-0 h-0 peer"
+                defaultChecked />
+              <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-xl transition duration-300 peer-checked:bg-blue-500 before:content-[''] before:absolute before:h-[16px] before:w-[16px] before:left-[2px] before:bottom-[2px] before:bg-white before:rounded-full before:transition-transform peer-checked:before:translate-x-[18px]"></span>            </label>
           </div>
-          <div className="checkbox">
+
+          <div className="flex justify-around items-center">
             <span>Task Reminders</span>
-            <label className="p-14 w-11">
-              <input type="checkbox" defaultChecked />
-              <span className="adsolute top-0 left-0 right-0 bg-gray-500 rounded-xl transition-2s delay-200 "></span>
+            <label className="ml-11 mb-3  relative inline-block w-[38px] h-[20px]">
+              <input
+                type="checkbox"
+                className="opacity-0 w-0 h-0 peer"
+                defaultChecked />
+              <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-xl transition duration-300 peer-checked:bg-blue-500 before:content-[''] before:absolute before:h-[16px] before:w-[16px] before:left-[2px] before:bottom-[2px] before:bg-white before:rounded-full before:transition-transform peer-checked:before:translate-x-[18px]"></span>
             </label>
           </div>
+
 
         </div>
       </div>
