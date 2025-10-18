@@ -100,16 +100,16 @@ export default function Login() {
                 <span className="font-sans text-xl pt-9 font-bold text-blue-600">Well Come Back</span><br></br>
                 <span className="text-xm pb-4 font-lighter text-gray-500">Sign into your account</span><br></br>
 
-                <label  className="text-xl ml-1 mr-0 font-lighter">Email</label><br></br>
+                <label className="text-xl ml-1 mr-0 font-lighter">Email</label><br></br>
                 <span className="text-red-500 mr-40 text-xs">{emailError}</span><br></br>
                 < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} /><br></br>
-                
-               
+
+
                 <label className="text-xl ml-8 mr-9 font-lighter">Password</label><br></br>
-                 <span className="text-red-500 mr-40 text-xs">{pwdError}</span><br></br>
+                <span className="text-red-500 mr-28 text-xs">{pwdError}</span><br></br>
                 < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} /><br></br>
-                
-                <ButtonComponent name="Sign In" onClick={handleSignIn}/>
+
+                <ButtonComponent name="Sign In" onClick={handleSignIn} />
                 <br></br>
                 {
                     signUp && <p id="paragraph">Don't have an account? <Link to="/Register" className="re">Register here</Link></p>

@@ -13,10 +13,10 @@ interface HeaderProps {
 
 
 export default function HeaderComponent({ Dashboard, Projects, Analytics, Profile, Logout, EditProfile, sittings, Listview, Boardview }: HeaderProps) {
-    const className = "rounded-xl  bg-gray-500 p-2 text-white";
+    const className = "rounded-xl  bg-gray-500 p-2 text-white ml-11 mt-3 md:pt-0 ";
     return (
         <div>
-            <nav className='flex flex-end gap-8 mr-9 p-3 '>
+            <nav className='flex  gap-2 p-4  ml-9  '>
                 {Dashboard && <a className={className} href="/Dashboard">{Dashboard}</a>}
                 {Projects && <a className={className} href="/Projects">{Projects}</a>}
                 {Analytics && <a className={className} href="/Analytics">{Analytics}</a>}
