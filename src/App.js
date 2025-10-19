@@ -3,10 +3,10 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Register from './Componenets/Register';
 import { ToastContainer } from "react-toastify";
-// import ProjectView from './Componenets/ProjectView';
+import ProjectView from './Componenets/ProjectView';
 // import Login from './Componenets/Login';
-//  import DashBoard from './Componenets/DashBoard';
-import TaskListView from './Componenets/TaskListView';
+ import DashBoard from './Componenets/DashBoard';
+// import TaskListView from './Componenets/TaskListView';
 //  import EditTask from './Componenets/EditTask'
 //  import UserProfile from './Componenets/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
@@ -30,7 +30,7 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-     {/* <DashBoard/>   */}
+     <DashBoard/>  
        {/* <EditTask/>  */}
     {/* <ErrorLoadingStates/>  */}
     {/* <UserContext.Provider value="pooja"> */}
@@ -40,7 +40,7 @@ function App() {
     {/* <Register/>   */}
        {/* <Login/>     */}
      {/* <UserProfile/>   */}
-    <TaskListView/>  
+    {/* <TaskListView/>   */}
     {/* <AnalyticsDashboard/>   
       <CreateNewProject/> */}
    
