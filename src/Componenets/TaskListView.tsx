@@ -6,7 +6,7 @@ export default function TaskListView() {
     return (
         <div >
             <div className="  relative flex justify-between bg-gray-700 w-[160%] md:w-[100%]">
-                <h2 className="text-white font-bold text-2xl pt-7 ml-11" >← E-commerce Wedsite</h2>
+                <h2 className="text-white font-bold text-2xl pt-2 ml" >← E-commerce Wedsite</h2>
                 {/* <nav>
                     <a href='/Listview'>List View</a>
                     <a href="/Boardview">Board View</a>
@@ -31,7 +31,7 @@ export default function TaskListView() {
             <div className="flex justify-evenly flex-wrap  shadow-2xm border rounded-xl p-11 w-[120%] md:w-[88%] ml-20">
                 <div className="">
                     <h5 className='text-2xl mr-[29%] font-bold pb-1 md:mr-11'>Setup Aythentication</h5>
-                    <span className="text-xl mr-[48%] md:mr-11 ">JWT implementation with login/register  🔸Due:Tomorrow</span>
+                    <span className="text-xl mr-[50%] md:mr-11 ">JWT implementation with login/register  🔸Due:Tomorrow</span>
 
                     <div className="flex justify-center gap-3 mr-[9%] pt-3  md:mt-2">
                         <div className='text-white bg-red-500 w-32 p-1 rounded-xl text-xl ' >High</div>
@@ -50,7 +50,7 @@ export default function TaskListView() {
 
             <div className="flex justify-evenly flex-wrap mt-9 pb-9 mb-9  shadow-2xm border rounded-xl p-11 w-[120%] ml-20  md:w-[88%]">
                 <div className="">
-                    <h5 className='text-2xl mr-[8%] pb-1 font-bold '>User Authentication Frontend</h5>
+                    <h5 className='text-2xl mr-[%] pb-1 font-bold '>User Authentication Frontend</h5>
                     <span className="text-xl ml-3 mr-[50%] pt-3 md:mr-11 ">Valide of Login and register form In  React  🔸Due: Next Week </span>
 
                     <div className="flex justify-center gap-3  pt-3 md:mt-2 md:mr-9">
