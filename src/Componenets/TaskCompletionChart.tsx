@@ -29,10 +29,10 @@ const TaskCompletionChart = () => {
       //   width: "380px",
       //   height: "290px",
       // }}
-      className="bg-white-500 rounded-xl mr-11 shadow-xl p-9 w-[100%]  h-[190%]"
+      className="bg-white-500 rounded-xl mr-11 shadow-xl p-10 w-[130%]  h-[100%] ml-11 md:ml-28 md:mt-2 "
 
     >
-      <h3 className="text-xl font-bold">
+      <h3 className="text-2xl font-bold md:text-2xl">
         Task Completion Trend
       </h3>
 

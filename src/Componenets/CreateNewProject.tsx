@@ -3,7 +3,7 @@ import ButtonComponent from './ButtonComponent';
 import './CreateNewProject.css';
 export default function CreateNewProject() {
     return (
-        <div className="relative shadow-xl border-2 rounded-xl w-[30%] ml-[30%] pb-2 mt-9">
+        <div className="relative shadow-xl border-2 rounded-xl w-full  pb-1 mt-9">
 
             <h1 className="mr-[40%] text-xl font-semibold  p-7">Create New Project</h1>
             <button className="absolute top-[26px]  text-xl right-[30px]  ">&times;</button>
@@ -23,7 +23,7 @@ export default function CreateNewProject() {
 
             <div className="flex flex-col">
                 <label className="  mr-44 text-9xm font-semibold mt-5">Project Category</label>
-                <select className="border-2 w-[70%] ml-[70px] p-1 rounded-xl">
+                <select className="border-2 w-[80%] ml-11 p-1 rounded-xl">
                     <option>Web Development</option>
                     <option>Mobile App</option>
                     <option>Designing</option>
