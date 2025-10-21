@@ -29,7 +29,7 @@ const TaskCompletionChart = () => {
       //   width: "380px",
       //   height: "290px",
       // }}
-      className="bg-white-500 rounded-xl mr-11 shadow-xl p-10 w-[130%]  h-[100%] ml-11 md:ml-28 md:mt-2 "
+      className="bg-white-500 rounded-xl mr-11 shadow-xl p-10 w-[130%]  h-[100%] ml-11 md:ml-44 md:p-2 md:w-[90%] md:h-[80%] md:mt-11 "
 
     >
       <h3 className="text-2xl font-bold md:text-2xl">

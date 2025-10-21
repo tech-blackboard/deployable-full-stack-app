@@ -20,7 +20,7 @@ export default function EditTask() {
                         <option>Low</option>
                     </select>
 
-                </div>
+                </div >
                 <div>
                     <label className=" text-9xm font-semibold mb-5">Status</label>
                     <select className="border-2">
@@ -29,7 +29,7 @@ export default function EditTask() {
                         <option>Complete</option>
                     </select>
                 </div>
-            </div>
+            </div >
 
             <label className="mr-60 text-9xm font-semibold mb-5">Due Date</label><br></br>
             <InputComponent inputType="date" /><br></br>
@@ -41,6 +41,6 @@ export default function EditTask() {
                 <ButtonComponent className="bg-red-600 hover:bg-red-700  w-[110%]" name="Delete" />
                 <ButtonComponent className="bg-blue-600 hover:bg-blue-700   w-[100%] " name="Save Changes" />
             </div>
-        </div>
+        </div >
     )
 }

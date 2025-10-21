@@ -6,22 +6,14 @@ import { ToastContainer } from "react-toastify";
 import ProjectView from './Componenets/ProjectView';
 // import Login from './Componenets/Login';
  import DashBoard from './Componenets/DashBoard';
-<<<<<<< HEAD
-import TaskListView from './Componenets/TaskListView';
-=======
 // import TaskListView from './Componenets/TaskListView';
->>>>>>> a7cb3c8b96ecdd7c6ad4339954714ec2e7ca77d1
-//  import EditTask from './Componenets/EditTask'
-//  import UserProfile from './Componenets/UserProfile'
+import TaskListView from './Componenets/TaskListView';
+ import EditTask from './Componenets/EditTask'
+ import UserProfile from './Componenets/UserProfile'
 import "react-toastify/dist/ReactToastify.css";
 import CreateNewProject from './Componenets/CreateNewProject';
-<<<<<<< HEAD
-//  import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
-// import AnalyticsDashboard from './Componenets/AnalyticsDashboard'
-=======
  import ErrorLoadingStates from './Componenets/ErrorLoadingStates'
 import AnalyticsDashboard from './Componenets/AnalyticsDashboard'
->>>>>>> a7cb3c8b96ecdd7c6ad4339954714ec2e7ca77d1
 import {UserContext} from './Componenets/UserContext'
 function App() {
   return (
@@ -41,20 +33,18 @@ function App() {
       />
      {/* <DashBoard/>   */}
        {/* <EditTask/>  */}
-    <ErrorLoadingStates/> 
+    {/* <ErrorLoadingStates/>  */}
     {/* <UserContext.Provider value="pooja"> */}
     {/* <ProjectView/> */}
-      <DashBoard/>  
+      {/* <DashBoard/>   */}
     {/* </UserContext.Provider>   */}
     {/* <Register/>   */}
        {/* <Login/>     */}
-     {/* <UserProfile/>   */}
+     <UserProfile/>  
     {/* <TaskListView/>   */}
-<<<<<<< HEAD
-    {/* {/* <AnalyticsDashboard/>    */}
-=======
+
+
      {/* <AnalyticsDashboard/>    */}
->>>>>>> a7cb3c8b96ecdd7c6ad4339954714ec2e7ca77d1
       {/* <CreateNewProject/>  */}
    
      

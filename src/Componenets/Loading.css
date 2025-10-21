@@ -1,8 +1,8 @@
-/* :root {
+ /* :root {
   --accent: #3b82f6;
   --muted: #e5e7eb;
   --text: #374151;
-}
+} */
 
 /* Center the loader within its parent, not fixed to screen */
 /* .loading-container {
@@ -19,15 +19,15 @@
   color: var(--text);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   height: 100px; /* fixed height for loader area */
-  /* position: relative; /* keeps loader inside card */
+   /* position: relative; /* keeps loader inside card */
   /* overflow: hidden;
 }
-.hide-loader { */
-  /* opacity: 0; */
-  /* transform: translateY(-20px);
+.hide-loader { 
+   opacity: 0; 
+ transform: translateY(-20px);
   transition: opacity 0.1s ease, transform 0.1s ease;
-  pointer-events: none; */
-/* } */ 
+  pointer-events: none; 
+ }   */ 
 
 /* Spinner animation */
 /* .spinner { 
@@ -58,4 +58,4 @@
   .spinner {
     animation: none;
   }
-} */
+}  */

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import ButtonComponent from './ButtonComponent';
-import './Login.css';
+// import './Login.css';
 
 interface UserData {
     fullName: string;

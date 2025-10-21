@@ -1,4 +1,4 @@
-import './TaskListView.css';
+// import './TaskListView.css';
 import HeaderComponent from './HeaderComponent'
 import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent'
@@ -16,7 +16,7 @@ export default function TaskListView() {
                     Boardview="Boardview" />
 
             </div>
-            <InputComponent inputType='text' placeholder='Auth' className="w-full text-xl md:w-[70%]  p-2 ml-28 mt-11" />
+            <InputComponent inputType='text' placeholder='Auth' className="w-full text-xl md:w-[70%]  md:p-2 ml-28 mt-11" />
             <select className='w-full border-2 rounded-xl  text-xl mt-9 p-2  ml-28 md:w-[70%]'>
                 <option>All Status</option>
             </select>
@@ -25,7 +25,7 @@ export default function TaskListView() {
 
             </select>
 
-            <ButtonComponent className="bg-blue-500  text-2xl hover:bg-blue-400 mt-9 mb-9 ml-52 md:mr-[20%]" name="+New Task" />
+            <ButtonComponent className="bg-blue-500  text-2xl hover:bg-blue-400 mt-9 mb-9 ml-52 md:ml-[5%]" name="+New Task" />
 
 
             <div className="flex justify-evenly flex-wrap  shadow-2xm border rounded-xl p-11 w-[120%] md:w-[88%] ml-20">

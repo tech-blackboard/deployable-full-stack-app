@@ -19,7 +19,7 @@ export default function Loading({ message = "Loading..." }) {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-5 w-full p-11 bg-white/90 rounded-xl text-gray-700  h-[180px] relative overflow-hidden transition-all duration-200 ${hideLoader ? "opacity-0 -translate-y-5 pointer-events-none" : "opacity-100 translate-y-0"
+      className={`flex flex-col items-center justify-center gap-5 w-full p-11 bg-white/90 rounded-xl text-gray-700  h-[140px] mb-9 relative overflow-hidden transition-all duration-200 md:h-[60%] md:w-28${hideLoader ? "opacity-0 -translate-y-5 pointer-events-none" : "opacity-100 translate-y-0"
         }`}
       role="status"
       aria-live="polite"
@@ -27,12 +27,12 @@ export default function Loading({ message = "Loading..." }) {
     >
       {/* Spinner */}
       <div
-        className="w-20 h-20 border-4  border-gray-300 border-t-blue-500 rounded-full animate-spin absolute p-11" 
+        className="w-20 h-20 border-4  border-gray-300 border-t-blue-500 rounded-full animate-spin absolute p-11 md:p-10"
       // aria-hidden="true"
       ></div>
 
       {/* Message */}
-      <p className="text-xl text-gray-700 text-center m-0">{message}</p>
+      <p className="text-xl text-gray-700 text-center ">{message}</p>
     </div>
   );
 }

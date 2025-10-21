@@ -1,5 +1,5 @@
 
-/* .fdivs{
+ .fdivs{
     display: flex;
     justify-content: space-around;
     
@@ -39,8 +39,8 @@
     border-radius: 12px;
 }
 .PriorityDistribution  td{
-    /* width:99px; */
-    /* margin-left: 70px;
+     width:99px; 
+    margin-left: 70px;
     display: inline-block;
     margin-bottom: 2px;
     padding: 10px;
@@ -54,27 +54,26 @@
     border-radius:10px ;
     overflow: hidden;
 }
-.progress-bar{ */
-  /* width: 25%;            progress percentage */
-  /* height: 100%; */
-
-  /* background-color: #e53935; red fill */
-  /* border-radius: 10px 0 0 10px; round only left side */
-/* }
-.RecentActivityLog{
+.progress-bar{ 
+   width: 25%;            
+ height: 100%; 
+ background-color: #e53935; 
+ border-radius: 10px 0 0 10px; 
+ }
+.RecentActivityLog{ 
     width:auto;
     height: 270px;
     padding: 10px;
     border: none;
     border-radius: 20px;
     box-shadow: 1px 1px 7px 1px hsla(0, 2%, 63%, 0.871);
-    /* margin-left: 330px; */
-    /* margin-bottom: 20px;
-} */
+    margin-left: 330px;
+     margin-bottom: 20px;
+} 
 
-/* .RecentActivityLog p{
-    font-size: 25px; */
-    /* font-weight: bold;
+ .RecentActivityLog p{
+    font-size: 25px; 
+    font-weight: bold;
     margin-right: 210px;
     color:rgb(2, 108, 231);
 }
@@ -82,21 +81,21 @@
 #spanhead{
     font-size: 20px;
     font-weight: bold;
-    margin-right: 14%; */
-/* } */
-/* #secondspan{
+    margin-right: 14%; 
+ } 
+     #secondspan{
     color:grey;
     margin-right: 141px;
      font-size: 20px;
-} */
-/* hr{
+} 
+hr{
     width:80%;
 }
-h1{ */
-    /* font-size: 25px; */
-    /* margin-right: 100px; */
-    /* margin-right: 480px; */
-/* }
+h1{ 
+    font-size: 25px; 
+ margin-right: 100px;
+  margin-right: 480px; 
+ }
 #tasknames ,p{
      color:grey;
       font-size: 20px;
@@ -107,8 +106,8 @@ h1{ */
     color:rgb(8, 8, 8);
       font-size: 20px;
       margin-bottom: 20px;
-} */
-/* .UsersNav{
+} 
+ .UsersNav{
     display:flex;
     justify-content:space-evenly;
     background-color: rgb(85, 88, 88);
@@ -124,4 +123,4 @@ h1{ */
     margin-top: 30px;
     
 
- }  */
+ }  

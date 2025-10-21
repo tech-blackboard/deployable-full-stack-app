@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import InputComponent from "./InputComponent";
 import ButtonComponent from './ButtonComponent';
-import "./Register.css";
+// import "./Register.css";
 
 // interface UserData{
 //     fullName:string;

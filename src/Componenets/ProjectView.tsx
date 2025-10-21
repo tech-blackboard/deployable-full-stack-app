@@ -7,7 +7,7 @@ import ButtonComponent from './ButtonComponent'
 export default function ProjectView() {
     const divStylepara = "text-gray-500 mr-[4px] text-2xl  md:text-xl"
     const high = "text-white ml-[30%] border w-11 text-xl  rounded-xl mt-1 bg-orange-400 w-28  md:mt-3";
-    const divStyle = `group border  border-l-4 border-l-red-400 border-gray-300 bg-white-300  p-8 rounded-xl shadow-xl cursor-pointer hover:bg-white-600 hover:font-semibold mb-9 w-[60%] pr-11 ml-11  md:w-96  ` 
+    const divStyle = `group border  border-l-4 border-l-red-400 border-gray-300 bg-white-300  p-8 rounded-xl shadow-xl cursor-pointer hover:bg-white-600 hover:font-semibold mb-9 w-[60%] pr-11 ml-11  md:w-96  `
     return (
         <div>
             <div className="flex justify-between  bg-gray-700 content-around w-[149%] md:w-[100%]">
@@ -16,12 +16,12 @@ export default function ProjectView() {
                 <HeaderComponent EditProfile="Edit Profile" sittings="sittings" className='w-28  text-xl md:mr-9 md:w-44 md:pt-2' />
 
             </div>
-            <h2 className=" text-2xl font-bold mt-2 mr-5 md:text-4xl md:mr-[70%] md:mt-9">Task Management Website</h2>
-            <span className="text-2xs  text-gray-400 font-bold   md:text-2xl  md:mr-[66%] ">Frontend development project with React </span><br></br>
+            <h2 className=" text-2xl font-bold mt-2 mr-5 md:text-3xl md:mr-[70%] md:mt-9">Task Management Website</h2>
+            <span className="text-2xs  text-gray-400 font-bold   md:text-xl  md:mr-[69%] ">Frontend development project with React </span><br></br>
             {/* Search Bar */}
             <div className="flex justify-evenly ">
                 <div className="  relative mt-8  ml-9 ">
-                    <Search className="absolute right-0 top-5   text-xl translate-y-1/ text-gray-400 w-5 h-5 md:right-40  md:mt-8 md: " />
+                    <Search className="absolute right-0 top-5   text-xl translate-y-1/ text-gray-400 w-5 h-5 md:right-40  md:mt-8  " />
                     <InputComponent
                         inputType="text"
                         placeholder="Search task...."
@@ -46,11 +46,10 @@ export default function ProjectView() {
                     </select></div>
             </div>
             <ButtonComponent className=" mt-3 ml-44 bg-blue-600 hover:bg-blue-700 text-xl md:mr-28 md:mt-11" name="+ Add Task" />
-            <br></br><br></br>
-            <div className="flex justify-between mb-9 ml-[24%] gap-3  md:justify-between">
-                <p className='text-red-600 font-semibold '>To Do(5)</p>
-                <p className='text-orange-600 font-semibold'>In Progress</p>
-                <p className='text-green-600 font-semibold '>Complete(4)</p>
+            <div className="flex justify-between mb-3 ml-[20%] gap-3  md:justify-around">
+                <p className='text-red-600 font-semibold p-9'>To Do(5)</p>
+                <p className='text-orange-600 font-semibold p-9'>In Progress</p>
+                <p className='text-green-600 font-semibold p-9'>Complete(4)</p>
             </div>
 
             <div className="flex  flex-wrap justify-around w-[130%] md:justify-around md:w-[100%]  mb-9">

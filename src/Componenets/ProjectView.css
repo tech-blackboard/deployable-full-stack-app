@@ -1,4 +1,4 @@
- /* .nav{
+  .nav{
     display:flex;
     justify-content:space-evenly;
     background-color: rgb(85, 88, 88);
@@ -102,4 +102,4 @@ nav a{
 #p{
     color:gray;
 }
- */
+

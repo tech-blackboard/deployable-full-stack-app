@@ -1,27 +1,27 @@
 import HeaderComponent from './HeaderComponent'
-import './AnalyticsDashboard.css'
+// import './AnalyticsDashboard.css'
 import TaskCompletionChart from './TaskCompletionChart'
 export default function AnalyticsDashboard() {
-    const divStyle = 'group border-3 border-blue-300 p-28 mb-9 bg-blue-100  rounded-xl md:p-28 cursor-pointer'
+    const divStyle = 'group border-3 border-blue-300 p-28 mb-9 bg-blue-100  rounded-xl md:p-9 cursor-pointer'
     //  //hover:bg-blue-400 hover:font-semibold hover:text-xl hover:p-9 hover:text-white ';
     const divPara = "text-4xl  text-blue-400  font-bold mb-5 ";
-    const parastyle = 'text-gray-500 text-3xl  mt-5 font-lighter';
+    const parastyle = 'text-gray-500 text-2xl  mt-5 font-lighter';
     const hr = 'w-[80%] ml-44 mt-4 mb-3 text-2xl text-gray-900 ';
     return (
         <div>
 
             <div className="flex justify-between  bg-gray-700 w-[210%] md:w-[100%]">
-                <h1 className="text-2xl text-white ml-9 p-3 font-bold md:text-4xl  md:p-4  ">Analytics Dashboard</h1>
+                <h1 className="text-2xl text-white ml-9 p-3 font-bold md:text-3xl  md:p-4  ">Analytics Dashboard</h1>
 
                 <HeaderComponent
                     Dashboard="Dashboard"
                     Projects="Projects"
                     Analytics="Analytics"
-                    Profile="Profile" className='md:text-2xl md:pt-2'/>
+                    Profile="Profile" className='md:text-xl md:pt-2' />
 
             </div>
-            <p className='text-2xl  font-bold pt-9 mr-18 md:mr-[70%] md:text-4xl'>Productivity Analytics</p>
-            <span className=' text-xl text-gray-400 font-bold ml-9   md:mr-[55%] md:text-3xl'>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>
+            <p className='text-2xl  font-bold pt-9 mr-18 md:mr-[70%] md:text-3xl'>Productivity Analytics</p>
+            <span className=' text-xl text-gray-400 font-bold ml-9   md:mr-[60%] md:text-xl'>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>
             <div className="flex flex-wrap  justify-around  mt-9 ml-[53%] md:ml-1 gap-9 ">
                 <div className={divStyle}>
                     <span className={divPara}>76%</span>
@@ -31,11 +31,11 @@ export default function AnalyticsDashboard() {
                     <span className={divPara}>2.3</span>
                     <p className={parastyle}>Avg Tasks/Day</p>
                 </div>
-                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-28 rounded-xl cursor-pointer'>
+                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-9 rounded-xl cursor-pointer'>
                     <span className={divPara}>18h</span>
                     <p className={parastyle}>Time  Saved</p>
                 </div>
-                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-28 rounded-xl cursor-pointer' >
+                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-9 rounded-xl cursor-pointer' >
                     <span className={divPara}>↑12%</span>
                     <p className={parastyle}>vs Last Month</p>
                 </div>
@@ -44,8 +44,8 @@ export default function AnalyticsDashboard() {
                 <div>
                     <TaskCompletionChart />
                 </div>
-                <div className="border-3 border-white-300 bg-white-100 p-11  mt-9 ml-44 shadow-xl rounded-xl md:mr-44 md:p-28">
-                    <p className="text-2xl font-bold md:mb-4 md:mt-0 md:text-3xl">Priority Distribution</p>
+                <div className="border-3 border-white-300 bg-white-100 p-11  mt-9 ml-44 shadow-xl rounded-xl md:mt-2  md:mr-44 md:p-11">
+                    <p className="text-2xl font-bold md:mb-4 md:mt-0 md:text-2xl">Priority Distribution</p>
                     <table>
                         <tr>
                             <td className=' relative p-3 pr-20  text-xl md:text-2xl'>High Priority</td>
@@ -72,15 +72,15 @@ export default function AnalyticsDashboard() {
                 </div>
             </div>
             <div className="border rounded-xl shadow-xl h-[50%] pb-11 mt-[20%] ml-20 mb-11 w-[170%] font-bold md:w-[94%] md:mt-9">
-                <p className="text-2xl mb-9  mt-9 mr-[50%] md:mr-[50%] md:text-4xl " >Recent Activity Log</p>
-                <span className="text-2xl  mr-[30%] text-black-400  font-bold mb-3 md:mr-[47%] md:text-3xl"> 🔸 Completed "API Integration"</span><br></br>
-                <span className="text-xl text-gray-500  mr-[23%]  text-lighter  mb-5 md:mr-[45%] md:text-2xl ">E-commerce Website • 2 hours ago</span>
+                <p className="text-2xl mb-9  mt-9 mr-[50%] md:mr-[50%] md:text-3xl " >Recent Activity Log</p>
+                <span className="text-2xl  mr-[30%] text-black-400  font-bold mb-3 md:mr-[47%] md:text-2xl"> 🔸 Completed "API Integration"</span><br></br>
+                <span className="text-xl text-gray-500  mr-[23%]  text-lighter  mb-5 md:mr-[45%] md:text-xl ">E-commerce Website • 2 hours ago</span>
                 <hr className={hr}></hr>
-                <span className="text-2xl  mr-[20%] text-black-400  font-bold mb-5 md:mr-[44%] md:text-3xl">▪️ Created new project "Mobile App"</span><br></br>
-                <span className="text-xl  text-gray-500  mr-[57%]   mb-5 md:mr-[57%] md:text-2xl">5 hours ago</span>
+                <span className="text-2xl  mr-[20%] text-black-400  font-bold mb-5 md:mr-[44%] md:text-2xl">▪️ Created new project "Mobile App"</span><br></br>
+                <span className="text-xl  text-gray-500  mr-[57%]   mb-5 md:mr-[57%] md:text-xl">5 hours ago</span>
                 <hr className={hr}></hr>
-                <span className="text-2xl  mr-[24%] text-black-400  font-bold mb-5 md:mr-[46%] md:text-3xl">🔹 Updated "User Authentication"</span><br></br>
-                <span className="text-xl  text-gray-500  mr-[24%] md:mr-[47%] md:text-2xl   ">E-commerce Website • Yesterday</span>
+                <span className="text-2xl  mr-[24%] text-black-400  font-bold mb-5 md:mr-[46%] md:text-2xl">🔹 Updated "User Authentication"</span><br></br>
+                <span className="text-xl  text-gray-500  mr-[24%] md:mr-[47%] md:text-xl   ">E-commerce Website • Yesterday</span>
             </div>
         </div>
     )

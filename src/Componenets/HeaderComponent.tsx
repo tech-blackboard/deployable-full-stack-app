@@ -8,16 +8,16 @@ interface HeaderProps {
     sittings?: string;
     Listview?: string;
     Boardview?: string;
-    className?:string;
+    className?: string;
 
 }
 
 
-export default function HeaderComponent({ Dashboard, Projects, Analytics, Profile, Logout, EditProfile, sittings, Listview, Boardview ,className}: HeaderProps) {
-    const Headerclass =` rounded-xl  bg-gray-500 p-2 text-white ml-11 mt-3 md:pt-0 ${className}`;
+export default function HeaderComponent({ Dashboard, Projects, Analytics, Profile, Logout, EditProfile, sittings, Listview, Boardview, className }: HeaderProps) {
+    const Headerclass = ` rounded-xl  bg-gray-500  text-white ml-11 ${className}`;
     return (
         <div>
-            <nav className='flex  gap-2 p-4  ml-9  '>
+            <nav className='flex  gap-2  ml-9  '>
                 {Dashboard && <a className={Headerclass} href="/Dashboard">{Dashboard}</a>}
                 {Projects && <a className={Headerclass} href="/Projects">{Projects}</a>}
                 {Analytics && <a className={Headerclass} href="/Analytics">{Analytics}</a>}
