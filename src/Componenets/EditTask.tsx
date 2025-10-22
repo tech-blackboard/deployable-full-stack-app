@@ -9,7 +9,7 @@ export default function EditTask() {
             <label className=" text-9xm font-semibold mr-56 mb-5">Task Title</label><br></br>
             <InputComponent inputType="text" /><br></br>
             <label className="mr-56 text-9xm font-semibold mb-5">Description</label><br></br>
-            <textarea className="border-2 mb-4 w-[70%] md:w-[60%]" />
+            <textarea className="border-2 mb-4 w-[76%] md:w-[60%]" />
 
             <div className="flex justify-center gap-10 mb-5">
                 <div>
@@ -23,7 +23,7 @@ export default function EditTask() {
                 </div >
                 <div>
                     <label className=" text-9xm font-semibold mb-5">Status</label>
-                    <select className="border-2">
+                    <select className="border-2 ">
                         <option>To-do</option>
                         <option>In Prograss</option>
                         <option>Complete</option>

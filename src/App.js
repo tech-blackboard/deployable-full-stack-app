@@ -31,16 +31,16 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-     {/* <DashBoard/>   */}
+     <DashBoard/>  
        {/* <EditTask/>  */}
     {/* <ErrorLoadingStates/>  */}
-    {/* <UserContext.Provider value="pooja"> */}
+    {/* <UserContext.Provider value="Pooja"> */}
     {/* <ProjectView/> */}
-      {/* <DashBoard/>   */}
-    {/* </UserContext.Provider>   */}
+      {/* <DashBoard/>  
+    </UserContext.Provider>   */}
     {/* <Register/>   */}
        {/* <Login/>     */}
-     <UserProfile/>  
+     {/* <UserProfile/>   */}
     {/* <TaskListView/>   */}
 
 

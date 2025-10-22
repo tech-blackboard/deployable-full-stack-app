@@ -13,7 +13,7 @@ export default function ProjectView() {
             <div className="flex justify-between  bg-gray-700 content-around w-[149%] md:w-[100%]">
                 <h2 className='text-2xl text-white    p-3  pt-5 font-bold md:text-3xl'> ← Back to Dashboard</h2>
 
-                <HeaderComponent EditProfile="Edit Profile" sittings="sittings" className='w-28  text-xl md:mr-9 md:w-44 md:pt-2' />
+                <HeaderComponent EditProfile="Edit Profile" sittings="sittings" className='w-28  h-[20%] mb-2 mr-2 text-xl md:mr-9 md:w-44 md:pt-2' />
 
             </div>
             <h2 className=" text-2xl font-bold mt-2 mr-5 md:text-3xl md:mr-[70%] md:mt-9">Task Management Website</h2>
@@ -46,7 +46,7 @@ export default function ProjectView() {
                     </select></div>
             </div>
             <ButtonComponent className=" mt-3 ml-44 bg-blue-600 hover:bg-blue-700 text-xl md:mr-28 md:mt-11" name="+ Add Task" />
-            <div className="flex justify-between mb-3 ml-[20%] gap-3  md:justify-around">
+            <div className="flex justify-between mb-3 ml-[20%] gap-3 md:mr-52   md:justify-between">
                 <p className='text-red-600 font-semibold p-9'>To Do(5)</p>
                 <p className='text-orange-600 font-semibold p-9'>In Progress</p>
                 <p className='text-green-600 font-semibold p-9'>Complete(4)</p>

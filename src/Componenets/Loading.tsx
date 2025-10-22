@@ -27,12 +27,12 @@ export default function Loading({ message = "Loading..." }) {
     >
       {/* Spinner */}
       <div
-        className="w-20 h-20 border-4  border-gray-300 border-t-blue-500 rounded-full animate-spin absolute p-11 md:p-10"
+        className="w-20 h-20 border-4  border-gray-300 border-t-blue-500 ml-3 rounded-full animate-spin absolute p-11 md:p-10"
       // aria-hidden="true"
       ></div>
 
       {/* Message */}
-      <p className="text-xl text-gray-700 text-center ">{message}</p>
+      <p className="text-xl text-gray-700  ml-3 text-center ">{message}</p>
     </div>
   );
 }

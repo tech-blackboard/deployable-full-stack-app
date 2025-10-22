@@ -2,11 +2,11 @@ import HeaderComponent from './HeaderComponent'
 // import './AnalyticsDashboard.css'
 import TaskCompletionChart from './TaskCompletionChart'
 export default function AnalyticsDashboard() {
-    const divStyle = 'group border-3 border-blue-300 p-28 mb-9 bg-blue-100  rounded-xl md:p-9 cursor-pointer'
+    const divStyle = 'group border-3 border-blue-300 p-[65%] mb-9 bg-blue-100  rounded-xl md:p-9 cursor-pointer'
     //  //hover:bg-blue-400 hover:font-semibold hover:text-xl hover:p-9 hover:text-white ';
     const divPara = "text-4xl  text-blue-400  font-bold mb-5 ";
     const parastyle = 'text-gray-500 text-2xl  mt-5 font-lighter';
-    const hr = 'w-[80%] ml-44 mt-4 mb-3 text-2xl text-gray-900 ';
+    const hr = 'w-[80%] ml-11 mt-4 mb-3 text-xl text-gray-900  md:ml-44';
     return (
         <div>
 
@@ -17,7 +17,7 @@ export default function AnalyticsDashboard() {
                     Dashboard="Dashboard"
                     Projects="Projects"
                     Analytics="Analytics"
-                    Profile="Profile" className='md:text-xl md:pt-2' />
+                    Profile="Profile" className='md:text-xl md:pt-2 md:w-[29%] mb-3 w-[20%] md:mr-9 ' />
 
             </div>
             <p className='text-2xl  font-bold pt-9 mr-18 md:mr-[70%] md:text-3xl'>Productivity Analytics</p>
@@ -31,7 +31,7 @@ export default function AnalyticsDashboard() {
                     <span className={divPara}>2.3</span>
                     <p className={parastyle}>Avg Tasks/Day</p>
                 </div>
-                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-9 rounded-xl cursor-pointer'>
+                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[75%] md:p-9 rounded-xl cursor-pointer'>
                     <span className={divPara}>18h</span>
                     <p className={parastyle}>Time  Saved</p>
                 </div>
@@ -44,28 +44,28 @@ export default function AnalyticsDashboard() {
                 <div>
                     <TaskCompletionChart />
                 </div>
-                <div className="border-3 border-white-300 bg-white-100 p-11  mt-9 ml-44 shadow-xl rounded-xl md:mt-2  md:mr-44 md:p-11">
+                <div className="border-2 border-white-300 bg-white-100 p-11  mt-9 ml-[47%] shadow-xl rounded-xl md:mt-2  md:mr-72 md:p-11">
                     <p className="text-2xl font-bold md:mb-4 md:mt-0 md:text-2xl">Priority Distribution</p>
                     <table>
                         <tr>
                             <td className=' relative p-3 pr-20  text-xl md:text-2xl'>High Priority</td>
                             <td className='font-bold md:text-2xl' >35%</td>
                         </tr>
-                        <div className=" w-[120%]   h-4 ml-2 rounded-xl bg-gray-200 ">
+                        <div className=" w-[120%]   h-4 ml-4 rounded-xl bg-gray-200 ">
                             <div className="  bg-red-300 w-[35%] border-l-4 border-l-red-300 mr-0 border h-4 rounded-xl"></div>
                         </div>
                         <tr>
                             <td className='p-3 pr-14  text-xl md:text-2xl  md:pt-9'>Medium  Priority</td>
                             <td className='font-bold md:text-2xl'>45%</td>
                         </tr>
-                        <div className=" w-[120%]  h-4 ml-2 rounded-xl bg-gray-200   ">
+                        <div className=" w-[120%]  h-4 ml-4 rounded-xl bg-gray-200   ">
                             <div className=" bg-orange-300 w-[45%]  mr-0 border border-l-4 border-l-orange-300   h-4 rounded-xl"></div>
                         </div>
                         <tr>
                             <td className='p-3 pr-20  text-xl md:text-2xl md:pt-9'>Low Priority</td>
                             <td className='font-bold md:text-2xl'>20%</td>
                         </tr>
-                        <div className=" w-[120%]  h-4 ml-2  rounded-xl bg-gray-200  ">
+                        <div className=" w-[120%]  h-4 ml-4  rounded-xl bg-gray-200  ">
                             <div className="bg-green-300 w-[20%]  border-l-4 border-l-green-300 border h-4 rounded-xl" ></div>
                         </div>
                     </table>
