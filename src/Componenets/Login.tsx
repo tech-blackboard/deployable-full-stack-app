@@ -112,7 +112,7 @@ export default function Login() {
                 <ButtonComponent name="Sign In" onClick={handleSignIn} />
                 <br></br>
                 {
-                    signUp && <p id="paragraph">Don't have an account? <Link to="/Register" className="re">Register here</Link></p>
+                    signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className="re">Register here</Link></p>
                 }
             </form>
         </div>

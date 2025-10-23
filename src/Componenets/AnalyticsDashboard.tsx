@@ -2,27 +2,27 @@ import HeaderComponent from './HeaderComponent'
 // import './AnalyticsDashboard.css'
 import TaskCompletionChart from './TaskCompletionChart'
 export default function AnalyticsDashboard() {
-    const divStyle = 'group border-3 border-blue-300 p-[65%] mb-9 bg-blue-100  rounded-xl md:p-9 cursor-pointer'
+    const divStyle = 'group border-3 border-blue-300 mb-2 p-9 bg-blue-100  rounded-xl cursor-pointer'
     //  //hover:bg-blue-400 hover:font-semibold hover:text-xl hover:p-9 hover:text-white ';
-    const divPara = "text-4xl  text-blue-400  font-bold mb-5 ";
-    const parastyle = 'text-gray-500 text-2xl  mt-5 font-lighter';
-    const hr = 'w-[80%] ml-11 mt-4 mb-3 text-xl text-gray-900  md:ml-44';
+    const divPara = "text-xl  text-blue-400  font-bold mb-5 ";
+    const parastyle = 'text-gray-500 text-xl  mt-5 font-lighter';
+    const hr = '  text-xl text-gray-900  ';
     return (
         <div>
 
-            <div className="flex justify-between  bg-gray-700 w-[210%] md:w-[100%]">
-                <h1 className="text-2xl text-white ml-9 p-3 font-bold md:text-3xl  md:p-4  ">Analytics Dashboard</h1>
+            <div className="flex justify-between  bg-gray-700 w-full  ">
+                <h1 className="text-xl text-white ml-9 p-3 font-bold md:text-2xl   ">Analytics Dashboard</h1>
 
                 <HeaderComponent
                     Dashboard="Dashboard"
                     Projects="Projects"
-                    Analytics="Analytics"
-                    Profile="Profile" className='md:text-xl md:pt-2 md:w-[29%] mb-3 w-[20%] md:mr-9 ' />
+                    ErrorLoadingStates="ErrorLoadingStates"
+                    Profile="Profile" className='w-full' />
 
             </div>
-            <p className='text-2xl  font-bold pt-9 mr-18 md:mr-[70%] md:text-3xl'>Productivity Analytics</p>
-            <span className=' text-xl text-gray-400 font-bold ml-9   md:mr-[60%] md:text-xl'>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>
-            <div className="flex flex-wrap  justify-around  mt-9 ml-[53%] md:ml-1 gap-9 ">
+            <p className='text-xl  font-bold pt-9 mr-18 '>Productivity Analytics</p>
+            <span className=' text-lg text-gray-400 font-bold ml-9  '>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>
+            <div className="flex flex-col md:flex-row flex-wrap  justify-evenly gap-9  ">
                 <div className={divStyle}>
                     <span className={divPara}>76%</span>
                     <p className={parastyle}>Completion Rate</p>
@@ -31,21 +31,21 @@ export default function AnalyticsDashboard() {
                     <span className={divPara}>2.3</span>
                     <p className={parastyle}>Avg Tasks/Day</p>
                 </div>
-                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[75%] md:p-9 rounded-xl cursor-pointer'>
+                <div className='group border-3 border-blue-300 mb-9 p-6 bg-blue-100  rounded-xl cursor-pointer'>
                     <span className={divPara}>18h</span>
                     <p className={parastyle}>Time  Saved</p>
                 </div>
-                <div className='group border-3 border-blue-300 mb-9 bg-blue-100 p-[70%] md:p-9 rounded-xl cursor-pointer' >
+                <div className='group border-3 border-blue-300 mb-9 p-9 bg-blue-100  rounded-xl cursor-pointer' >
                     <span className={divPara}>↑12%</span>
                     <p className={parastyle}>vs Last Month</p>
                 </div>
             </div>
-            <div className="flex justify-between mr-9 mt-9 mb-[17%] md:mb-11">
+            <div className="flex flex-col md:flex-row gap-11 mt-9 justify-around  ">
                 <div>
                     <TaskCompletionChart />
                 </div>
-                <div className="border-2 border-white-300 bg-white-100 p-11  mt-9 ml-[47%] shadow-xl rounded-xl md:mt-2  md:mr-72 md:p-11">
-                    <p className="text-2xl font-bold md:mb-4 md:mt-0 md:text-2xl">Priority Distribution</p>
+                <div className="border-2 border-white-300 bg-white-100 p-7 shadow-xl rounded-xl">
+                    <p className="text-xl font-bold  md:text-2xl">Priority Distribution</p>
                     <table>
                         <tr>
                             <td className=' relative p-3 pr-20  text-xl md:text-2xl'>High Priority</td>
