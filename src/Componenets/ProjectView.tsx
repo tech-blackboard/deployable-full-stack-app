@@ -79,7 +79,9 @@ export default function ProjectView() {
                     <p className={divStylepara}>Due: Next Week</p>
                     <h6 className="text-white  w-28 ml-[28%] border rounded-xl mt-2 bg-red-500 text-xl  md:mt-3"> Medium</h6>
                 </div>
-
+                 <div>
+                    
+                 </div>
             </div>
         </div>
     )
