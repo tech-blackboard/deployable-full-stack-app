@@ -52,7 +52,7 @@ function App() {
    
      {/* <DisplayProject/> */}
   {/* <ProjectListView/> */}
-      <UserContext.Provider value="1">
+      <UserContext.Provider value={count}>
             <DashBoard/> 
          </UserContext.Provider>
 
