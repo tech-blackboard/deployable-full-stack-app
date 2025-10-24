@@ -4,8 +4,14 @@ import HeaderComponent from './HeaderComponent';
 import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent';
 import {useNavigate} from 'react-router-dom';
+import DisplayProject from './DisplayProjects';
+import { useSelector } from 'react-redux';
+import ProjectListView from './ProjectListView';
 
 export default function ProjectView() {
+    //   const projects = useSelector((state) => state.newProject.projectListView);
+    //    console.log("projects",projects);
+
     const divStylepara = "text-gray-500 mr-[4px] text-2xl  md:text-xl"
     const high = "text-white ml-[30%] border w-11 text-xl  rounded-xl mt-1 bg-orange-400 w-28  md:mt-3";
     const divStyle = `group border  border-l-4 border-l-red-400 border-gray-300 bg-white-300  p-8 rounded-xl shadow-xl cursor-pointer hover:bg-white-600 hover:font-semibold mb-9 `
@@ -56,15 +62,13 @@ export default function ProjectView() {
                 <p className='text-orange-600 font-semibold p-9'>In Progress</p>
                 <p className='text-green-600 font-semibold p-9'>Complete(4)</p>
             </div>
+                 
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-9 gap-9 mb-9">
-                <div className={divStyle}>
-                    <h5 className="text-blue-500 font-semibold text-2xl group-hover:text-blue-700">Setup Aythentication</h5>
-                    <p className="text-gray-500 text-2xl">Due: Tomorrow</p>
-                    <h6 className={high}> High</h6>
+           
+                    <ProjectListView/> 
 
-                </div>
-                <div className={divStyle}>
+             
+                {/* <div className={divStyle}>
                     <h5 className="text-blue-500 font-semibold text-2xl group-hover:text-blue-700">API Integration</h5>
                     <p className={divStylepara}>Due: Friday</p>
                     <h6 className={high}> High</h6>
@@ -78,12 +82,10 @@ export default function ProjectView() {
                     <h5 className="text-blue-500  font-semibold text-xl group-hover:text-blue-700">Design Homepage </h5>
                     <p className={divStylepara}>Due: Next Week</p>
                     <h6 className="text-white  w-28 ml-[28%] border rounded-xl mt-2 bg-red-500 text-xl  md:mt-3"> Medium</h6>
-                </div>
-                 <div>
-                    
-                 </div>
+                </div> */}
             </div>
-        </div>
+          
+     
     )
 }//<button class="bg-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ...">
 //   Save Changes

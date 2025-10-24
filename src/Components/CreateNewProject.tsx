@@ -2,7 +2,9 @@ import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent';
 import { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
-import DisplayProject from './AddProjects'
+import { useSelector ,useDispatch} from 'react-redux';
+import { addProject } from '../projects/CreateNewProjectSlice';
+import DisplayProjects from './DisplayProjects'
 // import './CreateNewProject.css';
 
 // interface CreateNewProject{
@@ -13,6 +15,9 @@ import DisplayProject from './AddProjects'
 
 // }
 export default function CreateNewProjects() {
+    // const newProjects=useSelector((state)=>state.newProject.addProjects);
+     const dispatch=useDispatch();
+    // console.log("newProjects",newProjects)
     const [projectName , setProjectName]=useState("");
     const [description , setDescription]=useState("");
     const [startDate , setStartDate]=useState("");
@@ -42,10 +47,10 @@ export default function CreateNewProjects() {
     function createNewProject(event){
         event.preventDefault()
         const project={projectName,description,startDate,targetEndDate}
-      
-       
         console.log("project",project)
-        
+        dispatch(addProject(project))
+           console.log( "dispatch",(project))
+            navigate('/Dashboard')
 
     }
 
@@ -86,7 +91,7 @@ export default function CreateNewProjects() {
             <div className="flex justify-center  gap-2 mt-5">
             <ButtonComponent className="bg-gray-600 hover:bg-gray-700 md:mt-5  " name="Cancel"  />
                 <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-5  " name="Create New Project" onClick={createNewProject}/>
-                 {/* <DisplayProject projects={projectName}/> */}
+               
     
             </div>
 

@@ -1,15 +1,30 @@
 // import './Dashboard.css';
 import { UserContext } from './UserContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import HeaderComponent from './HeaderComponent';
 import ButtonComponent from './ButtonComponent';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import DisplayProject from './DisplayProjects';
+import ProjectView from './ProjectView';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProjectCount } from '../projects/CreateNewProjectSlice';
+// import ButtonComponent from './ButtonComponent'
 export default function DashBoard() {
+      const Dispatch=useDispatch()
+
+    const [countProject,setCountProject]=useState("")
+      const projects = useSelector((state) => state.newProject.addProjects);
+      const count = useSelector((state) => state.newProject.addProjects);
+            console.log("count",count)
+
+   console.log("projects",projects)
     const user = useContext(UserContext);
+        const counts = useContext(UserContext);
+
     const divStyle = 'group border-3 border-blue-300 bg-blue-100 p-9  rounded-xl cursor-pointer  hover:bg-blue-400 hover:font-semibold hover:text-xl hover:p-9 hover:text-white ';
     const divPara = "  text-blue-500  font-bold mb-5   group-hover:text-white md:text-2xl"
-    const projects = "mt-9 border-2 rounded-xl w-full shadow-xm p-9 "
+    // const projects = "mt-9 border-2 rounded-xl w-full shadow-xm p-9 "
         const navigate = useNavigate()
 
 
@@ -17,6 +32,14 @@ export default function DashBoard() {
         navigate('/CreateNewProject')
     }
 
+    
+
+//  function countProjects(){
+//             const count = useSelector((state) => state.newProject.addProjects);
+//             console.log("count",count)
+//             const Dispatch=useDispatch()
+//             console.log("Dispatch",Dispatch)
+//     }
     return (
 
         <div>
@@ -42,7 +65,7 @@ export default function DashBoard() {
             <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 px-9 mt-9">
 
                 <div className={divStyle}>
-                    <p className={divPara}>5</p>Active Projects</div>
+                    <p className={divPara}>{count}</p>Active Projects</div>
 
                 <div className={divStyle}>
                     <p className={divPara}>23</p>Total Tasks</div>
@@ -57,23 +80,23 @@ export default function DashBoard() {
             <div className="flex  flex-col md:flex-row justify-around   mt-11">
                 <p className="font-bold text-xl mt-3">Recent Projects</p>
                 <ButtonComponent name="New Project " onClick={newProject} className="font-bold text-lg w-full " />
-            </div>
-            <div className={projects}>
-                <h4 className="font-bold text-xl  md:text-2xl" >Task Management Website</h4>
-                <span className="text-gray-600 ">12 tasks • 3 completed</span>
-                <div className="progress-containers">
-                    <div className="bg-gray-200 w-full h-3 mt-3 border-2 rounded-xl ml-4"  ></div>
-                </div>
-            </div>
+                            <button onClick={()=>Dispatch(addProjectCount())}>increment</button>
 
-            <div className={projects}>
+            </div>
+          <DisplayProject/>
+
+            {/* <div className={projects}>
                 <h4 className="font-bold text-xl  md:text-2xl">Mobile App Redesign</h4>
                 <p className="text-gray-600" >8 tasks • 6 completed</p>
                 <div className="progress-containers">
                     <div className="bg-gray-200 w-full h-3  mt-3 border-2 rounded-xl ml-4  "></div>
                 </div>
-            </div>
+            </div> */}
+         
+               
 
         </div>
     )
 }
+
+
