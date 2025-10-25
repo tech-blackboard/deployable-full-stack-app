@@ -57,6 +57,8 @@ export default function ProjectView() {
                     </select></div>
             </div>
             <ButtonComponent className=" px-2 py-2 my-9 bg-blue-600 hover:bg-blue-700 text-xl" name="+ Add Task" />
+
+            
             <div className="flex flex-col md:flex-row  justify-evenly   ">
                 <p className='text-red-600 font-semibold p-9'>To Do(5)</p>
                 <p className='text-orange-600 font-semibold p-9'>In Progress</p>

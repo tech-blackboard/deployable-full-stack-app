@@ -22,7 +22,9 @@ export default function CreateNewProjects() {
     const [description , setDescription]=useState("");
     const [startDate , setStartDate]=useState("");
     const [targetEndDate , setTargetEndDate]=useState("");
-    
+    const[TeamMembers , setTeamMembers]=useState("")
+ const[ProjectCategory,setetProjectCategory]=useState("")
+
 
     const navigate=useNavigate()
 
@@ -42,17 +44,26 @@ export default function CreateNewProjects() {
      function projectTargetEndDate(event:React.ChangeEvent<HTMLInputElement>){
       setTargetEndDate(event?.target.value)
 
-    }
+     }
+function projectTeamMembers(event:React.ChangeEvent<HTMLInputElement>){
+      setTeamMembers(event?.target.value)
+     }
 
-    function createNewProject(event){
+
+     function ProjectCategories(event:React.ChangeEvent<HTMLInputElement>){
+      setetProjectCategory(event?.target.value)
+     }
+    function createNewProject(event: { preventDefault: () => void; }){
         event.preventDefault()
-        const project={projectName,description,startDate,targetEndDate}
+        const project={projectName,description,startDate,targetEndDate,TeamMembers,ProjectCategory}
         console.log("project",project)
         dispatch(addProject(project))
            console.log( "dispatch",(project))
             navigate('/Dashboard')
 
     }
+
+    
 
     
     return (
@@ -76,7 +87,7 @@ export default function CreateNewProjects() {
 
             <div className="flex flex-col">
                 <label className="  mr-44 text-9xm font-semibold mt-5 ">Project Category</label>
-                <select className="border-2 ml-28 p-1 rounded-xl w-[60%] ">
+                <select className="border-2 ml-28 p-1 rounded-xl w-[60%] " onChange={ProjectCategories}>
                     <option>Web Development</option>
                     <option>Mobile App</option>
                     <option>Designing</option>
@@ -86,7 +97,7 @@ export default function CreateNewProjects() {
             </div>
 
             <h1 className="mr-28 text-9xm font-semibold mt-5">Team Members (Optional)</h1>
-            <InputComponent inputType="text" />
+            <InputComponent inputType="text" inputOnChange={projectTeamMembers}/>
 
             <div className="flex justify-center  gap-2 mt-5">
             <ButtonComponent className="bg-gray-600 hover:bg-gray-700 md:mt-5  " name="Cancel"  />
