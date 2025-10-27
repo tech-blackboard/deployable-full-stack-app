@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import InputComponent from "./InputComponent";
-import ButtonComponent from './ButtonComponent';
+import InputComponent from "./InputComponent"
+import ButtonComponent from './ButtonComponent'
 // import "./Register.css";
 
 // interface UserData{
@@ -124,7 +124,7 @@ export default function Register() {
                 confirmPwd: cPwd,
 
             }
-            localStorage.setItem(email, JSON.stringify(local))
+            localStorage.setItem('user', JSON.stringify(local))
             toast.success("Register Successful!");
             navigate('/Login')
 

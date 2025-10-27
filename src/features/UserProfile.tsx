@@ -2,6 +2,7 @@ import InputComponent from './InputComponent';
 // import './UserProfile.css';
 import HeaderComponent from './HeaderComponent';
 import ButtonComponent from './ButtonComponent';
+import { useState, type SetStateAction } from 'react';
 export default function UserProfile() {
   const slider = 'span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-xl transition duration-300 peer-checked:bg-blue-500 before:content-"" before:absolute before:h-[16px] before:w-[16px] before:left-[2px] before:bottom-[2px] before:bg-white before:rounded-full before:transition-transform peer-checked:before:translate-x-[18px]';
   return (
@@ -20,7 +21,7 @@ export default function UserProfile() {
           <div className="border rounded-[50%] h-38 w-32 bg-blue-300 p-3 mt-5 ml-[140px]">
             <h4 className="text-4xl font-semibold p-8">PT</h4>
           </div><br></br>
-          <span className=" text-2xl font-bold mt-3  ml-28  ">poojathatikonda</span><br></br>
+          <span className=" text-2xl font-bold mt-3  ml-28  " >poojathatikonda</span><br></br>
           <span className=" text-xl text-gray-500 mt-3 mb-0 ml-28 ">pooja888@gmail.com</span><br></br>
           <span className=" text-xl  text-gray-500 mt-0 ml-[37%] ">Member Since 2025</span><br></br>
           <ButtonComponent className="bg-blue-600 hover:bg-blue-700 mt-6 mb-9 text-xl  ml-28 md:w-[60%]" name=" Changes Avatar" />

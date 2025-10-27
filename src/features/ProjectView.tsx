@@ -1,10 +1,10 @@
-import './ProjectView.css';
+// import './ProjectView.css';
 import { Search } from 'lucide-react';
 import HeaderComponent from './HeaderComponent';
-import InputComponent from './InputComponent';
+import InputComponent from './InputComponent'
 import ButtonComponent from './ButtonComponent';
-import {useNavigate} from 'react-router-dom';
-import DisplayProject from './DisplayProjects';
+import { useNavigate } from 'react-router-dom';
+import DisplayProject from './DisplayProjects'
 import { useSelector } from 'react-redux';
 import ProjectListView from './ProjectListView';
 
@@ -15,14 +15,15 @@ export default function ProjectView() {
     const divStylepara = "text-gray-500 mr-[4px] text-2xl  md:text-xl"
     const high = "text-white ml-[30%] border w-11 text-xl  rounded-xl mt-1 bg-orange-400 w-28  md:mt-3";
     const divStyle = `group border  border-l-4 border-l-red-400 border-gray-300 bg-white-300  p-8 rounded-xl shadow-xl cursor-pointer hover:bg-white-600 hover:font-semibold mb-9 `
-    const navigate=useNavigate()
-    function backToDashborad(){
+    const navigate = useNavigate()
+    function backToDashborad() {
         navigate('/Dashboard')
+        
     }
     return (
         <div>
             <div className="flex justify-between  bg-gray-700 content-around w-full">
-                <button  className='text-2xl text-white p-3  pt-5 font-bold md:text-2xl'onClick={backToDashborad}> ← Back to Dashboard</button>
+                <button className='text-2xl text-white p-3  pt-5 font-bold md:text-2xl' onClick={backToDashborad}> ← Back to Dashboard</button>
 
                 <HeaderComponent EditTask="EditTask" sittings="sittings" className='w-full px-5 mr-4 mb-2' />
 
@@ -56,21 +57,21 @@ export default function ProjectView() {
                         <option>Low</option>
                     </select></div>
             </div>
-            <ButtonComponent className=" px-2 py-2 my-9 bg-blue-600 hover:bg-blue-700 text-xl" name="+ Add Task" />
+            <ButtonComponent className=" px-2 py-2 my-9 bg-blue-600 hover:bg-blue-700 text-xl" name="+ Add Task"  />
 
-            
+
             <div className="flex flex-col md:flex-row  justify-evenly   ">
                 <p className='text-red-600 font-semibold p-9'>To Do(5)</p>
                 <p className='text-orange-600 font-semibold p-9'>In Progress</p>
                 <p className='text-green-600 font-semibold p-9'>Complete(4)</p>
             </div>
-                 
 
-           
-                    <ProjectListView/> 
 
-             
-                {/* <div className={divStyle}>
+
+            <ProjectListView />
+
+
+            {/* <div className={divStyle}>
                     <h5 className="text-blue-500 font-semibold text-2xl group-hover:text-blue-700">API Integration</h5>
                     <p className={divStylepara}>Due: Friday</p>
                     <h6 className={high}> High</h6>
@@ -85,9 +86,9 @@ export default function ProjectView() {
                     <p className={divStylepara}>Due: Next Week</p>
                     <h6 className="text-white  w-28 ml-[28%] border rounded-xl mt-2 bg-red-500 text-xl  md:mt-3"> Medium</h6>
                 </div> */}
-            </div>
-          
-     
+        </div>
+
+
     )
 }//<button class="bg-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ...">
 //   Save Changes

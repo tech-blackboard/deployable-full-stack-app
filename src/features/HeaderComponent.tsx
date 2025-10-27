@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import HomePage from './HomePage';
 
 
 interface HeaderProps {
@@ -15,11 +16,12 @@ interface HeaderProps {
     Login?:string;
     SignUp?:string;
     ErrorLoadingStates?:string;
+    HomePage?:string;
 
 }
 
 
-export default function HeaderComponent({Login,SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
+export default function HeaderComponent({ Login, SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, HomePage,sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
     const Headerclass = ` rounded-xl  bg-gray-500  text-white font-semibold ${className}`;
     return (
         <div>
@@ -36,7 +38,10 @@ export default function HeaderComponent({Login,SignUp, Dashboard, Projects, Anal
                 {TaskListview && <Link className={Headerclass} to="/TaskListview">{TaskListview}</Link>}
                 {Boardview && <Link className={Headerclass} to="/Boardview">{Boardview}</Link>}
                 {ErrorLoadingStates && <Link className={Headerclass} to="/ErrorLoadingStates">{ErrorLoadingStates}</Link> }
+                {HomePage && <Link className={Headerclass} to="/HomePage">{HomePage}</Link>}
+
             </nav>
+
         </div>
     )
 }

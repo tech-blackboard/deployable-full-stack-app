@@ -72,8 +72,8 @@ export default function Login() {
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
 
-        const getLocalUserData = localStorage.getItem(email);
-
+        const getLocalUserData = localStorage.getItem('user');
+        console.log("getLocalUserData", getLocalUserData)
         // Check if user data does NOT exist
         if (!getLocalUserData) {
             toast.error("No user found in local storage!");

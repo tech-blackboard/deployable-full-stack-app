@@ -8,6 +8,7 @@ interface DisplayProjectsProps{
   description:string;
   startDate:string;
   targetEndDate:string;
+  ProjectCategory:string;
   TeamMembers:string;
 
 }
@@ -26,12 +27,14 @@ export default function DisplayProjects() {
           {projects.map((project:DisplayProjectsProps, index: number) => (
             <div  key={index}
               className="border p-4 rounded-lg w-full md:1/2 lg:1/3 border-1 border-l-red-500 shadow-md hover:shadow-lg transition-all duration-300"
-              onClick={()=>navigate(`/Projects/${index}`)}>
+              onClick={()=>navigate(`/Projects/${index}`)}    >
+              
               <h2 className="text-xl font-semibold mb-2">{project.projectName}</h2>
-              <p className="text-gray-700 mb-2">{project.description}</p>
+              <p className="text-gray-700 mb-2">description: {project.description}</p>
               <p className="text-sm text-gray-500">Start: {project.startDate}</p>
               <p className="text-sm text-gray-500">End: {project.targetEndDate}</p>
-              <p className="text-sm text-gray-500">TeamMembers{project.TeamMembers}</p>
+              <p className="text-sm text-gray-500">Project Category: {project.ProjectCategory}</p>
+              <p className="text-sm text-gray-500">TeamMembers: {project.TeamMembers}</p>
 
             </div>
           ))}

@@ -50,8 +50,7 @@ export default function DashBoard() {
           Projects="Projects"
           Analytics="Analytics"
           Logout="Logout"
-          className="w-full px-4 text-xl"
-        />
+          className="w-full px-4 text-xl" HomePage={""}        />
       </div>
 
       <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mt-3 text-blue-600 pt-5">

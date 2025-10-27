@@ -24,10 +24,9 @@ export default function HomePage() {
 
         <HeaderComponent 
           
-        Login="Login" 
-          SignUp="SignUp" 
-          className=" inline-block text-gray-800 text-xl font-bold bg-transparent  hover:text-3xl transition-all " 
-        />
+            Login="Login"
+            SignUp="SignUp"
+            className=" inline-block text-gray-800 text-xl font-bold bg-transparent  hover:text-3xl transition-all " HomePage={''}        />
        
            </div>
 
