@@ -137,30 +137,39 @@ export default function Register() {
 
     return (
 
-        <div className=' border-1xl border-black-200 rounded-xl mx-auto pt-1  mt-2 w-96 m-10 pb-4 border-t-0 shadow-xl '>
+        <div className=' border border-gray-200 rounded-md mx-auto pt-1 md:px-0 px-3 mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
             <form>
                 <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold'>Task Manager</p>
-                <h2 className="font-sans text-xl pt-5 font-semibold text-blue-600 ">Create Account</h2>
+
+                <h2 className="font-sans text-2xl pt-5 font-bold text-blue-600 ">Create Account</h2>
                 <p className="text-xs pb-4 font-medium text-gray-500">Join Us To Manage Your Tasks</p>
 
-                <label className="text-xl ml-1 mr-0 font-lighter">Full Name</label><br></br>
-                <span className='text-red-500 mr-40 text-xs'>{fullNameError}</span><br></br>
-                < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} />
-
-                <label className="text-xl ml-1 mr-0 font-lighter ">Email</label><br></br>
-                <span className='text-red-500 text-xs  mr-40 ml-3'>{emailError}</span><br></br>
-                < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} />
-
-                <label className="text-xl ml-1 mr-0 font-lighter">Password</label><br></br>
-                <span className='text-red-500  text-xs  mr-40  ml-3'>{pwdError}</span><br></br>
+                <div className="flex flex-col mb-4">
+                    <label className=" font-sans text-base text-left md:ml-24 ">Full Name</label>
+                    <span className='text-red-500 text-xs text-left md:ml-24'>{fullNameError}</span>
+                    < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} />
+                </div>
+               
+                <div className="flex flex-col mb-4">
+                    <label className="font-sans text-base text-left md:ml-24">Email</label>
+                    <span className='text-red-500 text-xs text-left md:ml-24'>{emailError}</span>
+                    < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} />
+                  </div>
+              
+                <div className="flex flex-col mb-4">
+                    <label className="text-base font-sans text-left md:ml-24">Password</label>
+                    <span className='text-red-500 font-sans text-xs text-left md:ml-24'>{pwdError}</span>
                 < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} />
+                </div>
 
-                <label className="text-xl ml-1 mr-0 font-lighter">Confirm Password</label><br></br>
-                <span className='text-red-500 mr-40 text-xs'>{cPwdError}</span>
+                <div className="flex flex-col mb-4">
+                    <label className="text-base font-sans text-left md:ml-24">Confirm Password</label>
+                    <span className='text-red-500 font-sans text-left md:ml-24 text-xs'>{cPwdError}</span>
                 < InputComponent className="" inputType="password" inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} /><br></br>
+                </div>
 
-                <ButtonComponent name="Create Account" onClick={handleSignUp} /><br></br>
-                <p className=' text-black font-lighter'>Already have an Account? <Link to="/Login">Sign in</Link></p>
+                <ButtonComponent name="Create Account" onClick={handleSignUp} />
+                <p className='  font-sans text-black font-lighter'>Already have an Account? <Link to="/Login">Sign in</Link></p>
             </form>
         </div>
 

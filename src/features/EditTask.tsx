@@ -13,9 +13,7 @@ export default function EditTask() {
     const dispatch=useDispatch()
 // const { projects, addProject } = useContext(ProjectContext);
      const newProjects=useSelector((state:any)=>state.newProject.addProjects);
-    console.log("Before delete newProjects", newProjects)
-    console.log("after delete newProjects", newProjects)
-
+    console.log("newProjects", newProjects)
 
     const projectIndex = Number(id)
     // console.log("projectIndex", projectIndex)
@@ -55,7 +53,7 @@ export default function EditTask() {
         dispatch(updateProject({ index: projectIndex, updatedProjects }));
         console.log("updateProject in redux ", updatedProjects)
      
-        navigate("/ProjectView");
+        navigate(`/Projects/${projectIndex}`);
 
         
     }
@@ -64,7 +62,7 @@ export default function EditTask() {
         console.log("projectIndex ", projectIndex)
         dispatch(deleteProject((projectIndex)))
         console.log("deleted projectIndex ", projectIndex)
-       navigate("/ProjectView");
+        navigate('/');
 
     }
 
@@ -78,10 +76,15 @@ export default function EditTask() {
       
     }
 
+    function closeButton(){
+      navigate('/Dashboard')
+
+    }
+
     return (
         <div className="relative shadow-xl border-2 rounded-xl mx-auto pb-2  w-full md:w-1/2  lg:w-1/3">
             <h3 className="text-xl font-semibold  mt-11 mr-56  mb-3">Edit Task</h3>
-            <button className="absolute top-[13px]  text-xl right-[30px]  ">&times;</button>
+            <button className="absolute top-[13px]  text-xl right-[30px]  " onClick={closeButton}>&times;</button>
             <label className=" text-9xm font-semibold mr-56 mb-5">Task Title</label><br></br>
             <InputComponent inputType="text" inputValue={taskTitle} inputOnChange={taskTitles}/><br></br>
             <label className="mr-56 text-9xm font-semibold mb-5">Description</label><br></br>

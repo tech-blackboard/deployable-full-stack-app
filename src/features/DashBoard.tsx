@@ -40,8 +40,8 @@ export default function DashBoard() {
    
   return (
     <div>
-      <div className="flex flex-wrap justify-between px-3 py-2 bg-gray-800 w-full">
-        <h2 className="text-2xl text-white font-bold md:text-2xl pt-5 px-9">
+      <div className="flex flex-wrap justify-between px-3 py-2 bg-blue-800 w-full">
+        <h2 className="text-xl text-white font-bold md:text-2xl pt-2 px-5">
           TaskManager
         </h2>
 
@@ -50,7 +50,7 @@ export default function DashBoard() {
           Projects="Projects"
           Analytics="Analytics"
           Logout="Logout"
-          className="w-full px-4 text-xl" HomePage={""}        />
+          className="w-full  px-4 text-xl"/>
       </div>
 
       <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mt-3 text-blue-600 pt-5">

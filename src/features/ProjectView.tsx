@@ -3,7 +3,7 @@ import { Search } from 'lucide-react';
 import HeaderComponent from './HeaderComponent';
 import InputComponent from './InputComponent'
 import ButtonComponent from './ButtonComponent';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DisplayProject from './DisplayProjects'
 import { useSelector } from 'react-redux';
 import ProjectListView from './ProjectListView';
@@ -11,7 +11,7 @@ import ProjectListView from './ProjectListView';
 export default function ProjectView() {
     //   const projects = useSelector((state) => state.newProject.projectListView);
     //    console.log("projects",projects);
-
+// const {id}=useParams()
     const divStylepara = "text-gray-500 mr-[4px] text-2xl  md:text-xl"
     const high = "text-white ml-[30%] border w-11 text-xl  rounded-xl mt-1 bg-orange-400 w-28  md:mt-3";
     const divStyle = `group border  border-l-4 border-l-red-400 border-gray-300 bg-white-300  p-8 rounded-xl shadow-xl cursor-pointer hover:bg-white-600 hover:font-semibold mb-9 `

@@ -22,10 +22,10 @@ interface HeaderProps {
 
 
 export default function HeaderComponent({ Login, SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, HomePage,sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
-    const Headerclass = ` rounded-xl  bg-gray-500  text-white font-semibold ${className}`;
+    const Headerclass = `hover:shadow-xl hover:px-5 hover:border  py-2 rounded-xl px-3 bg-blue-800  text-white font-semibold ${className}`;
     return (
         <div>
-            <nav className='flex  gap-2  ml-9  '>
+            <nav className='flex flex-col md:flex-row gap-2  ml-9  '>
                 {Login  && <Link  className={Headerclass} to="/Login">{Login}</Link>}
                 {SignUp && <Link className={Headerclass} to="/SignUp">{SignUp}</Link>}
                 {Dashboard && <Link className={Headerclass} to="/Dashboard">{Dashboard}</Link>}
