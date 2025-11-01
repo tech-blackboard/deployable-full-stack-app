@@ -17,9 +17,7 @@ import ProjectView from "./features/ProjectView";
 import ProjectListView from "./features/ProjectListView";
 import DisplayProject from "./features/DisplayProjects";
 import Logout from './features/Logout'
-
 import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import
-
 function App() {
   return (
     <div className="App">
@@ -36,7 +34,7 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-
+    
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
       <ProjectProvider>
@@ -57,13 +55,15 @@ function App() {
           <Route path="/Logout" element={<Logout />} />
           <Route path="/HomePage" element={<HomePage/>}/>
           <Route path="ProjectView" element={<ProjectView />} />
-          <Route path="/EditTask" element={<EditTask />} />
-
+          <Route path="/EditTask/:id" element={< EditTask />} />
 
 
         </Routes>
       </ProjectProvider>
       {/* </BrowserRouter> */}
+
+
+      {/* <AddList /> */}
     </div>
   );
 }

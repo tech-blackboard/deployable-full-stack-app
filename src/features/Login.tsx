@@ -96,7 +96,7 @@ export default function Login() {
     return (
 
 
-        <div className=' border border-gray-300 md:px-0 px-6 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
+        <div className=' border border-gray-300 md:px-0 px-1 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
             <form>
                 <p className="text-2xl text-white mb-3 rounded-t-xl bg-blue-600 p-3 font-bold">Task Manager</p>
 
@@ -105,17 +105,17 @@ export default function Login() {
                     <span className="text-xm pb-4 font-lighter text-gray-500">Sign into your account</span>
 
                 </div>
-                <div className=' flex flex-col px-9 '>
-                    <label className="text-base text-left font-sans  md:ml-20">Email</label>
-                    <span className="text-red-500 text-xs  text-left  md:text-left md:ml-20 mb-1 ">{emailError}</span>
-                    < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} />
+                <div className=' flex flex-col '>
+                    <label className="text-base text-left font-sans  md:ml-24">Email</label>
+                    <span className="text-red-500 text-xs  text-left  md:text-left md:ml-24 mb-1 ">{emailError}</span>
+                    < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId}/>
 
                </div>
               
 
-                <div className=' flex flex-col  pt-3 px-9'>
-                    <label className="text-base text-left font-sans  md:ml-20">Password</label>
-                    <span className="text-red-500 text-xs text-left  md:text-left md:ml-20 mb-1 ">{pwdError}</span>
+                <div className=' flex flex-col  pt-3 '>
+                    <label className="text-base text-left font-sans  md:ml-24">Password</label>
+                    <span className="text-red-500 text-xs text-left  md:text-left md:ml-24 mb-1">{pwdError}</span>
                     < InputComponent inputType="email" inputValue={pwd} inputId="email" inputOnChange={password} className="mb-8 text-medium"/>
 
                 </div>

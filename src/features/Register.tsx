@@ -137,7 +137,7 @@ export default function Register() {
 
     return (
 
-        <div className=' border border-gray-200 rounded-md mx-auto pt-1 md:px-0 px-3 mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
+        <div className=' border border-gray-200 rounded-md mx-auto pt-1 md:px-0 px-1 mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
             <form>
                 <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold'>Task Manager</p>
 
@@ -145,12 +145,12 @@ export default function Register() {
                 <p className="text-xs pb-4 font-medium text-gray-500">Join Us To Manage Your Tasks</p>
 
                 <div className="flex flex-col mb-4">
-                    <label className=" font-sans text-base text-left md:ml-24 ">Full Name</label>
+                    <label className=" font-sans text-base text-left md:ml-24">Full Name</label>
                     <span className='text-red-500 text-xs text-left md:ml-24'>{fullNameError}</span>
                     < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} />
                 </div>
                
-                <div className="flex flex-col mb-4">
+                <div className="flex flex-col  mb-4">
                     <label className="font-sans text-base text-left md:ml-24">Email</label>
                     <span className='text-red-500 text-xs text-left md:ml-24'>{emailError}</span>
                     < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} />

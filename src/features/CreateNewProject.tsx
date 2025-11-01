@@ -69,7 +69,7 @@ export default function CreateNewProjects() {
     }
 
     return (
-        <div className="relative shadow-xl border-2 rounded-xl w-full md:w-1/2 lg:w-1/3 mx-auto mt-9">
+        <div className="relative shadow-xl border-2 rounded-xl w-full md:w-1/2 lg:w-1/3 mx-auto mt-3">
 
             <form>
                 <div className="flex flex-row md:px-0 px-9 md:justify-between px-11">
@@ -99,7 +99,7 @@ export default function CreateNewProjects() {
 
                 <div className="flex flex-col mb-4 px-9 md:px-0"> 
                     <label className=" text-base font-semibold text-left md:ml-24 font-sans ">Project Category</label>
-                    <select className="border-2  p-1 rounded-xl w-72  mx-auto" onChange={ProjectCategories}>
+                    <select className="border  p-1 rounded-md w-full md:w-1/2 lg:w-2/3 mx-auto" onChange={ProjectCategories}>
                         <option>Web Development</option>
                         <option>Mobile App</option>
                         <option>Designing</option>
@@ -112,7 +112,7 @@ export default function CreateNewProjects() {
                     <InputComponent inputType="text" inputOnChange={projectTeamMembers} />
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center  md:gap-11  mb-6 ">
+                <div className="flex flex-col md:flex-row justify-center  md:gap-2  mb-6 ">
                     <ButtonComponent className="bg-gray-500 hover:bg-gray-600 md:mt-5  " name="Cancel" />
                     <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-5  " name="Create New Project" onClick={createNewProject} />
                 </div>
