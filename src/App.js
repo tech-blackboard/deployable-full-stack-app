@@ -16,11 +16,14 @@ import HomePage from "./features/HomePage";
 import ProjectView from "./features/ProjectView";
 import ProjectListView from "./features/ProjectListView";
 import DisplayProject from "./features/DisplayProjects";
-import Logout from './features/Logout'
-import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import
+import Logout from './features/Logout';
+import Divisions from './features/divs';
+import DevComponent from "./features/DevComponent";
+import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
+import CardViewDisplay from './features/CardViewDisplay'
 function App() {
   return (
-    <div className="App">
+   <div className="App">
       {/* ✅ Toast Container */}
       <ToastContainer
         position="top-right"
@@ -32,12 +35,13 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
-      />
-    
+        theme="colored" />
+
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
-      <ProjectProvider>
+  
+     
+    <ProjectProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<Login />} />
@@ -53,17 +57,23 @@ function App() {
           <Route path="/ProjectListView" element={<ProjectListView />} />
           <Route path="/DisplayProject" element={<DisplayProject />} />
           <Route path="/Logout" element={<Logout />} />
-          <Route path="/HomePage" element={<HomePage/>}/>
+          <Route path="/HomePage" element={<HomePage />} />
           <Route path="ProjectView" element={<ProjectView />} />
-          <Route path="/EditTask/:id" element={< EditTask />} />
+          <Route path="/EditTask/:id" element={<EditTask />} />
+          <Route path="/Projects/:id" element={<DevComponent />} />
+          <Route path="/CardViewDisplay" element={<CardViewDisplay />} />
+
 
 
         </Routes>
       </ProjectProvider>
+      {/* <Divisions /> */}
       {/* </BrowserRouter> */}
 
 
-      {/* <AddList /> */}
+    {/* <AddList />  */}
+      {/* <CardViewDisplay/>
+    */}
     </div>
   );
 }

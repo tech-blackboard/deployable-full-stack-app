@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import DisplayProject from "./DisplayProjects";
 import { useDispatch } from "react-redux";
 import { ProjectContext } from "./ProjectContext";
+import DevComponent from "./DevComponent";
 
 interface ProjectContextType {
   projects: any[];
@@ -25,6 +26,10 @@ export default function DashBoard() {
   //  Navigate to new project page
   function newProject() {
     navigate("/CreateNewProject");
+  }
+
+  function nav() {
+    navigate("/ProjectView");
   }
 
   // Add new project dynamically
@@ -98,7 +103,9 @@ export default function DashBoard() {
       </div>
 
       {/* Display project list */}
+      
       <DisplayProject />
+      {/* <DevComponent heading="well come to UI Designing" para="This is our Platform to prove Our Skills" buttonNames="hello" onClick={nav} buttonName="apply" bg="bg-blue-200 px-9 rounded-xl py-1 gap-7" className="text-xl text-red-500 "/> */}
     </div>
   );
 }

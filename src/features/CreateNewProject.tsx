@@ -117,6 +117,8 @@ export default function CreateNewProjects() {
                     <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-5  " name="Create New Project" onClick={createNewProject} />
                 </div>
             </form>
+
+            
         </div>
     )
 }
