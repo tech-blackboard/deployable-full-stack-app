@@ -1,23 +1,81 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+import SignUp from './features/Register';
+import Login from './features/Login';
+import DashBoard from './features/DashBoard';
+import TaskListView from './features/TaskListView';
+import EditTask from './features/EditTask';
+import UserProfile from './features/UserProfile';
+import CreateNewProject from "./features/CreateNewProject";
+import ErrorLoadingStates from "./features/ErrorLoadingStates";
+import AnalyticsDashboard from "./features/AnalyticsDashboard";
+import HomePage from "./features/HomePage";
+import ProjectView from "./features/ProjectView";
+import ProjectListView from "./features/ProjectListView";
+import DisplayProject from "./features/DisplayProjects";
+import Logout from './features/Logout';
+import Divisions from './features/divs';
+import DevComponent from "./features/DevComponent";
+import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
+import CardViewDisplay from './features/CardViewDisplay'
+import AddToCard from "./features/AddToCard";
+import CheckList from "./features/CheckedList";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <div className="App">
+      {/* ✅ Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored" />
+
+      {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
+      {/* <BrowserRouter> */}
+  
+     
+    <ProjectProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Dashboard" element={<DashBoard />} />
+          <Route path="/Projects/:id" element={<ProjectView />} />
+          <Route path="/Profile" element={<UserProfile />} />
+          <Route path="/TaskListview" element={<TaskListView />} />
+          <Route path="/EditTask/:id" element={<EditTask />} />
+          <Route path="/CreateNewProject" element={<CreateNewProject />} />
+          <Route path="/Analytics" element={<AnalyticsDashboard />} />
+          <Route path="/ErrorLoadingStates" element={<ErrorLoadingStates />} />
+          <Route path="/ProjectListView" element={<ProjectListView />} />
+          <Route path="/DisplayProject" element={<DisplayProject />} />
+          <Route path="/Logout" element={<Logout />} />
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="ProjectView" element={<ProjectView />} />
+          <Route path="/EditTask/:id" element={<EditTask />} />
+          <Route path="/Projects/:id" element={<DevComponent />} />
+          {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}
+
+
+
+        </Routes>
+      </ProjectProvider>
+      {/* <Divisions /> */}
+      {/* </BrowserRouter> */}
+
+
+    {/* <AddList />  */}
+      {/* <CardViewDisplay/>
+    */}
     </div>
   );
 }
