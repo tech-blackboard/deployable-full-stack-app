@@ -21,6 +21,8 @@ import Divisions from './features/divs';
 import DevComponent from "./features/DevComponent";
 import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 import CardViewDisplay from './features/CardViewDisplay'
+import AddToCard from "./features/AddToCard";
+import CheckList from "./features/CheckedList";
 function App() {
   return (
    <div className="App">
@@ -61,7 +63,7 @@ function App() {
           <Route path="ProjectView" element={<ProjectView />} />
           <Route path="/EditTask/:id" element={<EditTask />} />
           <Route path="/Projects/:id" element={<DevComponent />} />
-          <Route path="/CardViewDisplay" element={<CardViewDisplay />} />
+          {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}
 
 
 

@@ -14,6 +14,7 @@ import DevComponent from './DevComponent';
 import CardViewDisplay from './CardViewDisplay';
 import Checklist from './CheckedList';
 import CheckList from './CheckedList';
+import Members from './Members';
 
 export default function ProjectView() {
   const [list, setList] = useState(false);
@@ -210,6 +211,7 @@ export default function ProjectView() {
         </div>
         
       )}
+      
     </div>
 
 
