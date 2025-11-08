@@ -98,7 +98,9 @@ export default function AddToCard({ onClose }: AddToCardProps) {
             {checklist && (
                 <div className="fixed inset-0  flex items-center justify-center bg-opacity-40 bg-gray-900">
                     <div className=" bg-blue-100  mt-[33%] ml-72  md:w-1/2 lg:w-1/3 mb-44  border-2 border-blue-600 rounded-xl shadow-xl ">
-                        <CheckedList onClose={ChecklistCloseFunction} />
+                        <CheckedList onClose={ChecklistCloseFunction} onAddCheckList={function (name: string): void {
+                            throw new Error("Function not implemented.");
+                        } } />
                     </div>
                 </div>
             )}

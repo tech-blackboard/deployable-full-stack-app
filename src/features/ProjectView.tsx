@@ -15,6 +15,7 @@ import CardViewDisplay from './CardViewDisplay';
 import Checklist from './CheckedList';
 import CheckList from './CheckedList';
 import Members from './Members';
+import CheckListAddComponent from './CheckListAddComponent';
 
 export default function ProjectView() {
   const [list, setList] = useState(false);
@@ -205,13 +206,13 @@ export default function ProjectView() {
 
 
       {isPopupOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 overflow-x-auto">
           <CardViewDisplay onClose={handleClose} cardName={selectedList} onCardNameChange={(value) => setselectedList(value)} />
             
         </div>
         
       )}
-      
+   
     </div>
 
 
