@@ -22,7 +22,7 @@ import DevComponent from "./features/DevComponent";
 import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 import CardViewDisplay from './features/CardViewDisplay'
 import AddToCard from "./features/AddToCard";
-import CheckList from "./features/CheckedList";
+import CheckListPopUp from "./features/CheckListPopUp";
 function App() {
   return (
    <div className="App">

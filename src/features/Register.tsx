@@ -137,35 +137,35 @@ export default function Register() {
 
     return (
 
-        <div className=' border border-gray-200 rounded-md mx-auto pt-1 md:px-0 px-1 mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
+        <div className=' border border-gray-200 rounded-md mx-auto  md:mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
             <form>
                 <p className='text-2xl text-white rounded-t-xl bg-blue-600 p-3 font-bold'>Task Manager</p>
 
                 <h2 className="font-sans text-2xl pt-5 font-bold text-blue-600 ">Create Account</h2>
                 <p className="text-xs pb-4 font-medium text-gray-500">Join Us To Manage Your Tasks</p>
 
-                <div className="flex flex-col mb-4">
-                    <label className=" font-sans text-base text-left md:ml-24">Full Name</label>
-                    <span className='text-red-500 text-xs text-left md:ml-24'>{fullNameError}</span>
-                    < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} />
+                <div className="flex flex-col mb-4  px-4 md:px-0">
+                    <label className=" font-sans text-base text-left md:ml-20">Full Name</label>
+                    <span className='text-red-500 text-xs text-left md:ml-20'>{fullNameError}</span>
+                    < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} className='md:ml-3'/>
                 </div>
                
-                <div className="flex flex-col  mb-4">
-                    <label className="font-sans text-base text-left md:ml-24">Email</label>
-                    <span className='text-red-500 text-xs text-left md:ml-24'>{emailError}</span>
-                    < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} />
+                <div className="flex flex-col  mb-4 px-4 md:px-0">
+                    <label className="font-sans text-base text-left md:ml-20">Email</label>
+                    <span className='text-red-500 text-xs text-left md:ml-20'>{emailError}</span>
+                    < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:ml-3' />
                   </div>
               
-                <div className="flex flex-col mb-4">
-                    <label className="text-base font-sans text-left md:ml-24">Password</label>
-                    <span className='text-red-500 font-sans text-xs text-left md:ml-24'>{pwdError}</span>
-                < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} />
+                <div className="flex flex-col mb-4  px-4 md:px-0">
+                    <label className="text-base font-sans text-left md:ml-20">Password</label>
+                    <span className='text-red-500 font-sans text-xs text-left md:ml-20'>{pwdError}</span>
+                    < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} className='md:ml-3' />
                 </div>
 
-                <div className="flex flex-col mb-4">
-                    <label className="text-base font-sans text-left md:ml-24">Confirm Password</label>
-                    <span className='text-red-500 font-sans text-left md:ml-24 text-xs'>{cPwdError}</span>
-                < InputComponent className="" inputType="password" inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} /><br></br>
+                <div className="flex flex-col   px-4 md:px-0">
+                    <label className="text-base font-sans text-left md:ml-20">Confirm Password</label>
+                    <span className='text-red-500 font-sans text-left md:ml-20 text-xs'>{cPwdError}</span>
+                    < InputComponent className="" inputType="password" inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3' /><br></br>
                 </div>
 
                 <ButtonComponent name="Create Account" onClick={handleSignUp} />

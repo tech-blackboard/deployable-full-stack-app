@@ -1,10 +1,11 @@
-import { Megaphone, Image, Tags, Clock, SquareCheck, Plus, SmilePlus, FileText } from "lucide-react";
+import { Megaphone, Image, Tags, Clock, SquareCheck, Plus, SmilePlus, FileText, Check } from "lucide-react";
 import { useState } from "react";
 import AddToCard from "./AddToCard";
-import CheckedList from "./CheckedList";
+import CheckListPopUp from "./CheckListPopUp";
 import Members from "./Members";
 import ButtonComponent from "./ButtonComponent";
 import CheckListAddComponent from "./CheckListAddComponent";
+import TooltipComponent from "./TooltipComponent";
 
 interface CardViewDisplayProps {
     cardName: string;
@@ -13,7 +14,7 @@ interface CardViewDisplayProps {
 }
 
 export default function CardViewDisplay({ cardName, onClose, onCardNameChange }: CardViewDisplayProps) {
-    const buttonStyle = `flex flex-row justify-evenly font-semibold text-xl border rounded-xl mb-9 w-full md:w-1/2 lg:w-1/3 bg-blue-300 p-2 hover:rounded-xl hover:shadow-md hover:bg-blue-300`;
+    const buttonStyle = ` flex  md:flex-nowrap  md:justify-evenly w-32  font-semibold text-xl border rounded-xl md:mb-9  md:w-1/2 lg:w-1/3 bg-blue-300 p-2 hover:rounded-xl hover:shadow-md hover:bg-blue-300`;
 
     const [desinput, setDesinput] = useState("");
     const [finalDesinputs, setFinalDesinputs] = useState("");
@@ -25,7 +26,13 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
     const [descreptionAddButton, setDescreptionAddButton] = useState(false);
     const [descreptionBox, setDescriptionBox] = useState(false);
     const [checklistItems, setChecklistItems] = useState<string[]>([]); //  stores checklist items to show under description
-    const [checkBoxDelete, setcheckBoxDelete] = useState(false);
+    const [checked, setClick] = useState(false);
+    const [checklistName, setCheckListName] = useState('')
+
+    function checkListNames(e: React.ChangeEvent<HTMLInputElement>) {
+        setCheckListName(e.target.value)
+
+    }
 
     function inputFunction(e: React.ChangeEvent<HTMLSelectElement>) {
         onCardNameChange(e.target.value);
@@ -89,11 +96,13 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
     function handleAddCheckList(name: string) {
         setChecklistItems([...checklistItems, name]); // add new checklist
         setCheckList(false); // close popup
+        console.log("console.log() is a command used by developers (especially in JavaScript) to find bugs or check what’s happening inside the program. ")
+        setAdd(false)
     }
-   function  deleteAddItems(){
-       setcheckBoxDelete(true)
 
-   }
+    function cliked(){
+        setClick(!checked)
+    }
     return (
         <div className="mb-11 border-2 border-blue-400 rounded-xl shadow-xl w-full mx-auto mt-9 pt-3 md:w-1/2 lg:w-2/3 pb-9 bg-blue-100">
             {/* Header */}
@@ -105,7 +114,7 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                     <option>Complete</option>
                 </select>
 
-                <div className="flex flex-row gap-11">
+                <div className="flex flex-row md:gap-11 gap-2 md:w-full ml-16 md:ml-80  ">
                     <button>
                         <Megaphone className="size-9" />
                     </button>
@@ -121,42 +130,38 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                         </svg>
                     </button>
 
-                    <button className="text-5xl mb-2" onClick={onClose}>
-                        &times;
-                    </button>
+                    <button className="text-5xl mb-2" onClick={onClose}>&times;</button>
                 </div>
             </div>
 
             {/* Title */}
             <div>
-                <div className="flex flex-row gap-3">
-                    <div className="rounded-full p-2 h-2 mt-4 border-2 border-blue-700 ml-14"></div>
-                    <h1 className="text-left mt-2 mb-7 font-semibold text-2xl">{cardName}</h1>
+                <div className="flex items-center gap-3 cursor-pointer mb-9 mt-3 ml-11" onClick={cliked}>
+                    
+                    <div className={` w-5 h-5 rounded-full border-2 border-blue-700 flex items-center justify-center transition-all duration-200 ${checked ? "bg-blue-700" : "bg-transparent"}`}>
+                        <TooltipComponent text="completed" position="top">
+                        {checked && <Check className="text-white w-3 h-3" strokeWidth={3} />}
+                        </TooltipComponent>
+
+                    </div>
+
+                    <h1 className="font-semibold text-2xl text-blue-800">{cardName}</h1>
                 </div>
+
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-row gap-3 px-20 justify-around">
-                <button className={buttonStyle} onClick={AddFunction}>
-                    <Plus /> Add
-                </button>
-                <button className={buttonStyle}>
-                    <Tags /> Labels
-                </button>
-                <button className={buttonStyle}>
-                    <Clock /> Dates
-                </button>
-                <button className={buttonStyle} onClick={ChecklistFunction}>
-                    <SquareCheck /> Checklist
-                </button>
+            <div className="flex flex-row justify-evenly flex-wrap gap-2 md:flex-nowrap md:flex-row md:gap-3 md:px-20 md:justify-around mb-9 ">
+                <button className={buttonStyle} onClick={AddFunction}> <Plus /> Add  </button>
+                <button className={buttonStyle}> <Tags /> Labels </button>
+                <button className={buttonStyle}>  <Clock /> Dates</button>
+                <button className={buttonStyle} onClick={ChecklistFunction}> <SquareCheck /> Checklist </button>
                 
-                <button className={buttonStyle} onClick={memberFunction}>
-                    <SmilePlus /> Members
-                </button>
+                <button className={buttonStyle} onClick={memberFunction}> <SmilePlus /> Members </button>
             </div>
 
             {/* Description Section */}
-            <div className="flex flex-row gap-3 px-9 mb-2">
+            <div className="flex flex-row px-9 mb-2">
                 <div>
                     <FileText />
                 </div>
@@ -164,9 +169,8 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                     <h1 className="text-xl font-semibold">Description</h1>
                     <ButtonComponent
                         name="Edit"
-                        className="ml-96 border-none text-red-900 bg-transparent lg:w-0 p-0 w-0"
-                        onClick={descriptionEdit}
-                    />
+                        className="border-2 bg-gray-200 ml-11 rounded-md p-0"
+                        onClick={descriptionEdit} />
                 </div>
             </div>
 
@@ -195,19 +199,19 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
             )}
 
             {/*AddToCard Popup */}
-            {add && (
+            { add && (
                 <div className="fixed inset-0 flex items-center ml-72 bg-black bg-opacity-40 z-50">
                     <div className="bg-blue-200 rounded-xl shadow-lg px-6">
-                        <AddToCard onClose={AddOnClose} />
+                        <AddToCard onClose={AddOnClose} onAddCheckList={handleAddCheckList} />
                     </div>
                 </div>
             )}
 
             {/*  Checklist Popup */}
             {checkList && (
-                <div className="fixed inset-0 flex items-center justify-center bg-opacity-40 bg-gray-900">
-                    <div className="bg-blue-100 mt-[33%] ml-72 md:w-1/2 lg:w-1/3 mb-44 border-2 border-blue-600 rounded-xl shadow-xl">
-                        <CheckedList onClose={ChecklistCloseFunction} onAddCheckList={handleAddCheckList} />
+                <div className="fixed inset-0 flex  items-center md:justify-center bg-opacity-40 bg-gray-900">
+                    <div className="bg-blue-100 mt-72 ml-9 px-2 md:mt-[33%] md:ml-72 md:w-1/2 lg:w-1/3 mb-44 border-2 border-blue-600 rounded-xl shadow-xl">
+                        <CheckListPopUp onClose={ChecklistCloseFunction} onAddCheckList={handleAddCheckList} />
                     </div>
                 </div>
             )}
@@ -226,10 +230,7 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
 (
                 <div className="mt-6 px-9">
                     <h2 className="text-lg font-semibold mb-2">Checklist</h2>
-                    {
-                        checkBoxDelete && < button className=" border-2 bg-red-500 px-4 shadow-xl border-red-300 rounded-xl p-1" onClick={deleteAddItems}>Delete</button>
-
-                    }
+                  
 
                     {checklistItems.map((item, index) => (
                         <div key={index} className="mb-3">

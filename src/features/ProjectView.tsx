@@ -12,8 +12,6 @@ import { useState, type SetStateAction } from 'react';
 import AddCard from './AddCard';
 import DevComponent from './DevComponent';
 import CardViewDisplay from './CardViewDisplay';
-import Checklist from './CheckedList';
-import CheckList from './CheckedList';
 import Members from './Members';
 import CheckListAddComponent from './CheckListAddComponent';
 
@@ -23,7 +21,6 @@ export default function ProjectView() {
   const [cardsByList, setCardsByList] = useState<{[key:number]:any[]}>({});
   const [listName, setListName] = useState('');
   const [cardName, setCardName] = useState<{ [key: number]: string }>({});
-
   const [isPopupOpen,setPopupOpen] = useState(false);
   const [selectedList, setselectedList] = useState('');
 
@@ -47,9 +44,8 @@ export default function ProjectView() {
     console.log('addList', addList);
     console.log('listName', listName);
     console.log('newList', newList);
-
     setListName('');
-  }
+      }
 
   function addCard(listId: number, cardName: string) {
     console.log('cardName:', cardName);
@@ -68,7 +64,12 @@ export default function ProjectView() {
 
   function addListClose() {
     setList(false);
+
   }
+  // function addListCloses() {
+  //   setList(!false);
+
+  // }
 
   function addCardClose(listId: number) {
     setCardVisible(prev => ({ ...prev, [listId]: false, }))
@@ -107,12 +108,12 @@ export default function ProjectView() {
 
 
   return (
-    <div className=' '>
+    <div className='w-full '>
       {/* Header */}
 
-      <div className="flex justify-between bg-blue-800 w-full">
+      <div className="bg-blue-800  text-start w-full  lg:w-full">
         <button
-          className="text-2xl text-white p-3 font-bold md:text-2xl"
+          className="text-xl text-white p-3 font-bold md:text-2xl"
           onClick={backToDashboard}
         >
           ← Back to Dashboard
@@ -122,7 +123,7 @@ export default function ProjectView() {
       <ProjectListView />
 
       {/* Add List Section */}
-      <div className=" ml-11 flex flex-col md:flex-row gap-2 border-2  border-gold-200  p-3 w-full md:w-1/2 lg:w-1/4 rounded-xl  bg-gradient-to-bl from-blue-300 to-blue-200   ">
+      <div className="   flex flex-row md:flex-row gap-2 border-2 md:ml-11 border-gold-200  p-3 mr-5  ml-5 mt-3 md:w-1/2 lg:w-1/4 rounded-xl  bg-gradient-to-bl from-blue-300 to-blue-200   ">
         {list ? (
           <AddList
             onClose={addListClose}
@@ -133,7 +134,7 @@ export default function ProjectView() {
         ) : (
           <>
             <button
-              className="text-4xl"
+              className="text-4xl "
               onClick={() => setList(true)}
             >
               &#43;
@@ -144,14 +145,14 @@ export default function ProjectView() {
       </div>
 
       {/* Lists Display Section */}
-      <div className="flex flex-row mb-9  items-start mb-2 overflow-x-auto gap-2">
+      <div className="flex flex-row    flex-wrap   mb-9  items-start mb-2  gap-2  ml-6 ">
         {addList.length > 0 && addList.map((list, index) => (
-          <div key={list.id} className="flex flex-col text-left ml-9 py-3 w-96 mt-9 px-5 shadow-md rounded-xl text-xl font-semibold hover:text-xl cursor-pointer hover:border-none  bg-gradient-to-tl from-blue-300 to-blue-200">
+          <div key={list.id} className="flex flex-col  text-left  lg:w-80 pb-2 ml- md:ml-9 mt-9 px-9 shadow-md rounded-xl text-xl font-semibold hover:text-xl cursor-pointer hover:border-none  bg-gradient-to-tl from-blue-300 to-blue-200">
             {/* List Title */}
-            <div className='flex flex-row justify-between'>
-              <h1 className="text-red-900 font-bold text-center">{list.name}</h1>
+            <div className='flex flex-row justify-between   '>
+              <h1 className="text-red-900 font-bold mr-11">{list.name}</h1>
 
-              <button className="text-black-100 hover:text-blue-800 ">
+              <button className="text-black-100 hover:text-blue-800 mt-2 " >
                 <svg className="w-6 h-5  " fill="currentColor" viewBox="0 0 24 24">
                   <circle cx="4" cy="12" r="3"></circle>
                   <circle cx="12" cy="12" r="3"></circle>
@@ -163,8 +164,8 @@ export default function ProjectView() {
             {/* Cards under this List */}
             {
               getCardsByListId(list.id).map((c) => (
-                <div key={c.id} className=' '  >
-                  <button className='text-blue-700 font-semibold border  py-3 px-7 mb-3 shadow-md rounded-xl wx-full  border-blue-400 ' onClick={() => listDisplay(c.cardName)}>{c.cardName}</button>
+                <div key={c.id} className=' px-5  '  >
+                  <button className='text-blue-700 font-semibold px-9 border  py-3  mb-3 mt-3  shadow-md rounded-md w-full md:w-1/2 lg:w-full border-blue-400 ' onClick={() => listDisplay(c.cardName)}>{c.cardName}</button>
                 
                
                 </div>
@@ -184,9 +185,9 @@ export default function ProjectView() {
               />
 
             ) : (
-              <div className="flex flex-row">
+              <div className="flex flex-row   md:px-0  md:mr-0  ">
                 <button
-                  className="text-2xl"
+                  className="text-2xl "
                   onClick={() => showAddCard(list.id)}
 
                 >

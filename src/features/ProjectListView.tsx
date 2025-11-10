@@ -23,11 +23,14 @@ const navigate=useNavigate()
     }
   
     return(
-        <div className=" flex flex-col border rounded-xl shadow w-full  text-xl mb-9 md:w-2/3  lg:w-1/3 mt-9 p-9  border-2  border-l-4 border-l-blue-500 border-white   p-8 rounded-xl shadow-xl cursor-pointer hover:font-semibold mb-9 ml-11 bg-blue-500 " onClick={() => navigate(`/editTask/${projectIndex}`)}>
-            <span className="text-white font-bold ">ProjectName:  {project.projectName}</span>  
-            <span className="text-white text-lg ">Description: {project.description}</span>
-            <span className="text-white  ">Start Date: {project.startDate}</span>
-            <span className="text-white ">Target End Date: {project.targetEndDate}</span>
+        <div className=" flex flex-col border rounded-xl shadow  text-start md:ml-11   md:pl-9 text-xl mb-9 md:w-1/2  lg:w-1/3 px-11 mt-9 p-4 border-1 mr-5  border-l-4 border-l-[#1E40AF] border-gray-200   rounded-xl shadow-xl cursor-pointer hover:font-semibold mb-9 ml-4  bg-gradient-to-bl from-blue-300 to-blue-200 " onClick={() => navigate(`/editTask/${projectIndex}`)}>
+            <span className="text-gray-700 text-base "><span className="text-[#1E3A8A] text-xl font-semibold text-base">project name:</span>  {project.projectName}</span>  
+            <span className="text-gray-600 text-base "><span className="text-[#1E3A8A] font-semibold text-base ">description:</span>  {project.description}</span>
+            <span className="text-gray-600  text-base"><span className="text-[#1E3A9A] font-semibold text-base">start date:</span> {project.startDate}</span>
+            <span className="text-gray-600 text-base"><span className="text-[#1E3A8A] font-semibold text-base"> Target end date:</span>  {project.targetEndDate}</span>
+            <span className="text-gray-600 text-base"><span className="text-[#1E3A8A] font-semibold text-base">project category: </span> {project.ProjectCategory}</span>
+            <span className="text-gray-600 text-base"><span className="text-[#1E3A8A] font-semibold text-base">Team members:</span>{project.TeamMembers}</span>
+
         </div>
     )}
 

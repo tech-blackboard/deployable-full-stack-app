@@ -9,7 +9,7 @@ interface CheckListProps{
     onClose:()=>void;
     onAddCheckList:(name:string)=>void
 }
-export default function CheckList({ onClose, onAddCheckList }: CheckListProps){
+export default function CheckListPopUp({ onClose, onAddCheckList }: CheckListProps){
 
     const [checklistName, setCheckListName] = useState('')
     function checkListNames(e: React.ChangeEvent<HTMLInputElement>) {
@@ -17,18 +17,18 @@ export default function CheckList({ onClose, onAddCheckList }: CheckListProps){
     
     }
 
-    function addChecklist(){
-        console.log("addChecklist", checklistName)
-        onAddCheckList(checklistName);
-        setCheckListName('')
-  }
+//     function addChecklist(checklistName: string){
+//         console.log("addChecklist", checklistName)
+//         onAddCheckList(checklistName);
+//         setCheckListName('')
+//   }
 
 
   
     return(
         <div className="   ">
-            <div className=" flex flex-row justify-between px-9">
-                <h3 className="mt-2 text-xl font-bold text-blue-600  ml-20 ">Add checklist</h3>
+            <div className=" flex flex-row md:justify-between px-11 gap-9 ">
+                <h3 className="mt-2 text-xl font-bold text-blue-600  md:ml-20 ">Add checklist</h3>
                 <button className="text-4xl  text-blue-700 " onClick={onClose} >&times;</button>
 
             </div>
@@ -39,7 +39,7 @@ export default function CheckList({ onClose, onAddCheckList }: CheckListProps){
                 <label className="text-lg font-semibold">Copy items from…</label>
                 <InputComponent inputType="text" placeholder=" (none)" className="mb-3 border-2 lg:w-11/12"/>
 
-                <ButtonComponent name="Add" className=" pt-0 pb-0  border-blue-100" onClick={addChecklist}/>
+                <ButtonComponent name="Add" className=" pt-0 pb-0  border-blue-100" onClick={() => onAddCheckList(checklistName)}/>
 
                
               

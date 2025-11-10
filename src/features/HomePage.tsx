@@ -1,22 +1,22 @@
 import HeaderComponent from './HeaderComponent'
 export default function HomePage() {
-  const divStyle = "rounded-xl border bg-blue-500 bg-tansparent shadow-xl text-center w-full md:w-1/2 lg:w-2/3 text-white py-9 px-2"
+  const divStyle = "rounded-xl border bg-blue-500 bg-tansparent mb-11 shadow-xl text-center w-full md:w-1/2 lg:w-2/3 text-white py-4 px-4  "
   return (
-    <div className=" w-full h-screen bg-gradient-to-bl from-blue-500  to-blue-600   fixed">
+    <div className=" w-full  h-screen bg-gradient-to-bl from-blue-500  to-blue-600   overflow-auto ">
 
 
 
-      <div className="  flex text-xl font-bold flex-row justify-between text-white px-9 py-4 bg-gradient-to-bl from-blue-500 to-blue-500">
+      <div className="  flex text-xl font-bold flex-row justify-between text-white px-3 py-4 bg-gradient-to-bl from-blue-500 to-blue-500">
         <h3 className="text-3xl " >☑️ TaskFlow</h3>
-        <HeaderComponent Login="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2 px-11 ' />
+        <HeaderComponent Login="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2  ' />
       </div>
-      <div className="  text-4xl font-bold  justify-between text-white pt-11 pb-3">
-        <h2 className="">Organize your Work , Simplify Your Life</h2>
+      <div className="  text-xl font-bold  justify-between text-white pt-7 pb-3 ">
+        <h2 className="px-4 text-xl md:text-2xl lg:text-3xl">Organize your Work , Simplify Your Life</h2>
       </div>
-      <p className="text-xm font-semibold text-white">The smart way to manage tasks, collaborate with teams, and <br></br>achieve your goals, Join </p>
+      <p className="text-xm font-semibold text-white px-4">The smart way to manage tasks, collaborate with teams, and <br></br>achieve your goals, Join </p>
       <span className="text-xm font-semibold text-white">thousands of products users today.</span>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-20 ml-44  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-20 lg:ml-28  px-4">
         <div className={divStyle}>
           <p className=" text-4xl mb-2 ">📋</p>
           <h2 className="text-xl font-bold">Smart Organization</h2>

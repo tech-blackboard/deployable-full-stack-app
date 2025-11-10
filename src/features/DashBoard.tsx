@@ -15,11 +15,11 @@ export default function DashBoard() {
   const Dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Access data from context
+  //  Access data from context
   const { projects, addProject } = useContext(ProjectContext);
 
   const divStyle =
-    "group border-3 border-blue-300 bg-blue-100 p-9 rounded-xl cursor-pointer hover:bg-blue-400 hover:font-semibold hover:text-xl hover:p-9 hover:text-white";
+    " w-full md:w-1/2 lg:w-3/4 group border-3 mt-8 border-blue-300 bg-blue-100 p-5 md:ml-9 rounded-xl cursor-pointer hover:bg-blue-400 hover:font-semibold hover:text-xl hover:text-white ";
   const divPara =
     "text-blue-500 font-bold mb-5 group-hover:text-white md:text-2xl";
 
@@ -58,10 +58,10 @@ export default function DashBoard() {
           className="w-full  px-4 text-xl"/>
       </div>
 
-      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mt-3 text-blue-600 pt-5">
+      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mt-2  text-blue-600 pt-3">
         Welcome back, user! 👋
       </h3>
-      <span className="text-gray-400 font-bold mb-9  block">
+      <span className="text-gray-400 font-bold mb-9 mr-5  block">
         Here's what's happening with your project
       </span>
 
@@ -85,7 +85,7 @@ export default function DashBoard() {
       </div>
 
   
-      <div className="flex flex-col md:flex-row justify-around mt-11">
+      <div className="flex flex-col md:flex-row justify-around mt-11 px-4 md:px-0">
         <p className="font-bold text-xl mt-3">Recent Projects</p>
 
         <ButtonComponent

@@ -82,17 +82,17 @@ export default function EditTask() {
     }
 
     return (
-        <div className="relative shadow-xl border-2 rounded-xl mx-auto pb-2  w-full md:w-1/2  lg:w-1/3">
-            <h3 className="text-xl font-semibold  mt-11 mr-56  mb-3">Edit Task</h3>
+        <div className="relative shadow-xl border-2 rounded-xl mx-auto pb-2  w-full md:w-1/2  lg:w-1/3 px-9">
+            <h3 className="text-xl font-semibold  mt-2 pt-2 mr-56 mb-3">Edit Task</h3>
             <button className="absolute top-[13px]  text-xl right-[30px]  " onClick={closeButton}>&times;</button>
-            <label className=" text-9xm font-semibold mr-56 mb-5">Task Title</label><br></br>
-            <InputComponent inputType="text" inputValue={taskTitle} inputOnChange={taskTitles}/><br></br>
-            <label className="mr-56 text-9xm font-semibold mb-5">Description</label><br></br>
-            <InputComponent className="border-2 mb-4 px-5 md:w-1/2 lg:w-1/3" inputValue={Description} inputOnChange={taskDescription} />
+            <label className=" text-9xm font-semibold  mr-64">Task Title</label><br></br>
+            <InputComponent inputType="text" inputValue={taskTitle} inputOnChange={taskTitles} className='lg:w-full ml-3  ' /><br></br>
+            <label className=" text-9xm font-semibold  mr-64 md:mr-60">Description</label><br></br>
+            <InputComponent className="border-2 mb-4 lg:w-full ml-3 " inputValue={Description} inputOnChange={taskDescription} />
 
-            <div className="flex justify-center gap-10 mb-5">
+            <div className="flex justify-center gap-9 mt-3 mb-4">
                 <div>
-                    <label className="text-9xm font-semibold mb-9">Priority</label>
+                    <label className="text-9xm font-semibold mb-9 ">Priority</label>
                     <select className="border-2">
                         <option>High</option>
                         <option>Medium</option>
@@ -101,7 +101,7 @@ export default function EditTask() {
 
                 </div >
                 <div>
-                    <label className=" text-9xm font-semibold mb-5">Status</label>
+                    <label className=" text-9xm font-semibold mb-4 lg:w-full ml-3 ">Status</label>
                     <select className="border-2 ">
                         <option>To-do</option>
                         <option>In Prograss</option>
@@ -109,12 +109,12 @@ export default function EditTask() {
                     </select>
                 </div>
             </div >
-            <label className="mr-60 text-9xm font-semibold mb-5" >start Date</label><br></br>
-            <InputComponent inputType="date" inputValue={startDate} inputOnChange={taskstartDate} /><br></br>
-            <label className="mr-60 text-9xm font-semibold mb-5" >Due Date</label><br></br>
-            <InputComponent inputType="date" inputValue={DueDate} inputOnChange={tasktargetEndDate}  /><br></br>
-            <label className="mr-64 text-9xm font-semibold mb-5" >Tags</label><br></br>
-            <InputComponent inputType="text"  />
+            <label className=" text-9xm font-semibold mb-4 mr-64 " >start Date</label><br></br>
+            <InputComponent inputType="date" inputValue={startDate} inputOnChange={taskstartDate} className='lg:w-full ml-2' /><br></br>
+            <label className="text-9xm font-semibold mb-4 mr-64 " >Due Date</label><br></br>
+            <InputComponent inputType="date" inputValue={DueDate} inputOnChange={tasktargetEndDate} className='lg:w-full ml-2'/><br></br>
+            <label className="mr-72 text-9xm font-semibold mb-4 " >Tags</label><br></br>
+            <InputComponent inputType="text" className='lg:w-full ml-3'/>
 
             <div className='flex  gap-7 justify-center mt-9 '>
                 <ButtonComponent className="bg-gray-600 hover:bg-gray-700  w-full " name="Cancel" onClick={cancelproject} />
