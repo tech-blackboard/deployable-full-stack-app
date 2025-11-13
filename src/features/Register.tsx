@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import InputComponent from "./InputComponent"
 import ButtonComponent from './ButtonComponent'
+import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 // import "./Register.css";
 
 // interface UserData{
@@ -24,6 +25,7 @@ export default function Register() {
     const [emailError, setEmailError] = useState<string>("");
     const [pwdError, setPwdError] = useState<string>("");
     const [cPwdError, setCpwdError] = useState<string>("");
+    const[showPwd,setShowPwd]=useState(false)
 
     const navigate = useNavigate()
 
@@ -145,31 +147,50 @@ export default function Register() {
                 <p className="text-xs pb-4 font-medium text-gray-500">Join Us To Manage Your Tasks</p>
 
                 <div className="flex flex-col mb-4  px-4 md:px-0">
-                    <label className=" font-sans text-base text-left md:ml-20">Full Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-52">Full Name</label>
                     <span className='text-red-500 text-xs text-left md:ml-20'>{fullNameError}</span>
-                    < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} className='md:ml-3'/>
+                    <div className="relative">
+                        <User className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
+
+                        < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} className='md:ml-3 pl-9' placeholder="John Doe"
+                            required />
+                </div>
+                </div>
+                <div className="flex flex-col  mb-4 px-4 md:px-0">
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-56">Email</label>
+                    <span className='text-red-500 text-xs text-left md:ml-20'>{emailError}</span>
+                    <div className="relative">
+                        <Mail className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
+                        < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:ml-3 pl-9' placeholder="you@example.com"
+                            required />
+                  </div>
+                </div>
+                <div className="flex flex-col mb-4  px-4 md:px-0">
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-52">Password</label>
+                    <span className='text-red-500 font-sans text-xs text-left md:ml-20'>{pwdError}</span>
+                    <div className="relative">
+                        <Lock className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        < InputComponent inputType={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className='md:ml-3 pl-9 ' placeholder="••••••••" />
+                        <button
+                            type="button"
+                            onClick={() => setShowPwd(!showPwd)}
+                            className="absolute pl-28 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        >
+                            {showPwd ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                </div>
                 </div>
                
-                <div className="flex flex-col  mb-4 px-4 md:px-0">
-                    <label className="font-sans text-base text-left md:ml-20">Email</label>
-                    <span className='text-red-500 text-xs text-left md:ml-20'>{emailError}</span>
-                    < InputComponent className="" inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:ml-3' />
-                  </div>
-              
-                <div className="flex flex-col mb-4  px-4 md:px-0">
-                    <label className="text-base font-sans text-left md:ml-20">Password</label>
-                    <span className='text-red-500 font-sans text-xs text-left md:ml-20'>{pwdError}</span>
-                    < InputComponent inputType="password" inputValue={pwd} inputId="password" inputOnChange={password} className='md:ml-3' />
-                </div>
-
                 <div className="flex flex-col   px-4 md:px-0">
-                    <label className="text-base font-sans text-left md:ml-20">Confirm Password</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-36">Confirm Password</label>
                     <span className='text-red-500 font-sans text-left md:ml-20 text-xs'>{cPwdError}</span>
-                    < InputComponent className="" inputType="password" inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3' /><br></br>
-                </div>
+                    <div className="relative">
+                        <Lock className="absolute left-20 top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        < InputComponent inputType={showPwd ? "text" :"password"} inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
+                    </div> </div>
 
-                <ButtonComponent name="Create Account" onClick={handleSignUp} />
-                <p className='  font-sans text-black font-lighter'>Already have an Account? <Link to="/Login">Sign in</Link></p>
+                <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
+                <p className=' block text-sm font-medium text-gray-700 mb-2 '>Already have an Account? <Link to="/Login" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Sign in</Link></p>
             </form>
         </div>
 

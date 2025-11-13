@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import ButtonComponent from './ButtonComponent';
+import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 // import './Login.css';
 
 interface UserData {
@@ -19,6 +20,7 @@ export default function Login() {
     const [emailError, setEmailError] = useState("");
     const [pwdError, setPwdError] = useState("");
     const [signUp, setSignUp] = useState(false)
+    const [showPwd, setShowPwd] = useState(false)
 
     const navigate = useNavigate()
 
@@ -31,7 +33,7 @@ export default function Login() {
     function validationEmail(): boolean {
         let regExpEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email === null || email === "") {
-            setEmailError("Please enter your email");
+            setEmailError("please enter your email");
             return false;
         }
         else if (!regExpEmail.test(email)) {
@@ -55,7 +57,7 @@ export default function Login() {
             return false;
         }
         else if (pwd.length < 4) {
-            setPwdError("Password must be at least 8 characters");
+            setPwdError("password must be at least 8 characters");
             return false;
         }
         else {
@@ -96,7 +98,7 @@ export default function Login() {
     return (
 
 
-        <div className=' border border-gray-300 md:px-0  rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
+        <div className=' border border-gray-300 md:px-0   bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
             <form>
                 <p className="text-2xl text-white mb-3 rounded-t-xl bg-blue-600 p-3 font-bold">Task Manager</p>
 
@@ -106,23 +108,34 @@ export default function Login() {
 
                 </div>
                 <div className=' flex flex-col px-2 md:px-0'>
-                    <label className="text-base text-left font-sans  md:ml-16 px-1">Email</label>
-                    <span className="text-red-500 text-xs  text-left  md:text-left md:ml-16 mb-1 ">{emailError}</span>
-                    < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:mr-4'/>
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-72  md:mr-[62%]">Email</label>
+                    <span className="text-red-500 text-xs  text-left  md:text-left md:ml-16  lg:ml-16 mb-1 ">{emailError}</span>
+                    <div className="relative">
+                        <Mail className="absolute  left-3 lg:left-[15%] top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 lg:left-12 " />
+                    < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:mr-6 pl-11 lg:pl-11' placeholder='you@gmail.com'/>
 
                </div>
-              
-
-                <div className=' flex flex-col  pt-3 px-2 md:px-0'>
-                    <label className="text-base text-left font-sans  md:ml-16 px-1">Password</label>
-                    <span className="text-red-500 text-xs text-left  md:text-left md:ml-16 mb-1">{pwdError}</span>
-                    < InputComponent inputType="email" inputValue={pwd} inputId="email" inputOnChange={password} className="mb-8 text-medium md:mr-4"/>
-
                 </div>
-                <ButtonComponent name="Sign In" onClick={handleSignIn} />
+                
+                <div className=' flex flex-col  pt-3 px-2 md:px-0'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-72 md:mr-60 lg:mr-58">password</label>
+                    <span className="text-red-500 text-xs text-left  md:text-left md:ml-16 mb-1  lg:ml-16">{pwdError}</span>
+                    <div className="relative">
+                        <Lock className="absolute left-3 md:left-20 lg:left-16   top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
+                        < InputComponent inputType="password" inputValue={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className="mb-3 mr-3 text-medium md:mr-6 pl-11 lg:pl-11 " placeholder="••••••••" />
+                        <button
+                            type="button"
+                            onClick={() => setShowPwd(!showPwd)}
+                            className="absolute lg:right-24  right-9 top-5 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 "
+                        >
+                            {showPwd ? <EyeOff className="w-5 h-5 " /> : <Eye className="w-5 h-5" />}
+                        </button>
+
+                    </div>  </div>
+                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9'/>
                
                 {
-                    signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className="re">Register here</Link></p>
+                    signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
                 }
             </form>
         </div>

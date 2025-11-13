@@ -24,11 +24,11 @@ export default function AddCard({ onClose, addCard, cardName, onCardNameChange, 
 
     return (
         <div className="">
-            <div className="flex flex-col mt-2 px-5">
-                <InputComponent placeholder=" Enter card name..." inputType="text" className="border-2 text-blue-800 font-light md:w-1/2 lg:w-full" inputValue={card} name={cardName} inputOnChange={onInputChage} />
+            <div className="flex flex-col mt-2 ">
+                <InputComponent placeholder=" enter card name..." inputType="text" className="border text-blue-800 md:w-1/2 lg:w-full text-base h-9 " inputValue={card} name={cardName} inputOnChange={onInputChage} />
                 <div className="flex flex-row md:flex-row  mt-1 md:gap-9">
-                    <ButtonComponent name="Add card" className="text-xl border-none" onClick={() => addCard(listId, cardName, cardId)} />
-                    <span className="text-4xl text-gray-500 mt-1 cursor-pointer ml-9 " onClick={() => closeCard(cardName, cardId)} >&times;</span>
+                    <ButtonComponent name="Add card" className="text-base border-none h-9 w-full pb-3 pt-1 text-base hover:rounded-md " onClick={() => addCard(listId, cardName, cardId)} />
+                    <span className="text-base text-gray-500 mt-1 cursor-pointer ml-20" onClick={() => closeCard(cardName, cardId)} >&times;</span>
                 </div>
             </div>
         </div>

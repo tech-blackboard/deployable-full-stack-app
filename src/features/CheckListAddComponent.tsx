@@ -54,7 +54,7 @@ export default function CheckListAddComponent({ name }: CheckListAddComponentPro
     
 
     return (
-        <div className="border-2 w-full md:w-1/2 lg:w-11/12 mx-auto px-11 p-2 shadow-xl border-blue-200 rounded-md">
+        <div className="border-2 w-full md:w-1/2 lg:w-11/12 mx-auto px-11 p-2 border-blue-200 rounded-md">
             <div className="mx-auto mt-3">
                 <div className="flex flex-row gap-3">
                     <input

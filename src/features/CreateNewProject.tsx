@@ -79,28 +79,34 @@ export default function CreateNewProjects() {
                 </div>
                
                 <div className="flex flex-col mb-3 px-9 md:px-0">
-                    <label className="text-base text-left md:ml-[17%] font-sans  font-semibold">Project Name *</label>
-                    <InputComponent inputType="text" inputValue={projectName} inputOnChange={createProjectName} />
+                    {/* <label className="text-base text-left md:ml-[17%] font-sans  font-semibold">Project Name *</label> */}
+                    <InputComponent inputType="text" placeholder="  project name " inputValue={projectName} inputOnChange={createProjectName} />
                 </div>
 
                 <div className="flex flex-col mb-3 px-9 md:px-0 ">
-                    <label className="text-base text-left md:ml-[17%] font-sans font-semibold ">Description</label>
-                    <InputComponent inputType="text" inputOnChange={projectDescription} />
+                    {/* <label className="text-base text-left md:ml-[17%] font-sans font-semibold ">Description</label> */}
+                    <InputComponent inputType="text" placeholder='  description' inputOnChange={projectDescription} />
                 </div>
 
                 <div className="flex flex-col mb-3 px-9 md:px-0">
-                    <label className=" text-base text-left md:ml-[17%] font-sans font-semibold ">Start Date</label>
-                    <InputComponent inputType="date" inputOnChange={projectStartDate} />
+                    {/* <label className=" text-base text-left md:ml-[17%] font-sans font-semibold text-gray-600 ">Start Date</label> */}
+                    <InputComponent inputType={startDate ? "date" : "text"} inputValue={startDate} inputOnChange={projectStartDate} onFocus={(e: { target: { value: string; }; }) => e.target.value ="startDate"} 
+                        onBlur={(e: { target: { value: string; }; })=>{if (!e.target.value ) e.target.value="text"}}
+                        placeholder="  enter your project start date.."/>
                 </div>
+
                 <div className="flex flex-col mb-3 px-9 md:px-0">
-                    <label className=" text-base text-left md:ml-[17%] font-sans font-semibold ">Target End Date</label>
-                    <InputComponent inputType="date" inputOnChange={projectTargetEndDate} />
+                    {/* <label className=" text-base text-left md:ml-[17%] font-sans font-semibold ">Target End Date</label> */}
+                    <InputComponent inputOnChange={projectTargetEndDate} inputType={targetEndDate ? "date" : "text"} inputValue={targetEndDate}  onFocus={(e: { target: { value: string; }; }) => e.target.value = "targetEndDate"}
+                        onBlur={(e: { target: { value: string; }; }) => { if (!e.target.value) e.target.value = "text" }}
+                        placeholder="   project target end date.."/>
                 </div>
 
                 <div className="flex flex-col mb-3 px-9 md:px-0"> 
-                    <label className=" text-base font-semibold text-left md:ml-[17%] font-sans ">Project Category</label>
-                    <select className="border  p-1 rounded-md w-full md:w-1/2 lg:w-2/3 mx-auto text-base " onChange={ProjectCategories}>
-                        <option>Web Development</option>
+                    {/* <label className=" text-base font-semibold text-left md:ml-[17%] font-sans ">Project Category</label> */}
+                    <select className="border  p-1 rounded-md w-full md:w-1/2 lg:w-2/3 mx-auto text-base  " onChange={ProjectCategories}>
+                        <option value="-" disabled selected>---select project category--- </option>
+                        <option value="Web Development">Web Development</option>
                         <option>Mobile App</option>
                         <option>Designing</option>
                         <option>Marketing</option>
@@ -108,13 +114,14 @@ export default function CreateNewProjects() {
                     </select>
                 </div>
                 <div className="flex flex-col mb-3 px-9 md:px-0">
-                    <h1 className="text-base text-left md:ml-[17%] font-sans font-semibold ">Team Members (Optional)</h1>
-                    <InputComponent inputType="text" inputOnChange={projectTeamMembers} />
+                    {/* <h1 className="text-base text-left md:ml-[17%] font-sans font-semibold ">Team Members </h1> */}
+                    <InputComponent inputType="text" inputOnChange={projectTeamMembers} placeholder='  Team Members ' />
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center  md:gap-2 mb-3 ">
-                    <ButtonComponent className="bg-gray-500 hover:bg-gray-600 md:mt-3 " name="Cancel" />
-                    <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-3  " name="Create New Project" onClick={createNewProject} />
+                <div className="flex flex-col md:flex-row justify-center  md:gap-9   mb-3  px-11 md:px-0">
+                    <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-3 w-full h-9 pb-9 " name="Create New Project" onClick={createNewProject} />
+                    <ButtonComponent className="bg-gray-500 hover:bg-gray-600 md:mt-3 w-full h-9 pb-9" name="Cancel" />
+
                 </div>
             </form>
 

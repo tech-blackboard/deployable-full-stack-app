@@ -104,7 +104,7 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
         setClick(!checked)
     }
     return (
-        <div className="mb-11 border-2 border-blue-400 rounded-xl shadow-xl w-full mx-auto mt-9 pt-3 md:w-1/2 lg:w-2/3 pb-9 bg-blue-100">
+        <div className="mb-11 border-2 border-blue-400 rounded-xl shadow-xl w-full mx-auto mt-9 pt-3 md:w-1/2 lg:w-2/3 pb-9 bg-blue-100 h-[100%] overflow-x-auto">
             {/* Header */}
             <div className="flex flex-row justify-between px-9" onChange={inputFunction}>
                 <select className="text-blue-800 font-bold mb-2 text-xl rounded-md bg-blue-100 shadow-md">
@@ -156,7 +156,6 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                 <button className={buttonStyle}> <Tags /> Labels </button>
                 <button className={buttonStyle}>  <Clock /> Dates</button>
                 <button className={buttonStyle} onClick={ChecklistFunction}> <SquareCheck /> Checklist </button>
-                
                 <button className={buttonStyle} onClick={memberFunction}> <SmilePlus /> Members </button>
             </div>
 
@@ -200,7 +199,7 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
 
             {/*AddToCard Popup */}
             { add && (
-                <div className="fixed inset-0 flex items-center ml-72 bg-black bg-opacity-40 z-50">
+                <div className="fixed inset-0  flex items-center md:ml-72 bg-black bg-opacity-40 z-50">
                     <div className="bg-blue-200 rounded-xl shadow-lg px-6">
                         <AddToCard onClose={AddOnClose} onAddCheckList={handleAddCheckList} />
                     </div>
@@ -230,8 +229,6 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
 (
                 <div className="mt-6 px-9">
                     <h2 className="text-lg font-semibold mb-2">Checklist</h2>
-                  
-
                     {checklistItems.map((item, index) => (
                         <div key={index} className="mb-3">
                             <CheckListAddComponent name={item} />

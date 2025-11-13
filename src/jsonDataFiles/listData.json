@@ -1,0 +1,48 @@
+[
+  {
+    "listId": 1,
+    "listname": "To-do list",
+    "cards": [
+      {
+        "cardId": 1,
+        "cardname": "Design UI Frames"
+      },
+      {
+        "cardname": "total Project designing functionality",
+        "cardId": 2
+      }
+    ]
+  },
+  {
+    "listId": 2,
+    "listname": "progress",
+    "cards": [
+      {
+        "cardId": 1,
+        "cardname": "web designing"
+      },
+      {
+        "cardId": 2,
+        "cardname": "structuring the json data "
+      },
+      {
+        "cardId": 3,
+        "cardname": "coding"
+      }
+    ]
+  },
+  {
+    "listId": 3,
+    "listname": "completed",
+    "cards": [
+      {
+        "cardId": 1,
+        "cardname": "total Project designing "
+      },
+      {
+        "cardId": 2,
+        "cardname": "All features designing done "
+      }
+    ]
+  }
+]
