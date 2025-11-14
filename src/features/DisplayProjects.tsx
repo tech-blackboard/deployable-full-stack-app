@@ -44,7 +44,7 @@ export default function DisplayProjects() {
                 <p className="text-sm text-violet-500 mb-1"><span className='font-semibold'>Project Category: </span> {project.projectcategory}</p>
                 <p className="text-sm text-yellow-500 mb-1"><span className='font-semibold'>TeamMembers: </span>{project.teammembers}</p>
                
-               
+
               </div>
               {
                 project.lists?.map((list, listId: number) => <div key={listId}>

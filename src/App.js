@@ -13,7 +13,7 @@ import CreateNewProject from "./features/CreateNewProject";
 import ErrorLoadingStates from "./features/ErrorLoadingStates";
 import AnalyticsDashboard from "./features/AnalyticsDashboard";
 import HomePage from "./features/HomePage";
-import ProjectView from "./features/ProjectView";
+// import ProjectView from "./features/ProjectView";
 import ProjectListView from "./features/ProjectListView";
 import DisplayProject from "./features/DisplayProjects";
 import Logout from './features/Logout';
@@ -23,6 +23,8 @@ import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 import CardViewDisplay from './features/CardViewDisplay'
 import AddToCard from "./features/AddToCard";
 import CheckListPopUp from "./features/CheckListPopUp";
+import ProjectView from "./features/JsonProject";
+
 function App() {
   return (
    <div className="App">
@@ -63,6 +65,8 @@ function App() {
           <Route path="ProjectView" element={<ProjectView />} />
           <Route path="/EditTask/:id" element={<EditTask />} />
           <Route path="/Projects/:id" element={<DevComponent />} />
+        
+
           {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}
 
 

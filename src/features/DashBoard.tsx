@@ -40,7 +40,7 @@ export default function DashBoard() {
   //  Navigate to new project page
   const projectDatajson = [{
     projectname: "UI Frames",
-    description: "UIdesigning for end users",
+    description: "UI designing for end users",
     startdate: "11-12-2025",
     targetenddate: "12-11-2025",
     projectcategory: "Designing",
@@ -133,7 +133,7 @@ export default function DashBoard() {
   listname: "progress",
   cards:[{
     cardId: 1,
-    cardname: "coding(functionality)"
+    cardname: "coding (functionality)"
   },{
     cardId: 2,
     cardname: "features"
@@ -160,19 +160,20 @@ export default function DashBoard() {
   },
     {
       listId: 4,
-      listname: "over",
+      listname: "In completed",
       cards: [{
         cardId: 1,
-        cardname: "hello"
+        cardname: "project"
       }, {
         cardId: 2,
-        cardname: "pooja"
+        cardname: "designing"
       }, {
         cardId: 2,
-        cardname: "how is your day "
+        cardname: "functionality"
       }]
 
 },
+   
 ];
   console.log("lists", lists)
  
