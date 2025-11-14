@@ -157,8 +157,23 @@ export default function DashBoard() {
       cardId: 2,
       cardname: "features"
     }]
+  },
+    {
+      listId: 4,
+      listname: "over",
+      cards: [{
+        cardId: 1,
+        cardname: "hello"
+      }, {
+        cardId: 2,
+        cardname: "pooja"
+      }, {
+        cardId: 2,
+        cardname: "how is your day "
+      }]
 
-}];
+},
+];
   console.log("lists", lists)
  
   function newProject() {

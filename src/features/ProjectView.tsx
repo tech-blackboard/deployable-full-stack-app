@@ -55,6 +55,7 @@ export default function ProjectView() {
     console.log("newCard", newCard)
     setCardsByList(prev => ({ ...prev, [listId]: [...(prev[listId] || []), newCard],}));  
       setCardName('');
+      console.log("addcard",newCard)
 
   }
 
@@ -73,14 +74,14 @@ export default function ProjectView() {
   // }
 
   function addCardClose(listId: number) {
-    setCardVisible(prev => ({ ...prev, [listId]: false, }))
+    setCardVisible(prev => ({ ...prev, [listId]: !false, }))
     console.log("card closed for list id", listId)
    
 
   }
   function showAddCard(listId: number) {
     
-    setCardVisible(prev => ({ ...prev, [listId]: true, }))
+    setCardVisible(prev => ({ ...prev, [listId]:!true, }))
   
   }
 
@@ -165,7 +166,7 @@ export default function ProjectView() {
       <div className="flex flex-row  flex-wrap mb-9  items-start  gap-2  ml-2 px-9">
         {/* {addList.length > 0 &&addList.map((list, index) => ( */}
         {lists.length > 0 && lists.map((listed,listId)=>(
-          <div key={listId} className="flex flex-col  text-left px-2 pb-2 p-2 px-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold hover:text-xl  w-full lg:w-1/5 md:w-1/2 cursor-pointer hover:border-none  bg-gradient-to-tl from-blue-300 to-blue-200">
+          <div key={listId} className="flex flex-col  text-left px-2 pb-2 p-2 px-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold w-full lg:w-1/5 md:w-1/2 cursor-pointer  bg-gradient-to-tl from-blue-300 to-blue-200">
             {/* List Title */}
             <div className='flex flex-row justify-between   '>
               <h1 className="text-red-900 text-base  ">{listed.listname}</h1>
@@ -191,28 +192,28 @@ export default function ProjectView() {
              ))}   */}
 
              {
-              listed.cards.map((card, cardId) => <div key={cardId}>
+              listed.cards.map((card, cardId:number) => <div key={cardId}>
                 <p>{card.cardname}</p></div>)
              }
 
             {/* Add Card Section */}
             {/* {cardVisible.includes(list.id) ? ( */}
-            {cardVisible[list.id] ? (
+            {!cardVisible[listId] ? (
               <AddCard
-                addCard={() => addCard(list.id, cardName[list.id])}
-                closeCard={() => addCardClose(list.id)}
-                cardName={cardName[list.id] || ''}
+                addCard={() => addCard(listId, cardName[listId])}
+                closeCard={() => addCardClose(listId)}
+                cardName={cardName[listId] || ''}
                 onCardNameChange={(value) =>
-                  setCardName(prev => ({ ...prev, [list.id]: value }))
+                  setCardName(prev => ({ ...prev, [listId]: value }))
                 }
-                listId={list.id}
+                listId={listId}
               />
 
             ) : (
               <div className="flex flex-row">
                 <button
                   className="text-base "
-                  onClick={() => showAddCard(list.id)}
+                  onClick={() => showAddCard(listId)}
 
                 >
                   &#43;
