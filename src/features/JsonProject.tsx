@@ -129,7 +129,7 @@ export default function ProjectView() {
 
             {/* Lists Display Section */}
             <div className="flex flex-row flex-wrap mb-9 items-start gap-2 ml-2 px-9">
-                { lists.map((list: any) => (
+                {lists && lists.length > 0 && lists.map((list: any) => (
                     <div
                         key={list.listId}
                         className="flex flex-col text-left px-2 pb-2 p-2 px-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold hover:text-xl w-full lg:w-1/5 md:w-1/2 cursor-pointer hover:border-none bg-gradient-to-tl from-blue-300 to-blue-200"
@@ -147,7 +147,7 @@ export default function ProjectView() {
                         </div>
 
                         {/* Cards under this List */}
-                        { list.cards.map((card: any) => (
+                        {list.cards && list.cards.length > 0 && list.cards.map((card: any) => (
                             <div key={card.cardId} className='flex flex-row gap-2 p-1 items-center'>
                                 <button
                                     className='text-base mt-2 rounded-md flex-1 bg-blue-200 shadow-md hover:rounded-md p-3 text-left'

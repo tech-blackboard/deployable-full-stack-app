@@ -122,7 +122,7 @@ export default function Login() {
                     <span className="text-red-500 text-xs text-left  md:text-left md:ml-16 mb-1  lg:ml-16">{pwdError}</span>
                     <div className="relative">
                         <Lock className="absolute left-3 md:left-20 lg:left-16   top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
-                        < InputComponent inputType="password" inputValue={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className="mb-3 mr-3 text-medium md:mr-6 pl-11 lg:pl-11 " placeholder="••••••••" />
+                        < InputComponent  inputType={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className="mb-3 mr-3 text-medium md:mr-6 pl-11 lg:pl-11 " placeholder="••••••••" />
                         <button
                             type="button"
                             onClick={() => setShowPwd(!showPwd)}

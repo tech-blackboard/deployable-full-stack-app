@@ -108,7 +108,7 @@ export default function DashBoard() {
     teammembers: "",
     lists:[{
       listId:"",
-      listname:"ijljjp;okp"
+      listname:"progress"
     },],
   }]
 
