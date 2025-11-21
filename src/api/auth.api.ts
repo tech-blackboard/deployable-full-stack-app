@@ -1,0 +1,13 @@
+import axiosInstance from "./axiosInstance";
+
+export default  async function loginUser(email:string,password:string){
+    console.log("loginUser", loginUser)
+
+    return axiosInstance.post("auth/login",{email,password})
+     
+}//send credentials to backend. backend return the token and user
+
+export async function registerUser(username:string,email:string,password:string){
+    console.log("registerUser", registerUser)
+    return axiosInstance.post("/auth/register", { username, email, password });
+}//Create backend registration API call this is.

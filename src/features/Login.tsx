@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import ButtonComponent from './ButtonComponent';
 import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
+import loginUser from '../api/auth.api';
 // import './Login.css';
 
 interface UserData {
@@ -68,32 +69,61 @@ export default function Login() {
     }
 
 
-    function handleSignIn(event: React.FormEvent) {
+    // function handleSignIn(event: React.FormEvent) {
+    //     event.preventDefault();
+
+    //     const isEmail = validationEmail();
+    //     const isPwd = validatationPwd();
+
+    //     const getLocalUserData = localStorage.getItem('user');
+    //     console.log("getLocalUserData", getLocalUserData)
+    //     // Check if user data does NOT exist
+    //     if (!getLocalUserData) {
+    //         toast.error("No user found in local storage!");
+    //         setSignUp(true);//it shows the sign up 
+    //         return;
+    //     }
+
+    //     const user: UserData = JSON.parse(getLocalUserData);
+
+    //     if (isEmail && isPwd && email === user.Email && pwd === user.password) {
+    //         toast.success("Login Successful!");
+    //         navigate('/Dashboard');
+    //         setSignUp(false);// it stay on login form.
+    //     } else {
+    //         toast.error("Incorrect email or password!");
+    //         setSignUp(true);
+    //     }
+
+
+    //   }
+
+    async function handleSignIn(event: React.FormEvent) {
         event.preventDefault();
 
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
 
-        const getLocalUserData = localStorage.getItem('user');
-        console.log("getLocalUserData", getLocalUserData)
-        // Check if user data does NOT exist
-        if (!getLocalUserData) {
-            toast.error("No user found in local storage!");
-            setSignUp(true);//it shows the sign up 
-            return;
-        }
+        if (!isEmail || !isPwd) return;
+        try {
+            // send credentials to backend
+            const res = await loginUser(email, pwd);
+            console.log("login response to backend", res);
 
-        const user: UserData = JSON.parse(getLocalUserData);
-
-        if (isEmail && isPwd && email === user.Email && pwd === user.password) {
+            // save token + user info in AuthContext + localStorage
+            loginUser(res.data.user, res.data.token)
             toast.success("Login Successful!");
             navigate('/Dashboard');
-            setSignUp(false);// it stay on login form.
-        } else {
-            toast.error("Incorrect email or password!");
-            setSignUp(true);
+        }
+        catch (err: any) {
+            toast.error(err.response?.data?.message || "Login failed!")
+                setSignUp(true);
+
         }
     }
+
+
+
 
     return (
 
@@ -112,17 +142,17 @@ export default function Login() {
                     <span className="text-red-500 text-xs  text-left  md:text-left md:ml-16  lg:ml-16 mb-1 ">{emailError}</span>
                     <div className="relative">
                         <Mail className="absolute  left-3 lg:left-[15%] top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 lg:left-12 " />
-                    < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:mr-6 pl-11 lg:pl-11' placeholder='you@gmail.com'/>
+                        < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:mr-6 pl-11 lg:pl-11' placeholder='you@gmail.com' />
 
-               </div>
+                    </div>
                 </div>
-                
+
                 <div className=' flex flex-col  pt-3 px-2 md:px-0'>
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-72 md:mr-60 lg:mr-58">password</label>
                     <span className="text-red-500 text-xs text-left  md:text-left md:ml-16 mb-1  lg:ml-16">{pwdError}</span>
                     <div className="relative">
                         <Lock className="absolute left-3 md:left-20 lg:left-16   top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
-                        < InputComponent  inputType={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className="mb-3 mr-3 text-medium md:mr-6 pl-11 lg:pl-11 " placeholder="••••••••" />
+                        < InputComponent inputType={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className="mb-3 mr-3 text-medium md:mr-6 pl-11 lg:pl-11 " placeholder="••••••••" />
                         <button
                             type="button"
                             onClick={() => setShowPwd(!showPwd)}
@@ -132,14 +162,14 @@ export default function Login() {
                         </button>
 
                     </div>  </div>
-                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9'/>
-               
+                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
+
                 {
                     signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
                 }
             </form>
         </div>
-             
-       
+
+
     )
 }

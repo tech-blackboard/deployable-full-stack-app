@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import InputComponent from "./InputComponent"
 import ButtonComponent from './ButtonComponent'
 import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
+import { registerUser } from '../api/auth.api';
 // import "./Register.css";
 
 // interface UserData{
@@ -25,7 +26,7 @@ export default function Register() {
     const [emailError, setEmailError] = useState<string>("");
     const [pwdError, setPwdError] = useState<string>("");
     const [cPwdError, setCpwdError] = useState<string>("");
-    const[showPwd,setShowPwd]=useState(false)
+    const [showPwd, setShowPwd] = useState(false)
 
     const navigate = useNavigate()
 
@@ -110,32 +111,52 @@ export default function Register() {
 
         }
     }
+    // alert(" before register")
 
-    function handleSignUp(event: React.FormEvent) {
+    async function handleSignUp(event: React.FormEvent) {
         event.preventDefault()
         const isFullName = validationFullName();
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
         const isCpwd = validationConfirmPwd();
 
-        if (isFullName && isEmail && isPwd && isCpwd) {
-            const local = {
-                fullName: FullName,
-                Email: email,
-                password: pwd,
-                confirmPwd: cPwd,
+        // if (isFullName && isEmail && isPwd && isCpwd) {
+        //     const local = {
+        //         fullName: FullName,
+        //         Email: email,
+        //         password: pwd,
+        //         confirmPwd: cPwd,
 
-            }
-            localStorage.setItem('user', JSON.stringify(local))
-            toast.success("Register Successful!");
+        //     }
+        //     localStorage.setItem('user', JSON.stringify(local))
+        //     toast.success("Register Successful!");
+        //     navigate('/Login')
+
+        // }
+        // else (
+        //     toast.error("please login ")
+        // )
+    
+
+    //    if (isFullName || isEmail || isPwd || isCpwd) return
+       
+        try {
+            await registerUser(FullName, email, pwd)
+            // call backend api
+            toast.success("Registration Successful! Please login.");
+
             navigate('/Login')
-
         }
-        else (
-            toast.error("please login ")
-        )
+        catch (err: any) {
+            toast.error(err.response?.data?.message || "Registration failed");
+        }
+        console.log("register user", registerUser)
 
     }
+    // const res = await registerUser(FullName, email, pwd);
+    // login(res.data.user, res.data.token); // save token in AuthContext + localStorage
+    // navigate("/Dashboard");
+
 
     return (
 
@@ -154,7 +175,7 @@ export default function Register() {
 
                         < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} className='md:ml-3 pl-9' placeholder="John Doe"
                             required />
-                </div>
+                    </div>
                 </div>
                 <div className="flex flex-col  mb-4 px-4 md:px-0">
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-56">Email</label>
@@ -163,7 +184,7 @@ export default function Register() {
                         <Mail className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
                         < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:ml-3 pl-9' placeholder="you@example.com"
                             required />
-                  </div>
+                    </div>
                 </div>
                 <div className="flex flex-col mb-4  px-4 md:px-0">
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-52">Password</label>
@@ -178,15 +199,15 @@ export default function Register() {
                         >
                             {showPwd ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                         </button>
+                    </div>
                 </div>
-                </div>
-               
+
                 <div className="flex flex-col   px-4 md:px-0">
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-36">Confirm Password</label>
                     <span className='text-red-500 font-sans text-left md:ml-20 text-xs'>{cPwdError}</span>
                     <div className="relative">
                         <Lock className="absolute left-20 top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        < InputComponent inputType={showPwd ? "text" :"password"} inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
+                        < InputComponent inputType={showPwd ? "text" : "password"} inputValue={cPwd} inputId="confirm-password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
                     </div> </div>
 
                 <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
@@ -197,3 +218,4 @@ export default function Register() {
 
     )
 }
+

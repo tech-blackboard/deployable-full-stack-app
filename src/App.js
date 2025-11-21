@@ -24,6 +24,8 @@ import CardViewDisplay from './features/CardViewDisplay'
 import AddToCard from "./features/AddToCard";
 import CheckListPopUp from "./features/CheckListPopUp";
 import ProjectView from "./features/JsonProject";
+import  AuthProvider  from './context/AuthContext';
+
 
 function App() {
   return (
@@ -43,9 +45,11 @@ function App() {
 
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
-  
-     
+      
+     <AuthProvider>
     <ProjectProvider>
+       
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<Login />} />
@@ -60,7 +64,6 @@ function App() {
           <Route path="/ErrorLoadingStates" element={<ErrorLoadingStates />} />
           <Route path="/ProjectListView" element={<ProjectListView />} />
           <Route path="/DisplayProject" element={<DisplayProject />} />
-          <Route path="/Logout" element={<Logout />} />
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="ProjectView" element={<ProjectView />} />
           <Route path="/EditTask/:id" element={<EditTask />} />
@@ -68,11 +71,19 @@ function App() {
         
 
           {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}
+          
+            <Route path="/Logout" element={<Logout />} />
 
 
 
         </Routes>
+      
+
       </ProjectProvider>
+      </AuthProvider>
+    
+
+    
       {/* <Divisions /> */}
       {/* </BrowserRouter> */}
 

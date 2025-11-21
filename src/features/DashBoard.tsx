@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HeaderComponent from "./HeaderComponent";
 import ButtonComponent from "./ButtonComponent";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import SideBarComponent from "./SideBar";
 // import projectdatajson from "../jsonDataFiles/projectdata.json";
 import data from "../jsonDataFiles/listData.json";
 import { addSetProjectData, setProjectData, setLists } from "../reduxStore/CreateNewProjectSlice";
+import {AuthContext} from "../context/AuthContext";
 // import projectData from "../jsonDataFiles/projectData.json";
 
 
@@ -31,6 +32,14 @@ export default function DashBoard() {
 
   //  Access data from context
   const { projects, addProject } = useContext(ProjectContext);
+  const { user} = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, []);
+
 
   const divStyle =
     " w-full md:w-1/2 lg:w-3/4  group border-3 md:mt-8 border-blue-300 bg-blue-100 p-5 md:ml-9 rounded-xl cursor-pointer hover:bg-blue-400 hover:font-semibold hover:text-xl hover:text-white ";
@@ -233,7 +242,7 @@ export default function DashBoard() {
       </div>
 
       <h3 className="text-xl md:text-base lg:text-2xl font-bold mt-2  text-blue-600 pt-3">
-        Welcome back, user! 👋
+        <h1>Welcome, {user?.username}!</h1>
       </h3>
       <span className="text-gray-400 font-bold mb-9 mr-5 text-base  block">
         Here's what's happening with your project.
