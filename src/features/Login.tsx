@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import ButtonComponent from './ButtonComponent';
 import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 import loginUser from '../api/auth.api';
+import { useContext } from "react";
+import {AuthContext} from '../context/AuthContext';
+
 // import './Login.css';
 
 interface UserData {
@@ -24,6 +27,7 @@ export default function Login() {
     const [showPwd, setShowPwd] = useState(false)
 
     const navigate = useNavigate()
+    const auth = useContext(AuthContext);
 
     function emailId(e: React.ChangeEvent<HTMLInputElement>) {
         setEmail(e.target.value)
@@ -111,9 +115,15 @@ export default function Login() {
             console.log("login response to backend", res);
 
             // save token + user info in AuthContext + localStorage
-            loginUser(res.data.user, res.data.token)
+   
+        //    localStorage.setItem("token", res.data.token)
+        //     localStorage.setItem("user", JSON.stringify(res.data.user))
+
             toast.success("Login Successful!");
-            navigate('/Dashboard');
+            const authlogin= auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
+            console.log("authlogin", authlogin)
+            navigate('/dashboard');
+
         }
         catch (err: any) {
             toast.error(err.response?.data?.message || "Login failed!")
@@ -126,7 +136,6 @@ export default function Login() {
 
 
     return (
-
 
         <div className=' border border-gray-300 md:px-0   bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
             <form>

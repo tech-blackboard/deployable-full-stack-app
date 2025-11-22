@@ -10,7 +10,7 @@ import SideBarComponent from "./SideBar";
 // import projectdatajson from "../jsonDataFiles/projectdata.json";
 import data from "../jsonDataFiles/listData.json";
 import { addSetProjectData, setProjectData, setLists } from "../reduxStore/CreateNewProjectSlice";
-import {AuthContext} from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext"
 // import projectData from "../jsonDataFiles/projectData.json";
 
 
@@ -33,12 +33,13 @@ export default function DashBoard() {
   //  Access data from context
   const { projects, addProject } = useContext(ProjectContext);
   const { user} = useContext(AuthContext);
-
+console.log("user",user)
   useEffect(() => {
     if (!user) {
+      
       navigate("/login");
     }
-  }, []);
+  }, [user,navigate]);
 
 
   const divStyle =
@@ -242,7 +243,7 @@ export default function DashBoard() {
       </div>
 
       <h3 className="text-xl md:text-base lg:text-2xl font-bold mt-2  text-blue-600 pt-3">
-        <h1>Welcome, {user?.username}!</h1>
+        <h1>Welcome, {user?.username}!👋 </h1>
       </h3>
       <span className="text-gray-400 font-bold mb-9 mr-5 text-base  block">
         Here's what's happening with your project.

@@ -17,15 +17,15 @@ import HomePage from "./features/HomePage";
 import ProjectListView from "./features/ProjectListView";
 import DisplayProject from "./features/DisplayProjects";
 import Logout from './features/Logout';
-import Divisions from './features/divs';
+// import Divisions from './features/divs';
 import DevComponent from "./features/DevComponent";
 import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
-import CardViewDisplay from './features/CardViewDisplay'
-import AddToCard from "./features/AddToCard";
-import CheckListPopUp from "./features/CheckListPopUp";
+// import CardViewDisplay from './features/CardViewDisplay'
+// import AddToCard from "./features/AddToCard";
+// import CheckListPopUp from "./features/CheckListPopUp";
 import ProjectView from "./features/JsonProject";
 import  AuthProvider  from './context/AuthContext';
-
+import ProtectedRoute from './ProtectedRoute'
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
       
-     <AuthProvider>
+    
     <ProjectProvider>
        
 
@@ -54,7 +54,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Dashboard" element={<DashBoard />} />
+          <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <DashBoard />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/Projects/:id" element={<ProjectView />} />
           <Route path="/Profile" element={<UserProfile />} />
           <Route path="/TaskListview" element={<TaskListView />} />
@@ -80,7 +85,7 @@ function App() {
       
 
       </ProjectProvider>
-      </AuthProvider>
+    
     
 
     
