@@ -46,7 +46,7 @@ function App() {
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
       
-    
+      <AuthProvider>
     <ProjectProvider>
        
 
@@ -86,7 +86,7 @@ function App() {
 
       </ProjectProvider>
     
-    
+      </AuthProvider>
 
     
       {/* <Divisions /> */}

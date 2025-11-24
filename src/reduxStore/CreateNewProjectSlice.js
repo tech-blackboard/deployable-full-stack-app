@@ -14,19 +14,20 @@ const addProjectDetails = createSlice({
             state.addProjects.push(action.payload);
         },
 
-        updateProject: function (state, action) {
-            const { index, updatedProjects } = action.payload;
-            if (state.addProjects[index]) {
-                state.addProjects[index] = updatedProjects;
-            }
+        updateProject: (state, action) => {
+            const { projectId, updatedData } = action.payload;
+
+            state.addProjects = state.addProjects.map((p) =>
+                p.projectId === projectId ? { ...p, ...updatedData } : p
+            );
         },
 
-        deleteProject: function (state, action) {
-            const projectIndex = action.payload;
-            if (projectIndex >= 0 && projectIndex < state.addProjects.length) {
-                state.addProjects.splice(projectIndex, 1);
-            }
+
+        deleteProject: (state, action) => {
+            const id = action.payload;
+            state.addProjects = state.addProjects.filter((p) => p.projectId !== id);
         },
+
 
         setProjectData: (state, action) => {
             state.projectData = action.payload;

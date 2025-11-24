@@ -138,26 +138,22 @@ export default function Register() {
         // )
     
 
-    //    if (isFullName || isEmail || isPwd || isCpwd) return
-       
-        try {
-            await registerUser(FullName, email, pwd)
-            // call backend api
-            toast.success("Registration Successful! Please login.");
-
-            navigate('/Login')
+        if (!isFullName || !isEmail || !isPwd || !isCpwd) {
+            return;
         }
-        catch (err: any) {
+
+        try {
+            await registerUser(FullName, email, pwd);
+            toast.success("Registration Successful! Please login.");
+            navigate("/Login");
+        } catch (err: any) {
             toast.error(err.response?.data?.message || "Registration failed");
         }
-        console.log("register user", registerUser)
-
-    }
     // const res = await registerUser(FullName, email, pwd);
     // login(res.data.user, res.data.token); // save token in AuthContext + localStorage
     // navigate("/Dashboard");
 
-
+    }
     return (
 
         <div className=' border border-gray-200 rounded-md mx-auto  md:mt-2  m-10 pb-4 border-t-0 shadow-xl w-full md:w-1/2 lg:w-1/3 '>
@@ -171,7 +167,7 @@ export default function Register() {
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-52">Full Name</label>
                     <span className='text-red-500 text-xs text-left md:ml-20'>{fullNameError}</span>
                     <div className="relative">
-                        <User className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
+                        <User className="absolute md:left-20 left-13 ml-3 md:ml-0  top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
 
                         < InputComponent inputType="text" inputId="FName" inputValue={FullName} inputOnChange={fullName} className='md:ml-3 pl-9' placeholder="John Doe"
                             required />
@@ -181,7 +177,7 @@ export default function Register() {
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-56">Email</label>
                     <span className='text-red-500 text-xs text-left md:ml-20'>{emailError}</span>
                     <div className="relative">
-                        <Mail className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
+                        <Mail className="absolute left-13 ml-3  md:ml-0 md:left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 " />
                         < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:ml-3 pl-9' placeholder="you@example.com"
                             required />
                     </div>
@@ -190,7 +186,7 @@ export default function Register() {
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-52">Password</label>
                     <span className='text-red-500 font-sans text-xs text-left md:ml-20'>{pwdError}</span>
                     <div className="relative">
-                        <Lock className="absolute left-20 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Lock className="absolute  top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 md:left-20 left-13 ml-3 md:ml-0" />
                         < InputComponent inputType={showPwd ? "text" : "password"} inputId="password" inputOnChange={password} className='md:ml-3 pl-9 ' placeholder="••••••••" />
                         <button
                             type="button"
@@ -206,8 +202,8 @@ export default function Register() {
                     <label className="block text-sm font-medium text-gray-700 mb-2 mr-36">Confirm Password</label>
                     <span className='text-red-500 font-sans text-left md:ml-20 text-xs'>{cPwdError}</span>
                     <div className="relative">
-                        <Lock className="absolute left-20 top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        < InputComponent inputType={showPwd ? "text" : "password"} inputValue={cPwd} inputId="confirm-password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
+                        <Lock className="absolute md:left-20 left-13 ml-3 md:ml-0 top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        < InputComponent inputType={showPwd ? "text" : "password"} inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
                     </div> </div>
 
                 <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />

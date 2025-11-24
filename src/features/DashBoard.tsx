@@ -188,18 +188,17 @@ console.log("user",user)
   console.log("lists", lists)
  
   function newProject() {
-    const Dispatch = dispatch(setProjectData(projectDatajson));
+   
 
-    console.log("dispatchprojectData ", Dispatch)
-    console.log("dispatch projectData  to redux", projectDatajson)
-    const addprojectdispatch = dispatch(addSetProjectData(addProjects))
-    console.log("addprojectdispatch", addprojectdispatch)
+    // console.log("dispatchprojectData ", Dispatch)
+    // console.log("dispatch projectData  to redux", projectDatajson)
+    // const addprojectdispatch = dispatch(addSetProjectData(addProjects))
+    // console.log("addprojectdispatch", addprojectdispatch)
 
-    const dispatchLists = dispatch(setLists(lists));
-    console.log("dispatch Lists ", dispatchLists)
+    // const dispatchLists = dispatch(setLists(lists));
+    // console.log("dispatch Lists ", dispatchLists)
 
-
-    // navigate("/CreateNewProject");
+ navigate("/CreateNewProject");
   }
 
   function nav() {

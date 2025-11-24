@@ -3,8 +3,10 @@ import ButtonComponent from './ButtonComponent';
 import { useState, useEffect, type SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProject } from '../reduxStore/CreateNewProjectSlice';
+import { addProject, setProjectData } from '../reduxStore/CreateNewProjectSlice';
 import DisplayProjects from './DisplayProjects';
+import { toast } from 'react-toastify';
+import createProject from '../api/project.api';
 // import './CreateNewProject.css';
 
 interface CreateNewProjectProps {
@@ -12,9 +14,8 @@ interface CreateNewProjectProps {
     description: string;
     startDate: string;
     targetEndDate: string;
-    TeamMembers: string;
     ProjectCategory: string;
-
+    TeamMembers: string;
 
 }
 export default function CreateNewProjects() {
@@ -22,8 +23,8 @@ export default function CreateNewProjects() {
     const [description, setDescription] = useState("");
     const [startDate, setStartDate] = useState("");
     const [targetEndDate, setTargetEndDate] = useState("");
-    const [TeamMembers, setTeamMembers] = useState("")
     const [ProjectCategory, setetProjectCategory] = useState("");
+    const [TeamMembers, setTeamMembers] = useState("")
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -45,19 +46,41 @@ export default function CreateNewProjects() {
         setTargetEndDate(event?.target.value)
 
     }
-    function projectTeamMembers(event: React.ChangeEvent<HTMLInputElement>) {
-        setTeamMembers(event?.target.value)
-    }
     function ProjectCategories(event: { target: { value: SetStateAction<string>; }; }) {
         setetProjectCategory(event?.target.value)
     }
-    function createNewProject(event: { preventDefault: () => void; }) {
+    function projectTeamMembers(event: React.ChangeEvent<HTMLInputElement>) {
+        setTeamMembers(event?.target.value)
+    }
+   
+    async function createNewProject(event: { preventDefault: () => void; }) {
         event.preventDefault()
-        const project: CreateNewProjectProps = { projectName, description, startDate, targetEndDate, TeamMembers, ProjectCategory }
-        console.log("project", project)
-        dispatch(addProject(project))
-        console.log("dispatch", (project))
-        navigate('/Dashboard')
+        // const project: CreateNewProjectProps = { projectName, description, startDate, targetEndDate, TeamMembers, ProjectCategory }
+        // console.log("project", project)
+        // dispatch(addProject(project))
+        // console.log("dispatch", (project))
+        // navigate('/Dashboard')
+
+        if (!projectName || !description || !startDate || !targetEndDate || !ProjectCategory || !TeamMembers ){
+         toast.error("please fill all fields");
+         return
+        }
+        try{
+            const res = await createProject(projectName, description, startDate, targetEndDate, ProjectCategory, TeamMembers,)
+            console.log("res",res.data)
+            console.log("res", res.data.projectId)
+
+            // const project: CreateNewProjectProps = { projectName, description, startDate, targetEndDate, TeamMembers, ProjectCategory }
+            // console.log("project", project)
+           const project= dispatch(addProject(res.data))
+            console.log("setProjectData = ", setProjectData)
+            console.log("setProjectData dispatch", (project))
+            toast.success("Project created successfully!");
+            navigate("/Dashboard"); // redirect to project list onClick={() => navigate(`/Projects/${id}`)}
+        } catch (err: any) {
+            toast.error(err.response?.data?.message || "Failed to create project");
+        }
+
     }
 
     // function cancel(){

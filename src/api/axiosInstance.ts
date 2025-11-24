@@ -1,17 +1,15 @@
-import axios from "axios"; // which is used to make HTTP requests from your frontend (React) to the backend (NestJS).
+import axios from "axios";
+
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:5000",  // YOUR backend URL
+    baseURL: "http://localhost:5000",
 });
 
-// Add token automatically
 axiosInstance.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");
     if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
-    
 });
 
-// Refresh token handler
 axiosInstance.interceptors.response.use(
     (res) => res,
     async (error) => {
@@ -21,17 +19,16 @@ axiosInstance.interceptors.response.use(
             original._retry = true;
 
             const refresh = localStorage.getItem("refresh");
-            console.log("refresh", refresh)
-           const user= localStorage. JSON.parse(localStorage.getItem("user"));
-            console.log("user from axios", user)
+            const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-            if (!refresh ) {
+            if (!refresh) {
                 window.location.href = "/login";
                 return;
             }
 
             try {
-                const res = await axios.post("/auth/refresh", {
+                // IMPORTANT: use normal axios (NOT axiosInstance)
+                const res = await axios.post("http://localhost:5000/auth/refresh", {
                     refreshToken: refresh,
                     userId: user.userId,
                 });
@@ -41,6 +38,7 @@ axiosInstance.interceptors.response.use(
                 original.headers.Authorization = `Bearer ${res.data.access_token}`;
 
                 return axiosInstance(original);
+
             } catch (err) {
                 localStorage.clear();
                 window.location.href = "/login";
@@ -50,7 +48,5 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
-
 
 export default axiosInstance;

@@ -120,8 +120,7 @@ export default function Login() {
         //     localStorage.setItem("user", JSON.stringify(res.data.user))
 
             toast.success("Login Successful!");
-            const authlogin= auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
-            console.log("authlogin", authlogin)
+          auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
             navigate('/dashboard');
 
         }
