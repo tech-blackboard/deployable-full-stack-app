@@ -8,6 +8,7 @@ import DisplayProjects from './DisplayProjects';
 import { toast } from 'react-toastify';
 import createProject from '../api/project.api';
 // import './CreateNewProject.css';
+import { useParams } from "react-router-dom";
 
 interface CreateNewProjectProps {
     projectName: string;
@@ -28,6 +29,8 @@ export default function CreateNewProjects() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+
 
     function createProjectName(event: React.ChangeEvent<HTMLInputElement>) {
         setProjectName(event?.target.value)
@@ -73,6 +76,8 @@ export default function CreateNewProjects() {
             // const project: CreateNewProjectProps = { projectName, description, startDate, targetEndDate, TeamMembers, ProjectCategory }
             // console.log("project", project)
            const project= dispatch(addProject(res.data))
+            const data = dispatch(setProjectData(res.data))
+            console.log("data from cretevpro", data)
             console.log("setProjectData = ", setProjectData)
             console.log("setProjectData dispatch", (project))
             toast.success("Project created successfully!");

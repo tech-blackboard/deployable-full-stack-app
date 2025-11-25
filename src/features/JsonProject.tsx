@@ -2,7 +2,7 @@ import { Archive, Search } from 'lucide-react';
 import HeaderComponent from './HeaderComponent';
 import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DisplayProject from './DisplayProjects';
 import { useDispatch, useSelector } from 'react-redux';
 import ProjectListView from './ProjectListView';
@@ -15,6 +15,10 @@ import Members from './Members';
 import CheckListAddComponent from './CheckListAddComponent';
 import { toast } from 'react-toastify';
 import { setCardsToLists, setLists } from '../reduxStore/CreateNewProjectSlice';
+import createLists, { deleteListApi } from '../api/list.api';
+import createCard from '../api/card.api';
+
+
 
 export default function ProjectView() {
     const [list, setList] = useState(false);
@@ -26,11 +30,24 @@ export default function ProjectView() {
 
     // Get lists from Redux - assuming you have a current project
     const lists = useSelector((state: any) => state.newProject.lists);
-    console.log("lists", lists)
-    const projectData = useSelector((state: any) => state.newProject.projectData);
-    console.log("projectData", projectData)
-
+    console.log("lists useselector", lists)
+    // const projectData = useSelector((state: any) => state.newProject.projectData); addProjects
+    const { id } = useParams();
     const currentProjectIndex = 0; // You might want to track this differently
+    const projectData = useSelector((state: any) => state.newProject.addProjects); 
+    console.log("projectData", projectData);
+    console.log("projectData", projectData.projectId);
+
+    const projectIndex = Number(id)// when we want to create a list in selected project. we can use the ids of projects by using useParams.
+    console.log("projectIndex", projectIndex)
+    const project = projectData[projectIndex]
+    console.log("project projectIndex", project)
+
+    console.log("project projectId", project.projectId)
+
+    const selectedProject = projectData.find(p => p.projectId ==id);
+    console.log("selectedProject", selectedProject)
+     
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -38,17 +55,41 @@ export default function ProjectView() {
     function backToDashboard() {
         navigate('/DashBoard');
     }
+    async function addLists(event: { preventDefault: () => void; }) {
+        event.preventDefault();
 
-    function addLists(listId: number, listname: string) {
-        const newList = { listId, listname, cards: [] };
-        const updatedLists = [...lists, newList];
-        dispatch(setLists(updatedLists));
-        setListName('');
-        setList(false);
-        toast.success("List added successfully!");
+       
+       
+        try {
+            const res = await createLists(listName, project.projectId)
+            console.log("res list", res)
+            console.log("res list", res.data)
+            // const updatedLists = [...lists, res.data];
+            // console.log("list updated", updatedLists)
+
+            const updatedLists = [...lists, res.data];
+                dispatch(setLists(updatedLists));
+         
+
+                setListName('');
+                setList(false);
+                toast.success("List added successfully!");
+        }
+        catch (err) {
+            toast.error("list feild")
+        }
+
     }
+    // function addLists(listId: number, listname: string) {
+    //     const newList = { listId, listname, cards: [] };
+    //     const updatedLists = [...lists, newList];
+    //     dispatch(setLists(updatedLists));
+    //     setListName('');
+    //     setList(false);
+    //     toast.success("List added successfully!");
+    // }
 
-    function addCard(listId: number) {
+    async function addCard(listId: number) {
         const cardname = cardName[listId];
         if (!cardname || !cardname.trim()) {
             toast.error("Card name cannot be empty!");
@@ -66,6 +107,16 @@ export default function ProjectView() {
             listId: listId,
             card: newCard
         }));
+        try {
+            const res = await createCard(cardname, listId)
+            console.log("res from cards", res)
+           
+
+        }
+        catch (err) {
+            toast.error("failed to create cards")
+
+        }
         console.log("cards", cards)
         // Clear card name and hide form
         setCardName(prev => ({ ...prev, [listId]: '' }));
@@ -73,6 +124,12 @@ export default function ProjectView() {
         toast.success("Card added successfully!");
     }
 
+    // async function deleteList(listId:number){
+    //     await deleteListApi(listId)
+    //     console.log("from delete")
+    // }
+
+    
     function addListClose() {
         setList(false);
         setListName('');
@@ -108,7 +165,6 @@ export default function ProjectView() {
             }
             return list;
         });
-
         dispatch(setLists(updatedLists));
         toast.success("Card archived successfully!");
     }
@@ -136,8 +192,8 @@ export default function ProjectView() {
                     >
                         {/* List Title */}
                         <div className='flex flex-row justify-between'>
-                            <h1 className="text-red-900 text-base">{list.listname}</h1>
-                            <button className="text-black-100 hover:text-blue-800">
+                            <h1 className="text-red-900 text-base">{list.listName}</h1>
+                            <button className="text-black-100 hover:text-blue-800" >
                                 <svg className="w-6 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <circle cx="4" cy="12" r="3"></circle>
                                     <circle cx="12" cy="12" r="3"></circle>
@@ -175,6 +231,7 @@ export default function ProjectView() {
                                 }
                                 listId={list.listId}
                             />
+
                         ) : (
                             <div className="flex flex-row mt-2">
                                 <button
@@ -194,7 +251,7 @@ export default function ProjectView() {
                     {list ? (
                         <AddList
                             onClose={addListClose}
-                            addList={(id, name) => addLists(id, name)}
+                            addList={addLists}
                             listName={listName}
                             onListNameChange={(value) => setListName(value)}
                         />
@@ -225,3 +282,4 @@ export default function ProjectView() {
         </div>
     );
 }
+
