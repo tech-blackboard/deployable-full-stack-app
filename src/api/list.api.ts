@@ -5,6 +5,6 @@ export default function createLists( listName:string,projectId:number){
     return axiosInstance.post('/lists', {listName,projectId });
 }
 export function deleteListApi(listId: number) {
-    return axiosInstance.delete(`/project/${listId}`)
+    return axiosInstance.delete(`/lists/${listId}`)
 
 }

@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     updateProject,
     deleteProject as deleteProjectRedux,
+    addProject,
 } from "../reduxStore/CreateNewProjectSlice";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
 import { deleteProjectApi, updateProjectApi } from "../api/project.api";
+import { toast } from "react-toastify";
 
 export default function EditTask() {
     const navigate = useNavigate();
@@ -20,7 +22,7 @@ export default function EditTask() {
     const project = newProjects[projectIndex];
 
     //  If project doesn't exist → Redirect safely
-   
+
     const [taskTitle, setTaskTitle] = useState(project.projectName);
     const [Description, setDescription] = useState(project.description);
     const [startDate, setStartDate] = useState(project.startDate);
@@ -35,7 +37,7 @@ export default function EditTask() {
     //  Prevent ANY rendering before redirect
     if (!project) return null;
 
-   async function editTask() {
+    async function editTask() {
         const updatedProjects = {
             projectId: project.projectId, // keep id
             projectName: taskTitle,
@@ -43,21 +45,39 @@ export default function EditTask() {
             startDate,
             targetEndDate: DueDate,
         };
-       await updateProjectApi(project.projectId, updatedProjects)//here we can update the project in db
-       dispatch(updateProject({ projectId: project.projectId, updatedData:updatedProjects }));
-       //updatedData  this from slice 
-        navigate(`/Projects/${projectIndex}`);
-    }
+        try {
+            const update = await updateProjectApi(project.projectId, updatedProjects)//here we can update the project in db
+            dispatch(updateProject({ projectId: project.projectId, updatedData: updatedProjects }));
+            //updatedData  this from slice 
+            toast.success("Project updated successfully!")
 
-  
-   async  function deleteProject() {
-        await deleteProjectApi(project.projectId);//here we can delete the project from db
+            navigate(`/Projects/${projectIndex}`);
+        } catch (error) {
+            toast.error("you project not updated! ")
+        }
+    }
+    async function deleteProject() {
+
+
+        //   const deleteProject = await deleteProjectApi(project.projectId)
+        //   const deleted = project.filter((p: any) => p.projectId !==  projectId)
+        //   dispatch(addProject(project.projectId));
+
+        //   navigate("/Dashboard");
+
+
+        const deleted = await deleteProjectApi(project.projectId);//here we can delete the project from db
 
         dispatch(deleteProjectRedux(project.projectId)); // delete by id
+        toast.success(" delete Project successfully!")
         navigate("/Dashboard");
+
+        if (!deleted) {
+            navigate("/Dashboard");
+        }
     }
 
- 
+
     function cancelproject() {
         setTaskTitle("");
         setDescription("");
@@ -82,14 +102,14 @@ export default function EditTask() {
             <label className="text-9xm font-semibold mr-64 md:mr-60">Description</label>
             <InputComponent className="border-2 mb-4 lg:w-full ml-3" inputValue={Description} inputOnChange={(e) => setDescription(e.target.value)} />
 
-           
+
             <label className="text-9xm font-semibold mr-64">Start Date</label>
             <InputComponent inputType="date" inputValue={startDate} inputOnChange={(e) => setStartDate(e.target.value)} className="lg:w/full ml-2" />
 
             <label className="text-9xm font-semibold mr-64">Due Date</label>
             <InputComponent inputType="date" inputValue={DueDate} inputOnChange={(e) => setDueDate(e.target.value)} className="lg:w/full ml-2" />
 
-          
+
             <div className="flex gap-7 justify-center mt-9">
                 <ButtonComponent className="bg-gray-600 hover:bg-gray-700 w-full" name="Cancel" onClick={cancelproject} />
                 <ButtonComponent className="bg-red-600 hover:bg-red-700 w-full" name="Delete" onClick={deleteProject} />

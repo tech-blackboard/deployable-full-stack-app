@@ -16,7 +16,7 @@ import CheckListAddComponent from './CheckListAddComponent';
 import { toast } from 'react-toastify';
 import { setCardsToLists, setLists } from '../reduxStore/CreateNewProjectSlice';
 import createLists, { deleteListApi } from '../api/list.api';
-import createCard from '../api/card.api';
+import createCard, { deleteCardApi } from '../api/card.api';
 
 
 
@@ -27,27 +27,28 @@ export default function ProjectView() {
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState<any>(null);
     const [cardVisible, setCardVisible] = useState<{ [key: number]: boolean }>({});
-
+    const { id } = useParams();
     // Get lists from Redux - assuming you have a current project
     const lists = useSelector((state: any) => state.newProject.lists);
     console.log("lists useselector", lists)
-    // const projectData = useSelector((state: any) => state.newProject.projectData); addProjects
-    const { id } = useParams();
+
+    // const projectData = useSelector((state: any) => state.newProject.projectData); 
+    // const { id } = useParams();
     const currentProjectIndex = 0; // You might want to track this differently
-    const projectData = useSelector((state: any) => state.newProject.addProjects); 
+    const projectData = useSelector((state: any) => state.newProject.addProjects);
     console.log("projectData", projectData);
     console.log("projectData", projectData.projectId);
+
 
     const projectIndex = Number(id)// when we want to create a list in selected project. we can use the ids of projects by using useParams.
     console.log("projectIndex", projectIndex)
     const project = projectData[projectIndex]
     console.log("project projectIndex", project)
 
-    console.log("project projectId", project.projectId)
+    // console.log("project projectId", project.projectId)
 
-    const selectedProject = projectData.find(p => p.projectId ==id);
+    const selectedProject = projectData.find(p => p.projectId == id);
     console.log("selectedProject", selectedProject)
-     
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -57,9 +58,6 @@ export default function ProjectView() {
     }
     async function addLists(event: { preventDefault: () => void; }) {
         event.preventDefault();
-
-       
-       
         try {
             const res = await createLists(listName, project.projectId)
             console.log("res list", res)
@@ -68,12 +66,10 @@ export default function ProjectView() {
             // console.log("list updated", updatedLists)
 
             const updatedLists = [...lists, res.data];
-                dispatch(setLists(updatedLists));
-         
-
-                setListName('');
-                setList(false);
-                toast.success("List added successfully!");
+            dispatch(setLists(updatedLists));
+            setListName('');
+            setList(false);
+            toast.success("List added successfully!");
         }
         catch (err) {
             toast.error("list feild")
@@ -102,7 +98,7 @@ export default function ProjectView() {
         };
 
         // Dispatch with correct structure
-       const cards= dispatch(setCardsToLists({
+        const cards = dispatch(setCardsToLists({
             projectId: currentProjectIndex,
             listId: listId,
             card: newCard
@@ -110,12 +106,10 @@ export default function ProjectView() {
         try {
             const res = await createCard(cardname, listId)
             console.log("res from cards", res)
-           
 
         }
         catch (err) {
             toast.error("failed to create cards")
-
         }
         console.log("cards", cards)
         // Clear card name and hide form
@@ -125,11 +119,38 @@ export default function ProjectView() {
     }
 
     // async function deleteList(listId:number){
-    //     await deleteListApi(listId)
+    //     await deleteListApi()
     //     console.log("from delete")
-    // }
+    // };
 
-    
+
+    // async function deleteCard(cardId: number) {
+    //     try {
+    //         await deleteCardApi(cardId);
+
+    //         const updated = lists.map((list: any) => ({
+    //             ...list,
+    //             cards: list.cards.filter((c: any) => c.cardId !== cardId)
+    //         }));
+
+    //         dispatch(setLists(updated));
+
+    //         toast.success("Card deleted");
+    //     } catch (err) {
+    //         toast.error("Error deleting card");
+    //     }
+
+
+    async function deleteList(listId: number) {
+        await deleteListApi(listId)
+        console.log("from delete")
+        const deleted = lists.filter((l: any) => l.listId !== listId)
+        console.log("deleted", deleted)
+        dispatch(setLists(deleted))
+        toast.success("LIST is deleted successfully..")
+
+    }
+
     function addListClose() {
         setList(false);
         setListName('');
@@ -191,10 +212,10 @@ export default function ProjectView() {
                         className="flex flex-col text-left px-2 pb-2 p-2 px-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold hover:text-xl w-full lg:w-1/5 md:w-1/2 cursor-pointer hover:border-none bg-gradient-to-tl from-blue-300 to-blue-200"
                     >
                         {/* List Title */}
-                        <div className='flex flex-row justify-between'>
+                        <div className='flex flex-row justify-between' >
                             <h1 className="text-red-900 text-base">{list.listName}</h1>
-                            <button className="text-black-100 hover:text-blue-800" >
-                                <svg className="w-6 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <button className="text-black-100 hover:text-blue-800" onClick={() => deleteList(list.listId)}>
+                                <svg className="w-6 h-5" fill="currentColor" viewBox="0 0 24 24" >
                                     <circle cx="4" cy="12" r="3"></circle>
                                     <circle cx="12" cy="12" r="3"></circle>
                                     <circle cx="20" cy="12" r="3"></circle>
@@ -204,7 +225,7 @@ export default function ProjectView() {
 
                         {/* Cards under this List */}
                         {list.cards && list.cards.length > 0 && list.cards.map((card: any) => (
-                            <div key={card.cardId} className='flex flex-row gap-2 p-1 items-center'>
+                            <div key={card.cardId} className='flex flex-row gap-2 p-1 items-center' onClick={() => deleteCard(card.cardId)}>
                                 <button
                                     className='text-base mt-2 rounded-md flex-1 bg-blue-200 shadow-md hover:rounded-md p-3 text-left'
                                     onClick={() => listDisplay(card)}

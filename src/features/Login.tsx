@@ -7,7 +7,7 @@ import ButtonComponent from './ButtonComponent';
 import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 import loginUser from '../api/auth.api';
 import { useContext } from "react";
-import {AuthContext} from '../context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 
 // import './Login.css';
 
@@ -108,25 +108,26 @@ export default function Login() {
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
 
-        if (!isEmail || !isPwd) return;
+        if (!isEmail || !isPwd) return
+
         try {
             // send credentials to backend
             const res = await loginUser(email, pwd);
             console.log("login response to backend", res);
 
             // save token + user info in AuthContext + localStorage
-   
-        //    localStorage.setItem("token", res.data.token)
-        //     localStorage.setItem("user", JSON.stringify(res.data.user))
+
+            //    localStorage.setItem("token", res.data.token)
+            //     localStorage.setItem("user", JSON.stringify(res.data.user))
 
             toast.success("Login Successful!");
-          auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
+            auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
             navigate('/dashboard');
 
         }
         catch (err: any) {
             toast.error(err.response?.data?.message || "Login failed!")
-                setSignUp(true);
+            setSignUp(true);
 
         }
     }
@@ -170,7 +171,7 @@ export default function Login() {
                         </button>
 
                     </div>  </div>
-                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
+                <ButtonComponent type="button" name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
 
                 {
                     signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
