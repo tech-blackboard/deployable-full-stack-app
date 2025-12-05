@@ -1,4 +1,6 @@
 import HeaderComponent from './HeaderComponent'
+import SideBarComponent from './sideBarComponent';
+
 // import './AnalyticsDashboard.css'
 import TaskCompletionChart from './TaskCompletionChart'
 export default function AnalyticsDashboard() {
@@ -10,16 +12,28 @@ export default function AnalyticsDashboard() {
     return (
         <div>
 
-            <div className="flex justify-between  bg-gray-700 w-full  ">
+            {/* <div className="flex justify-between  bg-gray-700 w-full  ">
                 <h1 className="text-xl text-white ml-9 p-3 font-bold md:text-2xl   ">Analytics Dashboard</h1>
-
-                <HeaderComponent
+ <SideBarComponent />
+                {/* <HeaderComponent
                     Dashboard="Dashboard"
                     Projects="Projects"
                     ErrorLoadingStates="ErrorLoadingStates"
-                    Profile="Profile" className='w-full' />
+                    Profile="Profile" className='w-full' /> */}
+{/* 
+            </div> */} 
 
-            </div>
+            <SideBarComponent
+                title="Analytics Dashboard"
+                menuItems={[
+                    { label: "Dashboard", path: "/dashboard" },
+                    { label: "Projects", path: "/projects" },
+                    { label: "ErrorLoadingStates", path: "/ErrorLoadingStates" },
+                    { label: "Profile", path: "/profile" },
+                  
+                ]}
+            />
+
             <p className='text-xl  font-bold pt-9 mr-18 '>Productivity Analytics</p>
             <span className=' text-lg text-gray-400 font-bold ml-9  '>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>
             <div className="flex flex-col md:flex-row flex-wrap  justify-evenly gap-9  ">

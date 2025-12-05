@@ -6,11 +6,12 @@ import DisplayProject from "./DisplayProjects";
 import { useDispatch, useSelector } from "react-redux";
 import { ProjectContext } from "./ProjectContext";
 import DevComponent from "./DevComponent";
-import SideBarComponent from "./SideBar";
+
 // import projectdatajson from "../jsonDataFiles/projectdata.json";
 import data from "../jsonDataFiles/listData.json";
 import { addSetProjectData, setProjectData, setLists } from "../reduxStore/CreateNewProjectSlice";
 import { AuthContext } from "../context/AuthContext"
+import SideBarComponent from "./sideBarComponent";
 // import projectData from "../jsonDataFiles/projectData.json";
 
 
@@ -232,7 +233,16 @@ console.log("user",user)
 
       <div className=" lg:bg-blue-600 ">
 
-        <SideBarComponent />
+      
+        <SideBarComponent
+          title="Task Manager"
+          menuItems={[
+            { label: "Profile", path: "/Profile" },
+            { label: "Projects", path: "/Projects" },
+            { label: "Analytics", path: "/Analytics" },
+            { label: "Logout", path: "/Logout" },
+          ]} classNames={""}                    /> 
+        
         {/* <HeaderComponent
           Profile="Profile"
           Projects="Projects"
@@ -259,11 +269,11 @@ console.log("user",user)
         </div>
 
         <div className={divStyle}>
-          <p className={divPara}>8</p>Completed
+          <p className={divPara}>0</p>Completed
         </div>
 
         <div className={divStyle}>
-          <p className={divPara}>3</p>Overdue
+          <p className={divPara}>0</p>Overdue
         </div>
       </div>
 

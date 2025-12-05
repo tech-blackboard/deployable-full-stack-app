@@ -21,12 +21,14 @@ export default function Register() {
     const [email, setEmail] = useState<string>("");
     const [pwd, setPwd] = useState<string>("");
     const [cPwd, setCpwd] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
 
     const [fullNameError, setFnameError] = useState<string>("");
     const [emailError, setEmailError] = useState<string>("");
     const [pwdError, setPwdError] = useState<string>("");
     const [cPwdError, setCpwdError] = useState<string>("");
     const [showPwd, setShowPwd] = useState(false)
+    const [phoneError, setPhoneError] = useState<string>(""); 
 
     const navigate = useNavigate()
 
@@ -43,7 +45,9 @@ export default function Register() {
     function confirmPwd(e: React.ChangeEvent<HTMLInputElement>) {
         setCpwd(e.target.value)
     }
-
+    function phoneNumber(e: React.ChangeEvent<HTMLInputElement>) {
+        setPhone(e.target.value)
+    }
     function validationFullName(): boolean {
         const regName = /^[A-Za-z]+$/;
 
@@ -51,10 +55,10 @@ export default function Register() {
             setFnameError("please enter your Full name");
             return false;
         }
-        else if (!regName.test(FullName)) {
-            setFnameError("Allow characters only...");
-            return false;
-        }
+        // else if (!regName.test(FullName)) {
+        //     setFnameError("Allow characters only...");
+        //     return false;
+        // }
         else {
             setFnameError("");
             return true
@@ -111,7 +115,29 @@ export default function Register() {
 
         }
     }
-    // alert(" before register")
+    function validatationPhone(): boolean {
+        const onlyDigits = /^\d+$/;
+        if (phone === "") {
+            setPhoneError("enter your Phone number ");
+            return false;
+        }
+        else if (!onlyDigits.test(phone)) {
+            setPhoneError("phone number contains Didits only*");
+            return false;
+        }
+        else if (phone.length < 10) {
+            setPhoneError("phone number must be 10 digits");
+            return false;
+        }
+        else {
+            setPhoneError("");
+            return true
+        }
+
+    }
+    
+
+
 
     async function handleSignUp(event: React.FormEvent) {
         event.preventDefault()
@@ -119,7 +145,7 @@ export default function Register() {
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
         const isCpwd = validationConfirmPwd();
-
+        const isvalidatationPhone = validatationPhone()
         // if (isFullName && isEmail && isPwd && isCpwd) {
         //     const local = {
         //         fullName: FullName,
@@ -138,12 +164,12 @@ export default function Register() {
         // )
     
 
-        if (!isFullName || !isEmail || !isPwd || !isCpwd) {
+        if (!isFullName || !isEmail || !isPwd || !isCpwd || !isvalidatationPhone) {
             return;
         }
 
         try {
-            await registerUser(FullName, email, pwd);
+            await registerUser(FullName, email, pwd, phone);
             toast.success("Registration Successful! Please login.");
             navigate("/Login");
         } catch (err: any) {
@@ -205,8 +231,11 @@ export default function Register() {
                         <Lock className="absolute md:left-20 left-13 ml-3 md:ml-0 top-5 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                         < InputComponent inputType={showPwd ? "text" : "password"} inputValue={cPwd} inputId="password" inputOnChange={confirmPwd} className='md:ml-3 pl-9 mb-3' placeholder="••••••••" />
                     </div> </div>
+                <label className="block text-sm font-medium text-gray-700  mr-52  ">Phone</label>
+                <span className='text-red-500 font-sans text-xs text-left '>{phoneError}</span>
 
-                <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
+                <InputComponent inputType="tel" inputmode="numeric" placeholder="+91 8688868234"  inputValue={phone} inputOnChange={phoneNumber} className='md:ml-3 pl-9 mb-3' />
+    <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
                 <p className=' block text-sm font-medium text-gray-700 mb-2 '>Already have an Account? <Link to="/Login" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Sign in</Link></p>
             </form>
         </div>

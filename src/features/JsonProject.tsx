@@ -72,7 +72,7 @@ export default function ProjectView() {
             toast.success("List added successfully!");
         }
         catch (err) {
-            toast.error("list feild")
+            toast.error("list not added!..")
         }
 
     }

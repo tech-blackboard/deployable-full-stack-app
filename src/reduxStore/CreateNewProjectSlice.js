@@ -4,6 +4,8 @@ const initialState = {
     addProjects: [],
     projectData: [],
     lists: [],
+    addUsers: [],
+
 }
 
 const addProjectDetails = createSlice({
@@ -28,6 +30,16 @@ const addProjectDetails = createSlice({
             state.addProjects = state.addProjects.filter((p) => p.projectId !== id);
         },
 
+        addUser: function (state, action) {
+            state.addUsers.push(action.payload);
+        },
+        updateUsers: (state, action) => {
+            const { userId, updatedUserData } = action.payload;
+
+            state.addUsers = state.addUsers.map((p) =>
+                p.userId === userId ? { ...p, ...updatedUserData } : p
+            );
+        },
 
         setProjectData: (state, action) => {
             state.projectData = action.payload;
@@ -86,6 +98,8 @@ const addProjectDetails = createSlice({
 
 export const {
     addProject,
+    addUsers,
+    addUser,
     updateProject,
     deleteProject,
     setProjectData,

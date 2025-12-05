@@ -7,7 +7,7 @@ import ButtonComponent from './ButtonComponent';
 import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 import loginUser from '../api/auth.api';
 import { useContext } from "react";
-import { AuthContext } from '../context/AuthContext';
+import {AuthContext} from '../context/AuthContext';
 
 // import './Login.css';
 
@@ -81,7 +81,7 @@ export default function Login() {
 
     //     const getLocalUserData = localStorage.getItem('user');
     //     console.log("getLocalUserData", getLocalUserData)
-    //     // Check if user data does NOT exist
+    //     // Check if user data does NOT exist 
     //     if (!getLocalUserData) {
     //         toast.error("No user found in local storage!");
     //         setSignUp(true);//it shows the sign up 
@@ -102,32 +102,34 @@ export default function Login() {
 
     //   }
 
-    async function handleSignIn(event: React.FormEvent) {
+    async function handleSignIn(event: { preventDefault: () => void; }) {
         event.preventDefault();
 
         const isEmail = validationEmail();
         const isPwd = validatationPwd();
 
-        if (!isEmail || !isPwd) return
-
+        if (!isEmail || !isPwd) return setSignUp(false);
+      
         try {
             // send credentials to backend
             const res = await loginUser(email, pwd);
             console.log("login response to backend", res);
 
             // save token + user info in AuthContext + localStorage
-
-            //    localStorage.setItem("token", res.data.token)
-            //     localStorage.setItem("user", JSON.stringify(res.data.user))
+   
+        //    localStorage.setItem("token", res.data.token)
+        //     localStorage.setItem("user", JSON.stringify(res.data.user))
 
             toast.success("Login Successful!");
             auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
             navigate('/dashboard');
+            setSignUp(false);
 
         }
         catch (err: any) {
-            toast.error(err.response?.data?.message || "Login failed!")
+            toast.error(err.res?.data?.message || "Login failed!")
             setSignUp(true);
+
 
         }
     }
@@ -171,10 +173,10 @@ export default function Login() {
                         </button>
 
                     </div>  </div>
-                <ButtonComponent type="button" name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
+                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
 
                 {
-                    signUp && <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
+                   <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
                 }
             </form>
         </div>

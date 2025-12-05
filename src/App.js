@@ -26,6 +26,8 @@ import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 import ProjectView from "./features/JsonProject";
 import  AuthProvider  from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute'
+import DisplayProjects from "./features/DisplayProjects";
+import Projects from "./features/Projects";
 
 function App() {
   return (
@@ -72,7 +74,7 @@ function App() {
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="ProjectView" element={<ProjectView />} />
           <Route path="/EditTask/:id" element={<EditTask />} />
-          <Route path="/Projects/:id" element={<DevComponent />} />
+            <Route path="/Projects" element={<Projects />} />
         
 
           {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}

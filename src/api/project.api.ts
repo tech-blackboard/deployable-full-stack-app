@@ -8,7 +8,7 @@ export default function createProject(projectName: string, description: string, 
 export function updateProjectApi(projectId: number, data:any) {
     return axiosInstance.patch(`/project/${projectId}`, data)
 
-}
+} 
 
 
 export function deleteProjectApi(projectId:number){
