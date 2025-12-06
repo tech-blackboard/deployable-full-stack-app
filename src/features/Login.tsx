@@ -8,6 +8,8 @@ import { Mail, User, Lock, EyeOff, Eye } from 'lucide-react';
 import loginUser from '../api/auth.api';
 import { useContext } from "react";
 import {AuthContext} from '../context/AuthContext';
+import SendOtp from './SendOtp';
+import sendOtp from '../api/sendOtp.api';
 
 // import './Login.css';
 
@@ -72,6 +74,8 @@ export default function Login() {
 
     }
 
+   
+
 
     // function handleSignIn(event: React.FormEvent) {
     //     event.preventDefault();
@@ -122,7 +126,7 @@ export default function Login() {
 
             toast.success("Login Successful!");
             auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
-            navigate('/dashboard');
+            navigate('/SendOtp');
             setSignUp(false);
 
         }
@@ -132,8 +136,25 @@ export default function Login() {
 
 
         }
+
+
+
+
     }
 
+    // const handleSendOtp = async () => {
+        
+    //     // if (!email) return toast.error("Please enter email!");
+    //     try {
+            
+    //         const res = await sendOtp(email); // API call to /auth/send-otp
+    //         console.log("res email", res.data)
+    //         alert( res)
+    //         toast.success(res.data.message); // "OTP sent successfully"
+    //         navigate('/SendOtp'); // pass email to OTP page
+    //     } catch (err: any) {
+    //         toast.error(err.response?.data?.message || "Failed to send OTP");
+    //     }}
 
 
 
@@ -173,7 +194,8 @@ export default function Login() {
                         </button>
 
                     </div>  </div>
-                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' />
+                
+                <ButtonComponent name="Sign In" onClick={handleSignIn} className='mb-2 h-11 w-20 pb-9' buttonType='button' />
 
                 {
                    <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>

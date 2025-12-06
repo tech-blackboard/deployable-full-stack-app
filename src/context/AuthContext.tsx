@@ -48,6 +48,8 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         localStorage.setItem("refresh", refreshToken);
     };
 
+    
+
     //  LOGOUT FUNCTION
     const logout = () => {
         setUser(null);

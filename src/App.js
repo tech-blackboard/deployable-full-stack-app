@@ -28,6 +28,9 @@ import  AuthProvider  from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute'
 import DisplayProjects from "./features/DisplayProjects";
 import Projects from "./features/Projects";
+import SendOtp from './features/SendOtp';
+import OtpLogin from './features/OtpLogin';
+
 
 function App() {
   return (
@@ -54,7 +57,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<Login />} />
+            <Route path="/OtpLogin" element={<OtpLogin />} />
+
+          {/* <Route path="/Login" element={<Login />} /> */}
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/dashboard" element={
               <ProtectedRoute>
@@ -75,7 +80,7 @@ function App() {
           <Route path="ProjectView" element={<ProjectView />} />
           <Route path="/EditTask/:id" element={<EditTask />} />
             <Route path="/Projects" element={<Projects />} />
-        
+            <Route path="/SendOtp" element={<SendOtp />} />
 
           {/* <Route path="CardViewDisplay" element={<ProjectView  />} /> */}
           

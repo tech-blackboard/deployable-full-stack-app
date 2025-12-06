@@ -12,3 +12,4 @@ export default async function loginUser(email: string, password: string) {
 
 }//send credentials to backend. backend return the token and user
 
+

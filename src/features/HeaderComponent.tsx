@@ -17,15 +17,17 @@ interface HeaderProps {
     SignUp?:string;
     ErrorLoadingStates?:string;
     HomePage?:string;
+    OtpLogin?:string;
 
 }
 
 
-export default function HeaderComponent({ Login, SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, HomePage,sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
+export default function HeaderComponent({ OtpLogin,Login, SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, HomePage,sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
     const Headerclass = `hover:shadow-xl hover:px-5 hover:border  py-2 rounded-xl px-3 text-white font-semibold w-full md:w-1/2 lg:w-2/3 ${className}`;
     return (
         <div>
             <nav className='flex flex-col md:flex-row gap-2  ml-9  '>
+                {OtpLogin && <Link className={Headerclass} to="/OtpLogin">{OtpLogin}</Link>}
                 {Login  && <Link  className={Headerclass} to="/Login">{Login}</Link>}
                 {SignUp && <Link className={Headerclass} to="/SignUp">{SignUp}</Link>}
                 {Dashboard && <Link className={Headerclass} to="/Dashboard">{Dashboard}</Link>}

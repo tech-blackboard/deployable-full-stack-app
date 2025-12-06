@@ -236,7 +236,7 @@ export default function Register() {
 
                 <InputComponent inputType="tel" inputmode="numeric" placeholder="+91 8688868234"  inputValue={phone} inputOnChange={phoneNumber} className='md:ml-3 pl-9 mb-3' />
     <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
-                <p className=' block text-sm font-medium text-gray-700 mb-2 '>Already have an Account? <Link to="/Login" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Sign in</Link></p>
+                <p className=' block text-sm font-medium text-gray-700 mb-2 '>Already have an Account? <Link to="/OtpLogin" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Sign in</Link></p>
             </form>
         </div>
 
