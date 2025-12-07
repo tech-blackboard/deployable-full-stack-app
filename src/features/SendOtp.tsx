@@ -34,10 +34,10 @@ export default function SendOtp() {
 
     return (
         <div className=' border border-gray-300 md:px-0  p-1  bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
-            <h2 className="mb-3 mr-44 ml-3 mt-9">Enter OTP sent to {email}</h2>
+            <h2 className="mb-3 mr-44 ml-3 mt-9">Enter OTP sent to : <span className="text-red-500">{email}</span></h2>
             <InputComponent
                 inputType="text"
-                placeholder="Enter OTP"
+                placeholder=" Enter OTP"
                 inputValue={otp}
                 inputOnChange={(e) => setOtp(e.target.value)} className="mb-5"
             />

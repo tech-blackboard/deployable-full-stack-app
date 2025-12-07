@@ -171,7 +171,7 @@ export default function Register() {
         try {
             await registerUser(FullName, email, pwd, phone);
             toast.success("Registration Successful! Please login.");
-            navigate("/Login");
+            navigate("/OtpLogin");
         } catch (err: any) {
             toast.error(err.response?.data?.message || "Registration failed");
         }
@@ -235,7 +235,7 @@ export default function Register() {
                 <span className='text-red-500 font-sans text-xs text-left '>{phoneError}</span>
 
                 <InputComponent inputType="tel" inputmode="numeric" placeholder="+91 8688868234"  inputValue={phone} inputOnChange={phoneNumber} className='md:ml-3 pl-9 mb-3' />
-    <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' />
+    <ButtonComponent name="create Account" onClick={handleSignUp} className='mb-3' buttonType='button'/>
                 <p className=' block text-sm font-medium text-gray-700 mb-2 '>Already have an Account? <Link to="/OtpLogin" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Sign in</Link></p>
             </form>
         </div>
