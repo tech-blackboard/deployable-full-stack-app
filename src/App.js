@@ -30,7 +30,7 @@ import DisplayProjects from "./features/DisplayProjects";
 import Projects from "./features/Projects";
 import SendOtp from './features/SendOtp';
 import OtpLogin from './features/OtpLogin';
-
+import ProfileDropDown from './features/ProfileDropDown';
 
 function App() {
   return (
@@ -58,8 +58,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
             <Route path="/OtpLogin" element={<OtpLogin />} />
-
-          {/* <Route path="/Login" element={<Login />} /> */}
+            <Route path="/dashboard" element={<DashBoard />}
+            />
+          <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/dashboard" element={
               <ProtectedRoute>
@@ -98,8 +99,7 @@ function App() {
     
       {/* <Divisions /> */}
       {/* </BrowserRouter> */}
-
-
+      {/* <ProfileDropDown/> */}
     {/* <AddList />  */}
       {/* <CardViewDisplay/>
     */}

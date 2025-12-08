@@ -70,7 +70,7 @@ export default function UserProfile() {
           { label: "Dashboard", path: "/dashboard" },
           { label: "Projects", path: "/projects" },
           { label: "Analytics", path: "/Analytics" },
-          { label: "Logout", path: "/Logout" },
+          // { label: "Logout", path: "/Logout" },
         ]} classNames={''}      />
         <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-2    w-full md:w-1/2 lg:w-full'>
       <Profiles />

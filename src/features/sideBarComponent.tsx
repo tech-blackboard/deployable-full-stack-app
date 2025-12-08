@@ -1,10 +1,15 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
+import ProfileDropDown from "./ProfileDropDown";
+// import  ProfileBar  from "./ProfileBar";
 
 interface MenuItem {
     label: string;
     path: string;
+
+
 }
 
 interface SidebarProps {
@@ -16,6 +21,27 @@ interface SidebarProps {
 export default function SideBarComponent({ title, menuItems, classNames }: SidebarProps) {
     const [isOpen, setIsOpen] = useState(false);
 
+    const { user} = useContext(AuthContext);
+    console.log("user",user)
+
+    function getInitials(username: any) {
+        if (!username) return "";
+        const parts = username.trim().split(" ");
+        if (parts.length === 1) {
+            return parts[0].charAt(0).toUpperCase();
+        }
+        return (
+            parts[0].charAt(0).toUpperCase() +
+            parts[1].charAt(0).toUpperCase()
+        );
+    }
+
+    const initials = getInitials(user.username);
+
+
+  
+
+   
     return (
         <>
             {/* Mobile Hamburger */}
@@ -51,7 +77,7 @@ export default function SideBarComponent({ title, menuItems, classNames }: Sideb
             <header className="hidden md:flex items-center justify-between bg-blue-500 text-white p-4">
                 <h1 className="text-xl font-bold">{title}</h1>
 
-                <nav className="flex gap-8 text-base font-medium">
+                <nav className="flex gap-8  mt-1 text-base font-medium">
                     {menuItems.map((item, index) => (
                         <Link
                             key={index}
@@ -59,9 +85,13 @@ export default function SideBarComponent({ title, menuItems, classNames }: Sideb
                             className="hover:text-gray-200 px-9"
                         >
                             {item.label}
+                            
                         </Link>
                     ))}
+                    <ProfileDropDown />
+
                 </nav>
+             
             </header>
         </>
     );

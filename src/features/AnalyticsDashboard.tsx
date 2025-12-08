@@ -29,10 +29,7 @@ export default function AnalyticsDashboard() {
                     { label: "Dashboard", path: "/dashboard" },
                     { label: "Projects", path: "/projects" },
                     { label: "ErrorLoadingStates", path: "/ErrorLoadingStates" },
-                    { label: "Profile", path: "/profile" },
-                  
-                ]}
-            />
+                ]} classNames={''}            />
 
             <p className='text-xl  font-bold pt-9 mr-18 '>Productivity Analytics</p>
             <span className=' text-lg text-gray-400 font-bold ml-9  '>Track your progress & identify areas for improvement</span><br></br><br></br><br></br>

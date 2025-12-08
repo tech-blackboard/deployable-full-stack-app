@@ -3,7 +3,29 @@ import HeaderComponent from './HeaderComponent';
 import Loading from './Loading';
 import ButtonComponent from './ButtonComponent'
 import InputComponent from './InputComponent';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 export default function ErrorLoadingStates() {
+    const navigate=useNavigate()
+    const { id } = useParams()
+    const currentProjectIndex = 0; // You might want to track this differently
+
+    const projectData = useSelector((state: any) => state.newProject.addProjects);
+    console.log("projectData", projectData);
+    console.log("projectData", projectData.projectName);
+
+
+    const projectIndex = Number(id)// when we want to create a list in selected project. we can use the ids of projects by using useParams.
+    console.log("projectIndex", projectIndex)
+    const project = projectData[projectIndex]
+    console.log("project projectIndex", project)
+
+    const selectedProject = projectData.find(p => p.projectId == id);
+    console.log("selectedProject", selectedProject)
+    function createProject(){
+
+        navigate("/CreateNewProject");
+    }
     return (
         <div className="  w-full ">
             <div className="flex justify-between bg-gray-700 px-1 py-2 ">
@@ -33,8 +55,7 @@ export default function ErrorLoadingStates() {
                         </div>
                         <ButtonComponent
                             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2"
-                            name="Retry"
-                        />
+                            name="Retry" buttonType={'button'}                        />
                     </div>
 
                     {/* Empty State */}
@@ -47,8 +68,7 @@ export default function ErrorLoadingStates() {
                         </p>
                         <ButtonComponent
                             className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6"
-                            name="Create Project"
-                        />
+                            name="Create Project" buttonType={'button'} onClick={createProject}                     />
                     </div>
                 </div>
 
@@ -59,7 +79,7 @@ export default function ErrorLoadingStates() {
                         <div className=" border rounded-xl p-6 bg-green-100">
                             <p className="text-lg font-bold mb-3">✅ Success!</p>
                             <span className='text-green-800 font-bold'>
-                                Project "E-commerce Website" has been created successfully.
+                                Project {project} has been created successfully.
                             </span>
                         </div>
                         <div className="flex-xl  border rounded-xl p-6 bg-green-50">
@@ -99,3 +119,4 @@ export default function ErrorLoadingStates() {
 
     )
 }
+

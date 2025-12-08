@@ -126,7 +126,7 @@ export default function Login() {
 
             toast.success("Login Successful!");
             auth.login(res.data.user, res.data.access_token, res.data.refresh_token);
-            navigate('/SendOtp');
+            navigate('/OtpLogin');
             setSignUp(false);
 
         }

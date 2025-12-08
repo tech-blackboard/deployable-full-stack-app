@@ -31,7 +31,7 @@ return(
                     <span className=" text-2xl font-bold mt-3 " >{user.username}</span><br></br>
                     <span className=" text-xl text-gray-500 mt-3 mb-0 ml-2 ">{user.email}</span><br></br>
                     {/* <span className=" text-xl  text-gray-500 mt-0 ml-2 ">Member Since 2025</span><br></br> */}
-            <ButtonComponent className="bg-blue-600 hover:bg-blue-700 mt-6 mb-9 text-base w-full h-11 pt-1" name=" Changes Avatar" />
+            <ButtonComponent className="bg-blue-600 hover:bg-blue-700 mt-6 mb-9 text-base w-full h-11 pt-1" name=" Changes Avatar" buttonType={"button"} />
                 </div>
         </div>
    

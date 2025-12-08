@@ -16,8 +16,10 @@ export default function SendOtp() {
         if (!otp) return toast.error("Enter OTP!");
         try {
             const res = await verifyOtp(email, otp);
-            console.log("res from sendotp page ", email)
-            console.log("OTP verification response:", res);
+            console.log("res from sendotp page ", res)
+
+            console.log("email from sendotp page ", email)
+            console.log("OTP verification response:", otp);
 
             // Save tokens + user info
             // localStorage.setItem("access_token", res.data.access_token);
@@ -26,7 +28,7 @@ export default function SendOtp() {
             // localStorage.setItem("user", JSON.stringify(res.data.user));
 
             toast.success("OTP verified! Logged in.");
-            navigate('/DashBoard');
+            navigate('/dashBoard');
         } catch (err: any) {
             toast.error(err.response?.data?.message || "OTP verification failed");
         }

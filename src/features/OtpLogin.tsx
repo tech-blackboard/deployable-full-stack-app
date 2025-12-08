@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import ButtonComponent from './ButtonComponent';
 import InputComponent from './InputComponent';
 import { Mail } from 'lucide-react';
+import verifyOtp from '../api/verifyOtp.api';
 
 export default function OtpLogin() {
     const [email, setEmail] = useState('');
@@ -26,6 +27,8 @@ export default function OtpLogin() {
             const res = await sendOtp(email); // API call to /auth/send-otp
             console.log("res email", res.data)
             toast.success(res.data.message); // "OTP sent successfully"
+            // verifyOtp.OtpLogin(res.data.user, res.data.access_token, res.data.refresh_token);
+
             navigate('/SendOtp', { state: { email: email } }); // pass email to OTP page
         } catch (err: any) {
             toast.error(err.response?.data?.message || "Failed to send OTP");

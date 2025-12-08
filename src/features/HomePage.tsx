@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="  flex text-xl font-bold flex-row justify-between text-white px-3 py-4 bg-gradient-to-bl from-blue-500 to-blue-500">
         <h3 className="text-3xl " >☑️ TaskFlow</h3>
         {/* <HeaderComponent Login="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2  ' /> */}
-        <HeaderComponent OtpLogin="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2  ' />
+        <HeaderComponent Login="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2  ' />
 
       </div>
       <div className="  text-xl font-bold  justify-between text-white pt-7 pb-3 ">

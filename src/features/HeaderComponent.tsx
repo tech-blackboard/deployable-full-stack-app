@@ -28,7 +28,7 @@ export default function HeaderComponent({ OtpLogin,Login, SignUp, Dashboard, Pro
         <div>
             <nav className='flex flex-col md:flex-row gap-2  ml-9  '>
                 {OtpLogin && <Link className={Headerclass} to="/OtpLogin">{OtpLogin}</Link>}
-                {/* {Login  && <Link  className={Headerclass} to="/Login">{Login}</Link>} */}
+                {Login  && <Link  className={Headerclass} to="/Login">{Login}</Link>}
                 {SignUp && <Link className={Headerclass} to="/SignUp">{SignUp}</Link>}
                 {Dashboard && <Link className={Headerclass} to="/Dashboard">{Dashboard}</Link>}
                 {Projects && <Link className={Headerclass} to="/Projects">{Projects}</Link>}

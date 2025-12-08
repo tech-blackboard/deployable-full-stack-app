@@ -12,6 +12,7 @@ import data from "../jsonDataFiles/listData.json";
 import { addSetProjectData, setProjectData, setLists } from "../reduxStore/CreateNewProjectSlice";
 import { AuthContext } from "../context/AuthContext"
 import SideBarComponent from "./sideBarComponent";
+import ProfileDropDown from "./ProfileDropDown";
 // import projectData from "../jsonDataFiles/projectData.json";
 
 
@@ -34,11 +35,12 @@ export default function DashBoard() {
   //  Access data from context
   const { projects, addProject } = useContext(ProjectContext);
   const { user} = useContext(AuthContext);
+
 console.log("user",user)
   useEffect(() => {
     if (!user) {
       
-      navigate("/login");
+      navigate("/Login");
     }
   }, [user,navigate]);
 
@@ -237,12 +239,13 @@ console.log("user",user)
         <SideBarComponent
           title="Task Manager"
           menuItems={[
-            { label: "Profile", path: "/Profile" },
+            // { label: "Profile", path: "/Profile" },
             { label: "Projects", path: "/Projects" },
             { label: "Analytics", path: "/Analytics" },
-            { label: "Logout", path: "/Logout" },
+            // { label: "Logout", path: "/Logout" },
           ]} classNames={""}                    /> 
-        
+      
+        {/* <ProfileDropDown /> */}
         {/* <HeaderComponent
           Profile="Profile"
           Projects="Projects"
@@ -284,8 +287,7 @@ console.log("user",user)
         <ButtonComponent
           name="New Project"
           onClick={newProject}
-          className="font-bold text-base lg:w-full h-9 pb-4 pt-1 border-none gap- "
-        />
+          className="font-bold text-base lg:w-full h-9 pb-4 pt-1 border-none gap- " buttonType={"button"}        />
 
         {/* <button
           onClick={handleAddProject}

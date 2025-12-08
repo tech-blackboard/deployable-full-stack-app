@@ -5,7 +5,8 @@ import { AuthContext } from "./context/AuthContext";
 export default function ProtectedRoute({ children }) {
     const { token } = useContext(AuthContext);
 
-    if (!token) return <Navigate to="/login" />;
+    if (!token) return <Navigate to="/OtpLogin" />;
+    console.log("token", token)
 
     return children;
 }
