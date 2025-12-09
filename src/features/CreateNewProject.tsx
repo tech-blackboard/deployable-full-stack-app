@@ -93,7 +93,7 @@ export default function CreateNewProjects() {
     // }
     function closeButton() {
 
-        navigate('/')
+        navigate('/dashboard')
     }
 
     return (

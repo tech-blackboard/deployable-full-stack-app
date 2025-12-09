@@ -16,36 +16,59 @@ export default function ProfileDropDown() {
     const initials = getInitials(user.username);
 
     return (
-        <div className="relative md:w-1/3 lg:w-1/2 ">
-            {/* Circle Button */}
+        <div className="relative">
+            {/* Trigger Button */}
             <button
-                className="border rounded-full h-9 w-9 mr-9 bg-blue-300"
                 onClick={() => setOpen(!open)}
+                className="h-10 w-10 flex items-center justify-center rounded-full bg-gradient-to-br 
+                           from-blue-500 to-blue-700 text-white font-bold shadow-md hover:shadow-lg 
+                           transition-all duration-200 animate-pulse"
             >
-                <h4 className="text-base text-blue-800 font-bold p-1">{initials}</h4>
+                {initials}
             </button>
 
             {/* Dropdown */}
             {open && (
-                <div className="absolute right-0 mt-5 bg-blue-300 shadow-lg  rounded-lg p-2 w-72 text-black ">
-                    <div className=" flex flex-row ">
-                        <div className="border  rounded-full h-12 w-12 mr-9 ml-5 mt-3 bg-blue-900" >
-                            <h4 className="text-xl text-white font-bold p-2 ">{initials}</h4>
+                <div
+                    className="absolute right-0 mt-3 md:w-72 w-56 bg-white/90 backdrop-blur-xl shadow-2xl 
+                               rounded-2xl p-5 border border-white/40 animate-fadeIn z-50"
+                >
+                    {/* Avatar + Details */}
+                    <div className="flex items-center gap-4 md:ml-0">
+                        <div
+                            className="h-14 w-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 
+                                       text-white flex justify-center items-center text-lg 
+                                       font-semibold shadow-inner"
+                        >
+                            {initials}
                         </div>
-                        <div className="mt-3 mb-4 text-start">
-                            <h2 className="text-base text-start  font-semibold">
-                            {user.username}
-                        </h2 >
-                        <h3 className="text-base mr-1">{user.email}</h3></div>
-                        </div>   
-                   
-                    <a href="/Profile" className="block p-2 hover:bg-gray-200 rounded-md">
+
+                        <div>
+                            <p className="text-gray-800 font-semibold text-sm">{user.username}</p>
+                            <p className="text-gray-500 text-xs">{user.email}</p>
+                        </div>
+                    </div>
+
+                    <hr className="my-4 border-gray-300/40" />
+
+                    {/* Profile Button */}
+                    <a
+                        href="/Profile"
+                        className="block w-full px-4 py-2 rounded-xl font-medium text-gray-700  
+                                   hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 "
+                    >
                         Profile
                     </a>
-                    <a href="/Logout" className="block p-2 hover:bg-gray-100  rounded-md">
+
+                    {/* Logout Button */}
+                    <a
+                        href="/Logout"
+                        className="block w-full px-4 py-2 mt-2 rounded-xl font-medium text-red-600 
+                                   hover:bg-red-50 transition-all duration-200 "
+                    >
                         Logout
                     </a>
-             </div>
+                </div>
             )}
         </div>
     );

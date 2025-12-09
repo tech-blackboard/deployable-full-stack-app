@@ -31,7 +31,6 @@ import Projects from "./features/Projects";
 import SendOtp from './features/SendOtp';
 import OtpLogin from './features/OtpLogin';
 import ProfileDropDown from './features/ProfileDropDown';
-
 function App() {
   return (
    <div className="App">
@@ -50,7 +49,6 @@ function App() {
 
       {/* ✅ Wrap your routes with BrowserRouter and ProjectProvider */}
       {/* <BrowserRouter> */}
-      
       <AuthProvider>
     <ProjectProvider>
        
@@ -103,6 +101,7 @@ function App() {
     {/* <AddList />  */}
       {/* <CardViewDisplay/>
     */}
+    
     </div>
   );
 }
