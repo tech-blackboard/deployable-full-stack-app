@@ -11,7 +11,7 @@ export default function HomePage() {
         <h3 className="text-3xl ml-4 mt-3 animate-bounce" >☑️TaskFlow</h3>
        
         {/* <HeaderComponent Login="Login" className='rounded-xl border hover:border-2 hover:rounded-xm hover:shadow-xl  bg-transparent shadow-xl mr-11 text-center w-full p-2  ' /> */}
-        <div className="relative inline-block mr-11">
+        <div className="relative inline-block md:mr-11">
 
           {/* Animated Gradient Border */}
           <div className="
@@ -25,21 +25,21 @@ export default function HomePage() {
         shadow-[0_0_25px_rgba(0,0,0,0.3)]
 
       ">
-            <div className="h-full w-full  rounded-2xl bg-white "></div>
+            <div className="h-full w-full mr-9 rounded-2xl bg-white "></div>
           </div>
 
           {/* Button Content */}
-          <button className="
+          <HeaderComponent Login="Login" className="
         relative 
-        text-black 
+       pr-11
+       
       px-5 py-2
-        rounded-2xl 
+       
         font-semibold 
-        shadow-xl
+       text-blue-900
    
-      ">
-            Login
-          </button>
+      " />
+      
 
         </div>
         {/* <HeaderComponent Login="Login" className=' text-base rounded-xm border hover:bg-gradient-to-b 

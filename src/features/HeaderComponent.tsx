@@ -23,7 +23,7 @@ interface HeaderProps {
 
 
 export default function HeaderComponent({ OtpLogin,Login, SignUp, Dashboard, Projects, Analytics, Profile, Logout, EditTask, HomePage,sittings, TaskListview, Boardview, className ,ErrorLoadingStates}: HeaderProps) {
-    const Headerclass = `hover:shadow-xl hover:px-5 hover:border  py-2 rounded-xl px-3 text-white font-semibold w-full md:w-1/2 lg:w-2/3 ${className}`;
+    const Headerclass = `  py-2 rounded-xl px-3 font-semibold w-full md:w-1/2 lg:w-2/3 ${className}`;
     return (
         <div>
             <nav className='flex flex-col md:flex-row gap-2  ml-9  '>
