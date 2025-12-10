@@ -20,7 +20,7 @@ import createCard, { deleteCardApi } from '../api/card.api';
 
 
 
-export default function ProjectView() {
+export default function ProjectViews() {
     const [list, setList] = useState(false);
     const [listName, setListName] = useState('');
     const [cardName, setCardName] = useState<{ [key: number]: string }>({});

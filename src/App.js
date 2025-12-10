@@ -13,7 +13,7 @@ import CreateNewProject from "./features/CreateNewProject";
 import ErrorLoadingStates from "./features/ErrorLoadingStates";
 import AnalyticsDashboard from "./features/AnalyticsDashboard";
 import HomePage from "./features/HomePage";
-// import ProjectView from "./features/ProjectView";
+ import ProjectView from "./features/ProjectView";
 import ProjectListView from "./features/ProjectListView";
 import DisplayProject from "./features/DisplayProjects";
 import Logout from './features/Logout';
@@ -23,7 +23,7 @@ import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 // import CardViewDisplay from './features/CardViewDisplay'
 // import AddToCard from "./features/AddToCard";
 // import CheckListPopUp from "./features/CheckListPopUp";
-import ProjectView from "./features/JsonProject";
+// import ProjectViews from "./features/JsonProject";
 import  AuthProvider  from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute'
 import DisplayProjects from "./features/DisplayProjects";
@@ -31,6 +31,7 @@ import Projects from "./features/Projects";
 import SendOtp from './features/SendOtp';
 import OtpLogin from './features/OtpLogin';
 import ProfileDropDown from './features/ProfileDropDown';
+import ProjectViewMinimal from './features/ProjectViewMinimal'
 function App() {
   return (
    <div className="App">
@@ -66,6 +67,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+            {/* <Route path="/Projects/:id" element={<ProjectViews />} /> */}
+
           <Route path="/Projects/:id" element={<ProjectView />} />
           <Route path="/Profile" element={<UserProfile />} />
           <Route path="/TaskListview" element={<TaskListView />} />
@@ -76,7 +79,7 @@ function App() {
           <Route path="/ProjectListView" element={<ProjectListView />} />
           <Route path="/DisplayProject" element={<DisplayProject />} />
           <Route path="/HomePage" element={<HomePage />} />
-          <Route path="ProjectView" element={<ProjectView />} />
+          {/* <Route path="ProjectView" element={<ProjectView />} /> */}
           <Route path="/EditTask/:id" element={<EditTask />} />
             <Route path="/Projects" element={<Projects />} />
             <Route path="/SendOtp" element={<SendOtp />} />
@@ -93,7 +96,7 @@ function App() {
       </ProjectProvider>
     
       </AuthProvider>
-
+      {/* <ProjectViewMinimal/> */}
     
       {/* <Divisions /> */}
       {/* </BrowserRouter> */}

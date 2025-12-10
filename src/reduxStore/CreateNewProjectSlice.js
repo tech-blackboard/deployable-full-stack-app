@@ -58,6 +58,10 @@ const addProjectDetails = createSlice({
             state.lists = action.payload;
         },
 
+        addSetList: function (state, action) {
+            state.lists.push(action.payload[0] || action.payload);
+        },
+
         // Add a card to a specific list
         setCardsToLists: function (state, action) {
             const { projectId, listId, card } = action.payload;
@@ -106,6 +110,7 @@ export const {
     addSetProjectData,
     clearSetProjectData,
     setLists,
+    addSetList,
     setCardsToLists,
     removeCardFromList
 } = addProjectDetails.actions;

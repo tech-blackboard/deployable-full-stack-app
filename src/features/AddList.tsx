@@ -25,7 +25,7 @@ export default function AddList({ onClose, addList, listName, onListNameChange }
                 <InputComponent placeholder=" enter list name" inputType="text" className=" text-base text-blue-700 mt-1 lg:w-full md:mr-20 mb-1" name={listName} inputOnChange={onInputChage} />
                 <div className="flex flex-row gap-9 ">
                     
-                    <ButtonComponent name=" Add List" className=" h-9 w-full pb-3 pt-1 text-base border-none text-blue-400 hover:rounded-md mb-0 " onClick={addList}  />
+                    <ButtonComponent name=" AddList" className="text-base border-none h-9 w-full pb-3 pt-1 text-base hover:rounded-md   " onClick={addList} buttonType={"button"}  />
                     <span className="text-3xl text-blue-500 cursor-pointer ml-20  " onClick={onClose}>&times;</span>
                 </div>
             </div>
