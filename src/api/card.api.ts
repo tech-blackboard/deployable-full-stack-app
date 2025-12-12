@@ -16,4 +16,8 @@ export function deleteCardApi(cardId: number) {
     return axiosInstance.delete(`/cards/${cardId}`)
 
 }
+export function updateCardListApi(cardId: number, newListId: number) {
+    return axiosInstance.patch(`/cards/${cardId}`, { listId: newListId });
+}
+
 

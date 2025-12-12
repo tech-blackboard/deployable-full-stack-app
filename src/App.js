@@ -19,11 +19,11 @@ import DisplayProject from "./features/DisplayProjects";
 import Logout from './features/Logout';
 // import Divisions from './features/divs';
 import DevComponent from "./features/DevComponent";
-import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
+// import ProjectProvider from "./features/ProjectContext"; // ✅ Correct import.
 // import CardViewDisplay from './features/CardViewDisplay'
 // import AddToCard from "./features/AddToCard";
 // import CheckListPopUp from "./features/CheckListPopUp";
-// import ProjectViews from "./features/JsonProject";
+import ProjectViews from "./features/JsonProject";
 import  AuthProvider  from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute'
 import DisplayProjects from "./features/DisplayProjects";
@@ -31,7 +31,8 @@ import Projects from "./features/Projects";
 import SendOtp from './features/SendOtp';
 import OtpLogin from './features/OtpLogin';
 import ProfileDropDown from './features/ProfileDropDown';
-import ProjectViewMinimal from './features/ProjectViewMinimal'
+import ProjectViewMinimal from './features/ProjectViewMinimal';
+import ProjectProvider from './features/ProjectContext'
 function App() {
   return (
    <div className="App">
@@ -67,7 +68,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-            {/* <Route path="/Projects/:id" element={<ProjectViews />} /> */}
+            <Route path="/Projects/:id" element={<ProjectViews />} />
 
           <Route path="/Projects/:id" element={<ProjectView />} />
           <Route path="/Profile" element={<UserProfile />} />

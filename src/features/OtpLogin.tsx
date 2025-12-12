@@ -41,7 +41,7 @@ export default function OtpLogin() {
 
                 <div className='flex flex-col'>
                     <span className="font-sans text-xl font-bold text-blue-600">Well Come Back</span>
-                    <span className="text-xm pb-4 font-lighter text-gray-500">Sign into your account</span>
+                    <span className="text-xm pb-4 font-lighter text-gray-500">OTP verification</span>
 
                 </div>
                 <div className=' flex flex-col px-2 md:px-0'>
