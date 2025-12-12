@@ -13,6 +13,8 @@ import CardViewDisplay from './CardViewDisplay';
 import { toast } from 'react-toastify';
 
 export default function ProjectView() {
+  // alert("lists")
+
   const [list, setList] = useState(false);
   const [addList, setAddList] = useState<any[]>([]);
   const [cardsByList, setCardsByList] = useState<{ [key: number]: any[] }>({});
@@ -26,7 +28,9 @@ export default function ProjectView() {
 
   const navigate = useNavigate();
   const lists = useSelector((state: any) => state.newProject.lists);
+  alert(lists)
 
+ 
   // Navigate back
   function backToDashboard() {
     navigate('/DashBoard');
