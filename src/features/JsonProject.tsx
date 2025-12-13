@@ -1,4 +1,4 @@
-import { Archive, Search } from 'lucide-react';
+import { Archive, Search, SquareCheck } from 'lucide-react';
 import HeaderComponent from './HeaderComponent';
 import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent';
@@ -14,7 +14,7 @@ import CardViewDisplay from './CardViewDisplay';
 import Members from './Members';
 import CheckListAddComponent from './CheckListAddComponent';
 import { toast } from 'react-toastify';
-import { setCardsToLists, setLists } from '../reduxStore/CreateNewProjectSlice';
+import { setCardsToLists, setItemsToCards, setLists } from '../reduxStore/CreateNewProjectSlice';
 import createLists, { deleteListApi } from '../api/list.api';
 import createCard, { deleteCardApi, updateCardListApi } from '../api/card.api';
 
@@ -25,9 +25,7 @@ export default function ProjectViews() {
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState<any>(null);
     const [cardVisible, setCardVisible] = useState<{ [key: number]: boolean }>({});
-    // dragged card state includes cardId, source listId and source index
     const [draggedCard, setDraggedCard] = useState<{ cardId: number; fromListId: number; fromIndex: number } | null>(null);
-    // dragged list state includes listId and source index
     const [draggedList, setDraggedList] = useState<{ listId: number; fromIndex: number } | null>(null);
 
     const { id } = useParams();
@@ -73,7 +71,7 @@ export default function ProjectViews() {
 
             const cardToDispatch = {
                 cardId: createdCard.cardId,
-                cardname: createdCard.cardName ?? createdCard.cardname ?? cardname,
+                cardname: createdCard.cardName ?? createdCard.cardname ?? cardname
             };
 
             dispatch(
@@ -83,7 +81,8 @@ export default function ProjectViews() {
                     card: cardToDispatch,
                 }),
             );
-
+           
+        
             setCardName(prev => ({ ...prev, [listId]: '' }));
             setCardVisible(prev => ({ ...prev, [listId]: false }));
 
@@ -119,10 +118,17 @@ export default function ProjectViews() {
         setCardVisible(prev => ({ ...prev, [listId]: true }));
     }
 
-    function listDisplay(card: any) {
+    function listDisplay(card: any, listId: number) {
+        console.log("Opening card:", card, "from list:", listId);
+        setSelectedCard({ 
+            ...card, 
+            listId: listId,
+            cardId: card.cardId,
+            cardname: card.cardname
+        });
         setPopupOpen(true);
-        setSelectedCard(card);
     }
+
 
     function handleClose() {
         setPopupOpen(false);
@@ -143,9 +149,7 @@ export default function ProjectViews() {
         toast.success('Card archived successfully!');
     }
 
-    // -------------------- LIST DRAG (move whole lists) --------------------
     function handleListDragStart(e: React.DragEvent<HTMLDivElement>, listId: number, fromIndex: number) {
-        // mark drag type and listId in dataTransfer so other handlers can inspect if needed
         e.dataTransfer.setData('drag-type', 'list');
         e.dataTransfer.setData('listId', String(listId));
         setDraggedList({ listId, fromIndex });
@@ -156,13 +160,12 @@ export default function ProjectViews() {
     }
 
     function handleListDragOver(e: React.DragEvent<HTMLDivElement>) {
-        e.preventDefault(); // allow drop for lists
+        e.preventDefault();
     }
 
     function handleListDrop(e: React.DragEvent<HTMLDivElement>, toIndex: number) {
         e.preventDefault();
 
-        // we read listId optionally, but we rely on draggedList state
         const listIdFromTransfer = Number(e.dataTransfer.getData('listId'));
 
         if (!draggedList) return;
@@ -181,7 +184,6 @@ export default function ProjectViews() {
         setDraggedList(null);
     }
 
-    // -------------------- CARD DRAG (move cards) --------------------
     function handleCardDragStart(e: React.DragEvent<HTMLDivElement>, cardId: number, fromListId: number, fromIndex: number) {
         e.dataTransfer.setData('drag-type', 'card');
         e.dataTransfer.setData('cardId', String(cardId));
@@ -193,22 +195,19 @@ export default function ProjectViews() {
     }
 
     function handleCardDragOver(e: React.DragEvent<HTMLDivElement>) {
-        e.preventDefault(); // allow dropping cards into a cards container
+        e.preventDefault();
     }
 
-    // toIndex = index where to insert; -1 means append to end
     async function handleCardDrop(e: React.DragEvent<HTMLDivElement>, toListId: number, toIndex: number = -1) {
         e.preventDefault();
-        e.stopPropagation(); // prevent outer list drop handlers from firing
+        e.stopPropagation();
 
-        // get card id if needed
         const cardIdFromTransfer = Number(e.dataTransfer.getData('cardId'));
         const dragged = draggedCard || (cardIdFromTransfer ? { cardId: cardIdFromTransfer, fromListId: -1, fromIndex: -1 } : null);
         if (!dragged) return;
 
         let { cardId, fromListId, fromIndex } = dragged;
 
-        // if we don't know fromListId, find it from current lists state
         if (fromListId === -1) {
             const found = lists.find((l: any) => l.cards?.some((c: any) => c.cardId === cardId));
             if (!found) return;
@@ -216,13 +215,11 @@ export default function ProjectViews() {
             fromIndex = found.cards.findIndex((c: any) => c.cardId === cardId);
         }
 
-        // if dropping to same position and same list, do nothing
         if (fromListId === toListId && (toIndex === -1 ? lists.find(l => l.listId === toListId)?.cards.length === fromIndex : toIndex === fromIndex)) {
             setDraggedCard(null);
             return;
         }
 
-        // deep copy to modify safely
         const newLists = JSON.parse(JSON.stringify(lists));
 
         const sourceList = newLists.find((l: any) => l.listId === fromListId);
@@ -232,21 +229,17 @@ export default function ProjectViews() {
             return;
         }
 
-        // take card object (use fromIndex for stable behavior)
         const movedCard = sourceList.cards[fromIndex];
         if (!movedCard) {
             setDraggedCard(null);
             return;
         }
 
-        // remove from source
         sourceList.cards.splice(fromIndex, 1);
 
-        // compute insert position in target
         if (toIndex === -1) {
             targetList.cards.push(movedCard);
         } else {
-            // If moving from same list and the remove index was before toIndex, we need to adjust insertion index
             let insertIndex = toIndex;
             if (fromListId === toListId && fromIndex < toIndex) {
                 insertIndex = toIndex - 1;
@@ -254,16 +247,13 @@ export default function ProjectViews() {
             targetList.cards.splice(insertIndex, 0, movedCard);
         }
 
-        // optimistic UI update
         dispatch(setLists(newLists));
         setDraggedCard(null);
 
-        // persist change to backend (update card's list)
         try {
             await updateCardListApi(cardId, toListId);
             toast.success('Card moved successfully!');
         } catch (err) {
-            // revert on failure (simple revert: re-dispatch original lists snapshot)
             dispatch(setLists(lists));
             toast.error('Failed to move card!');
         }
@@ -271,7 +261,6 @@ export default function ProjectViews() {
 
     return (
         <div className="w-full ">
-            {/* Header */}
             <div className="bg-blue-800 text-start w-full lg:w-full">
                 <button className="text-xl text-white p-3 font-bold md:text-2xl" onClick={backToDashboard}>
                     ← Back to Dashboard
@@ -280,12 +269,10 @@ export default function ProjectViews() {
 
             <ProjectListView />
 
-            {/* Lists container */}
             <div className="flex flex-row flex-wrap mb-9 items-start gap-2 ml-2 px-9">
                 {lists &&
                     lists.length > 0 &&
                     lists.map((list: any, listIndex: number) => (
-                        // Outer DIV: list container (handles list-level drag/drop)
                         <div
                             key={list.listId}
                             draggable
@@ -293,7 +280,6 @@ export default function ProjectViews() {
                             onDragEnd={handleListDragEnd}
                             onDragOver={handleListDragOver}
                             onDrop={e => {
-                                // only accept list-drops here (list reordering)
                                 const type = e.dataTransfer.getData('drag-type');
                                 if (type === 'list') {
                                     handleListDrop(e, listIndex);
@@ -301,7 +287,6 @@ export default function ProjectViews() {
                             }}
                             className="flex flex-col text-left px-2 pb-2 p-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold w-full lg:w-1/5 md:w-1/2 bg-gradient-to-tl from-blue-300 to-blue-200"
                         >
-                            {/* List title / header */}
                             <div className="flex flex-row justify-between">
                                 <h1 className="text-red-900 text-base">{list.listName}</h1>
                                 <button className="text-black-100 hover:text-blue-800" onClick={() => deleteList(list.listId)}>
@@ -313,42 +298,73 @@ export default function ProjectViews() {
                                 </button>
                             </div>
 
-                            {/* --- CARDS CONTAINER: only this accepts card drops --- */}
                             <div
                                 className="cards-container mt-2"
                                 onDragOver={handleCardDragOver}
                                 onDrop={e => {
-                                    // stop propagation so outer list-drop doesn't run
                                     e.stopPropagation();
-                                    handleCardDrop(e, list.listId, -1); // drop to end of list
+                                    handleCardDrop(e, list.listId, -1);
                                 }}
                             >
+                               {/* // In ProjectViews.tsx, update the card rendering section (around line 200)
+                                // Replace the card mapping with this to show checklist progress: */}
+
                                 {list.cards &&
                                     list.cards.length > 0 &&
-                                    list.cards.map((card: any, cardIndex: number) => (
-                                        <div
-                                            key={card.cardId}
-                                            draggable
-                                            onDragStart={e => handleCardDragStart(e, card.cardId, list.listId, cardIndex)}
-                                            onDragEnd={handleCardDragEnd}
-                                            onDragOver={handleCardDragOver}
-                                            onDrop={e => {
-                                                // dropping on a specific card will insert before that cardIndex
-                                                e.stopPropagation();
-                                                handleCardDrop(e, list.listId, cardIndex);
-                                            }}
-                                            className="p-2 m-1 bg-blue-200 rounded-md shadow-md cursor-pointer flex justify-between items-center"
-                                        >
-                                            <button onClick={() => listDisplay(card)} className="text-left flex-1 text-base">
-                                                {card.cardname}
-                                            </button>
-                                            <button onClick={() => cardArchived(list.listId, card.cardId)}>
-                                                <Archive className="w-5 h-5" />
-                                            </button>
-                                        </div>
-                                    ))}
+                                    list.cards.map((card: any, cardIndex: number) => {
+                                        // Calculate checklist completion
+                                        const checklist = card.checklist || [];
+                                        let totalItems = 0;
+                                        let completedItems = 0;
 
-                                {/* Add Card or show + */}
+                                        checklist.forEach((checklistItem: any) => {
+                                            const items = checklistItem.items || [];
+                                            totalItems += items.length;
+                                            completedItems += items.filter((i: any) => i.checked).length;
+                                        });
+
+                                        return (
+                                            <div
+                                                key={card.cardId}
+                                                draggable
+                                                onDragStart={e => handleCardDragStart(e, card.cardId, list.listId, cardIndex)}
+                                                onDragEnd={handleCardDragEnd}
+                                                onDragOver={handleCardDragOver}
+                                                onDrop={e => {
+                                                    e.stopPropagation();
+                                                    handleCardDrop(e, list.listId, cardIndex);
+                                                }}
+                                                className="p-2 m-1 bg-blue-200 rounded-md shadow-md cursor-pointer"
+                                            >
+                                                <div className="flex justify-between items-start">
+                                                    <button
+                                                        onClick={() => listDisplay(card, list.listId)}
+                                                        className="text-left flex-1 text-base"
+                                                    >
+                                                        {card.cardname}
+                                                    </button>
+
+                                                    <button onClick={() => cardArchived(list.listId, card.cardId)}>
+                                                        <Archive className="w-5 h-5" />
+                                                    </button>
+                                                </div>
+
+                                                {/* Display Checklist Progress Badge */}
+                                                {totalItems > 0 && (
+                                                    <div className="mt-2 flex items-center gap-2">
+                                                        <div className={`inline-flex items-center gap-1 px-2 py-1 rounded text-sm font-semibold ${completedItems === totalItems
+                                                                ? 'bg-green-500 text-white'
+                                                                : 'bg-gray-700 text-white'
+                                                            }`}>
+                                                            <SquareCheck className="w-4 h-4" />
+                                                            {completedItems}/{totalItems}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })
+                                }
                                 {cardVisible[list.listId] ? (
                                     <AddCard
                                         addCard={() => addCard(list.listId)}
@@ -369,7 +385,6 @@ export default function ProjectViews() {
                         </div>
                     ))}
 
-                {/* Add List UI */}
                 <div className="flex flex-row md:flex-row gap-2 md:ml-11 p-2 mr-5 ml-5 mt-3 md:w-1/2 lg:w-1/5 rounded-xl bg-gradient-to-bl from-blue-300 to-blue-200">
                     {list ? (
                         <AddList onClose={addListClose} addList={addLists} listName={listName} onListNameChange={value => setListName(value)} />
@@ -384,10 +399,15 @@ export default function ProjectViews() {
                 </div>
             </div>
 
-            {/* Card detail popup */}
             {isPopupOpen && selectedCard && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-                    <CardViewDisplay onClose={handleClose} cardName={selectedCard.cardname} onCardNameChange={value => setSelectedCard({ ...selectedCard, cardname: value })} />
+                    <CardViewDisplay 
+                        onClose={handleClose} 
+                        cardName={selectedCard.cardname} 
+                        onCardNameChange={value => setSelectedCard({ ...selectedCard, cardname: value })} 
+                        listId={selectedCard.listId} 
+                        cardId={selectedCard.cardId} 
+                    />
                 </div>
             )}
         </div>

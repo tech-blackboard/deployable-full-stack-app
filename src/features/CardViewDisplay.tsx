@@ -6,18 +6,21 @@ import Members from "./Members";
 import ButtonComponent from "./ButtonComponent";
 import CheckListAddComponent from "./CheckListAddComponent";
 import TooltipComponent from "./TooltipComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { addChecklistItem } from "../reduxStore/CreateNewProjectSlice";
 
 interface CardViewDisplayProps {
     cardName: string;
+    listId: number;
+    cardId: number;
     onClose: () => void;
     onCardNameChange: (value: string) => void;
 }
 
-export default function CardViewDisplay({ cardName, onClose, onCardNameChange }: CardViewDisplayProps) {
+export default function CardViewDisplay({ cardName, onClose, onCardNameChange, listId, cardId }: CardViewDisplayProps) {
     const buttonStyle = ` flex  md:flex-nowrap  md:justify-evenly w-32  font-semibold text-xl border rounded-xl md:mb-9  md:w-1/2 lg:w-1/3 bg-blue-300 p-2 hover:rounded-xl hover:shadow-md hover:bg-blue-300`;
 
     const [desinput, setDesinput] = useState("");
-    const [finalDesinputs, setFinalDesinputs] = useState("");
     const [finalDesinputsarray, setFinalDesinputsArray] = useState<string[]>([]);
 
     const [add, setAdd] = useState(false);
@@ -25,13 +28,25 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
     const [member, setMember] = useState(false);
     const [descreptionAddButton, setDescreptionAddButton] = useState(false);
     const [descreptionBox, setDescriptionBox] = useState(false);
-    const [checklistItems, setChecklistItems] = useState<string[]>([]); //  stores checklist items to show under description
     const [checked, setClick] = useState(false);
     const [checklistName, setCheckListName] = useState('')
 
-    function checkListNames(e: React.ChangeEvent<HTMLInputElement>) {
-        setCheckListName(e.target.value)
+    const dispatch = useDispatch();
 
+    const selectedList = useSelector((state: any) =>
+        state.newProject.lists.find((l: any) => l.listId === listId)
+
+    );
+    console.log("selectedList", selectedList)
+
+    const selectedCard = selectedList?.cards.find((c: any) => c.cardId === cardId);
+    const checklistItems = selectedCard?.checklist || [];
+    console.log("selectedCard", selectedCard)
+    console.log("selectedCard checklist", selectedCard.checklist)
+
+
+    function checkListNames(e: React.ChangeEvent<HTMLInputElement>) {
+        setCheckListName(e.target.value);
     }
 
     function inputFunction(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -71,7 +86,6 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
     }
 
     function handleDescriptionButton() {
-        setFinalDesinputs(desinput);
         setFinalDesinputsArray([desinput]);
         setDescriptionBox(true);
         setDescreptionAddButton(false);
@@ -92,22 +106,25 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
         setDescreptionAddButton(true);
     }
 
-    // When Add clicked in CheckedList popup
-    function handleAddCheckList(name: string) {
-        setChecklistItems([...checklistItems, name]); // add new checklist
-        setCheckList(false); // close popup
-        console.log("console.log() is a command used by developers (especially in JavaScript) to find bugs or check what’s happening inside the program. ")
-        setAdd(false)
+    function handleAddCheckList(name: string) {// dispatch the checklist inn to the redux .
+        dispatch(addChecklistItem({ listId, cardId, name }));
+        setCheckList(false);
+        setAdd(false);
     }
 
-    function cliked(){
+    function cliked() {
         setClick(!checked)
     }
+
     return (
         <div className="mb-11 border-2 border-blue-400 rounded-xl shadow-xl w-full mx-auto mt-9 pt-3 md:w-1/2 lg:w-2/3 pb-9 bg-blue-100 h-[100%] overflow-x-auto">
             {/* Header */}
-            <div className="flex flex-row justify-between px-9" onChange={inputFunction}>
-                <select className="text-blue-800 font-bold mb-2 text-xl rounded-md bg-blue-100 shadow-md">
+            <div className="flex flex-row justify-between px-9">
+                <select
+                    className="text-blue-800 font-bold mb-2 text-xl rounded-md bg-blue-100 shadow-md"
+                    onChange={inputFunction}
+                    value={cardName}
+                >
                     <option>{cardName}</option>
                     <option>To-Do</option>
                     <option>In-Progress</option>
@@ -137,17 +154,14 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
             {/* Title */}
             <div>
                 <div className="flex items-center gap-3 cursor-pointer mb-9 mt-3 ml-11" onClick={cliked}>
-                    
                     <div className={` w-5 h-5 rounded-full border-2 border-blue-700 flex items-center justify-center transition-all duration-200 ${checked ? "bg-blue-700" : "bg-transparent"}`}>
                         <TooltipComponent text="completed" position="top">
-                        {checked && <Check className="text-white w-3 h-3" strokeWidth={3} />}
+                            {checked && <Check className="text-white w-3 h-3" strokeWidth={3} />}
                         </TooltipComponent>
-
                     </div>
 
                     <h1 className="font-semibold text-2xl text-blue-800">{cardName}</h1>
                 </div>
-
             </div>
 
             {/* Buttons */}
@@ -169,7 +183,7 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                     <ButtonComponent
                         name="Edit"
                         className="border-2 bg-gray-200 ml-11 rounded-md p-0"
-                        onClick={descriptionEdit} />
+                        onClick={descriptionEdit} buttonType={"button"} />
                 </div>
             </div>
 
@@ -192,13 +206,13 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
 
             {descreptionAddButton && (
                 <div className="flex flex-row gap-2 text-left ml-9 mt-3">
-                    <ButtonComponent name="Save" onClick={handleDescriptionButton} />
-                    <ButtonComponent name="Cancel" className="bg-gray-300" onClick={handleDescriptionCancel} />
+                    <ButtonComponent name="Save" onClick={handleDescriptionButton} buttonType={"button"} />
+                    <ButtonComponent name="Cancel" className="bg-gray-300" onClick={handleDescriptionCancel} buttonType={"button"} />
                 </div>
             )}
 
-            {/*AddToCard Popup */}
-            { add && (
+            {/* AddToCard Popup */}
+            {add && (
                 <div className="fixed inset-0  flex items-center md:ml-72 bg-black bg-opacity-40 z-50">
                     <div className="bg-blue-200 rounded-xl shadow-lg px-6">
                         <AddToCard onClose={AddOnClose} onAddCheckList={handleAddCheckList} />
@@ -206,10 +220,10 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
                 </div>
             )}
 
-            {/*  Checklist Popup */}
+            {/* Checklist Popup */}
             {checkList && (
                 <div className="fixed inset-0 flex  items-center md:justify-center bg-opacity-40 bg-gray-900">
-                    <div className="bg-blue-100 mt-72 ml-9 px-2 md:mt-[33%] md:ml-72 md:w-1/2 lg:w-1/3 mb-44 border-2 border-blue-600 rounded-xl shadow-xl">
+                    <div className="bg-blue-100 mt-9 ml-9 px-2 md:mt-[23%] md:ml-72 md:w-1/2 lg:w-1/3 mb-44 border-2 border-blue-600 rounded-xl shadow-xl">
                         <CheckListPopUp onClose={ChecklistCloseFunction} onAddCheckList={handleAddCheckList} />
                     </div>
                 </div>
@@ -217,26 +231,45 @@ export default function CardViewDisplay({ cardName, onClose, onCardNameChange }:
 
             {/* Members Popup */}
             {member && (
-                <div className="fixed inset-0 flex mt-44 ml-96 items-center justify-center bg-opacity-40">
+                <div className="fixed inset-0 flex mt-2 mb-[59%]  md:mb-0 px-9 md:px-0 md:ml-96 items-center justify-center bg-opacity-40">
                     <div className="bg-white rounded-xl shadow-lg w-full md:w-1/2 lg:w-1/3">
                         <Members onClose={memberCloseFunction} />
                     </div>
                 </div>
             )}
 
-            {/*  Render checklist items BELOW the description */}
-            {checklistItems.length > 0 && 
-(
-                <div className="mt-6 px-9">
-                    <h2 className="text-lg font-semibold mb-2">Checklist</h2>
-                    {checklistItems.map((item, index) => (
-                        <div key={index} className="mb-3">
-                            <CheckListAddComponent name={item} />
+            {/* Render checklist items BELOW the description (correct block) */}
+          
+          
+            
+                    {/* Render checklist items */}
+                    {checklistItems.length > 0 && (
+                        <div className="mt-6 px-9">
+                            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <SquareCheck className="w-5 h-5" />
+                                Checklist Items
+                            </h2>
+                            {checklistItems.map((item: any) => {
+                                const subItems = item.items || [];
+                                console.log("subItems", subItems)
+
+                                return (
+                                    <div key={item.itemId} className="mb-4">
+                                        <CheckListAddComponent
+                                            name={item.name}
+                                            itemId={item.itemId}
+                                            checked={item.checked}
+                                            listId={listId}
+                                            cardId={cardId}
+                                            items={subItems}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
-                    ))}
-                </div>
-            )}
+                    )}                
+            
+
         </div>
     );
 }
-

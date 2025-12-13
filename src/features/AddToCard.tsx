@@ -101,8 +101,8 @@ export default function AddToCard({ onClose, onAddCheckList }: AddToCardProps) {
             </TooltipComponent>
 
             {checklist && (
-                <div className=" inset-0  flex items-center md:justify-center bg-opacity-40 bg-gray-900">
-                    <div className=" bg-blue-100  md:ml-72  md:w-1/2 lg:w-1/3 md:mb-44  border-2 border-blue-600 rounded-xl shadow-xl ">
+                <div className=" inset-0 fixed flex items-center md:justify-center bg-opacity-40 bg-gray-900">
+                    <div className=" bg-blue-100 md:mr-72 border-2 border-blue-600 rounded-xl shadow-xl ">
                         <CheckListPopUp onClose={ChecklistCloseFunction} onAddCheckList= {(name: string) => {
                             onAddCheckList(name);  //  Pass up to CardViewDisplay
                          }}  />

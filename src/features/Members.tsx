@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import InputComponent from "./InputComponent";
+import {AuthContext} from "../context/AuthContext";
 
 interface MembersProps{
     onClose:()=>void;
 }
 export default function Members({ onClose }: MembersProps){
+      const { user} = useContext(AuthContext);
+    console.log("user from member", user)
+    
     return(
         <div className="bg-gray-200 mb-8">
              <div className="flex flex-row justify-between px-9 mt-1 ">
