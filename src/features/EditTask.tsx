@@ -90,31 +90,34 @@ export default function EditTask() {
     }
 
     return (
-        <div className="relative shadow-xl border-2 rounded-xl mx-auto pb-2  w-full md:w-1/2  lg:w-1/3 px-9">
-            <h3 className="text-xl font-semibold mt-2 pt-2 mr-56 mb-3">Edit Task</h3>
-            <button className="absolute top-[13px] text-xl right-[30px]" onClick={closeButton}>
-                &times;
-            </button>
+        <div className="min-h-screen  items-center justify-center bg-slate-900 font-lato p-4">
+            <div className="relative shadow-xl  rounded-md mx-auto pb-2 w-full md:w-1/2  lg:w-1/3 px-9 bg-white">
+                <h3 className="text-base font-semibold mt-3 pt-3 mr-64 mb-5">Edit Task</h3>
+                <button className="absolute top-[13px] text-xl right-[30px]" onClick={closeButton}>
+                    &times;
+                </button>
 
-            <label className="text-9xm font-semibold mr-64">Task Title</label>
-            <InputComponent inputType="text" inputValue={taskTitle} inputOnChange={(e) => setTaskTitle(e.target.value)} className="lg:w-full ml-3" />
+                <label className="text-base font-semibold mr-64">Task Title</label>
+                <InputComponent inputType="text" inputValue={taskTitle} inputOnChange={(e) => setTaskTitle(e.target.value)} className="lg:w-full ml-3" />
 
-            <label className="text-9xm font-semibold mr-64 md:mr-60">Description</label>
-            <InputComponent className="border-2 mb-4 lg:w-full ml-3" inputValue={Description} inputOnChange={(e) => setDescription(e.target.value)} />
-
-
-            <label className="text-9xm font-semibold mr-64">Start Date</label>
-            <InputComponent inputType="date" inputValue={startDate} inputOnChange={(e) => setStartDate(e.target.value)} className="lg:w/full ml-2" />
-
-            <label className="text-9xm font-semibold mr-64">Due Date</label>
-            <InputComponent inputType="date" inputValue={DueDate} inputOnChange={(e) => setDueDate(e.target.value)} className="lg:w/full ml-2" />
+                <label className="text-base font-semibold mr-64 md:mr-60">Description</label>
+                <InputComponent className="border mb-4 lg:w-full ml-3" inputValue={Description} inputOnChange={(e) => setDescription(e.target.value)} />
 
 
-            <div className="flex gap-7 justify-center mt-9">
-                <ButtonComponent className="bg-gray-600 hover:bg-gray-700 w-full" name="Cancel" onClick={cancelproject} />
-                <ButtonComponent className="bg-red-600 hover:bg-red-700 w-full" name="Delete" onClick={deleteProject} />
-                <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-full" name="Save Changes" onClick={editTask} />
+                <label className="text-9xm font-semibold mr-64">Start Date</label>
+                <InputComponent inputType="date" inputValue={startDate} inputOnChange={(e) => setStartDate(e.target.value)} className="lg:w/full ml-2" />
+
+                <label className="text-9xm font-semibold mr-64">Due Date</label>
+                <InputComponent inputType="date" inputValue={DueDate} inputOnChange={(e) => setDueDate(e.target.value)} className="lg:w/full ml-2" />
+
+
+                <div className="flex gap-7 justify-center mt-7 mb-5">
+                    <ButtonComponent className="  rounded-md bg-gray-600 hover:bg-gray-700 w-full h-10 border-transparent pt-1 font-lato" name="Cancel" onClick={cancelproject} buttonType={"button"} />
+                    <ButtonComponent className="bg-red-600 hover:bg-red-700 w-full border-transparent pt-1 h-10 font-lato" name="Delete" onClick={deleteProject} buttonType={"button"} />
+                    <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-full border-transparent pt-1 h-10 font-lato " name="Save Changes" onClick={editTask} buttonType={"button"} />
+                </div>
             </div>
+
         </div>
-    );
+           );
 }

@@ -1,4 +1,6 @@
-import { Archive, Search, SquareCheck } from 'lucide-react';
+// src/Components/ProjectViews.jsx
+
+import { Archive, Search, SquareCheck, MoreVertical, Plus } from 'lucide-react';
 import HeaderComponent from './HeaderComponent';
 import InputComponent from './InputComponent';
 import ButtonComponent from './ButtonComponent';
@@ -81,8 +83,8 @@ export default function ProjectViews() {
                     card: cardToDispatch,
                 }),
             );
-           
-        
+
+
             setCardName(prev => ({ ...prev, [listId]: '' }));
             setCardVisible(prev => ({ ...prev, [listId]: false }));
 
@@ -120,8 +122,8 @@ export default function ProjectViews() {
 
     function listDisplay(card: any, listId: number) {
         console.log("Opening card:", card, "from list:", listId);
-        setSelectedCard({ 
-            ...card, 
+        setSelectedCard({
+            ...card,
             listId: listId,
             cardId: card.cardId,
             cardname: card.cardname
@@ -260,16 +262,41 @@ export default function ProjectViews() {
     }
 
     return (
-        <div className="w-full ">
-            <div className="bg-blue-800 text-start w-full lg:w-full">
-                <button className="text-xl text-white p-3 font-bold md:text-2xl" onClick={backToDashboard}>
-                    ← Back to Dashboard
+        <div className="w-full bg-cyan-50 min-h-screen ">
+            {/* 1. Project Header - Adjusted color and padding */}
+            <div className=" bg-gradient-to-r from-cyan-700 to-cyan-500 border-b border-gray-400 text-start w-full shadow-sm">
+                <button
+                    className=" text-xl py-1 text-white  px-4   font-bold hover:bg-cyan-700 transition duration-150 rounded-md"
+                    onClick={backToDashboard}
+                >
+                    <button
+                        type="button"
+                        className="flex items-center gap-2 bg-cyan-700  transition duration-150 rounded-md  text-white px-4 py-2 rounded" onClick={backToDashboard}
+                      
+                    >
+                        <svg
+                            className="size-5 motion-safe:animate-bounce"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+
+                     Back to Dashboard
+                    </button>
+
                 </button>
             </div>
 
+            {/* 2. Project Info Bar (Assumed to be ProjectListView, keeping it as is) */}
             <ProjectListView />
 
-            <div className="flex flex-row flex-wrap mb-9 items-start gap-2 ml-2 px-9">
+            {/* 3. Kanban Board Container - Increased gap and adjusted vertical alignment */}
+            <div
+                className="flex flex-row flex-nowrap overflow-x-auto p-6 gap-6 items-start h-[calc(100vh-150px)]  bg-cyan-500 lg:w-11/12 rounded-xl ml-[4%] mt-5"
+                style={{ scrollbarWidth: 'thin' }}
+            >
                 {lists &&
                     lists.length > 0 &&
                     lists.map((list: any, listIndex: number) => (
@@ -284,35 +311,34 @@ export default function ProjectViews() {
                                 if (type === 'list') {
                                     handleListDrop(e, listIndex);
                                 }
-                            }}
-                            className="flex flex-col text-left px-2 pb-2 p-2 md:ml-9 mt-9 shadow-md rounded-md text-base font-semibold w-full lg:w-1/5 md:w-1/2 bg-gradient-to-tl from-blue-300 to-blue-200"
-                        >
-                            <div className="flex flex-row justify-between">
-                                <h1 className="text-red-900 text-base">{list.listName}</h1>
-                                <button className="text-black-100 hover:text-blue-800" onClick={() => deleteList(list.listId)}>
-                                    <svg className="w-6 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <circle cx="4" cy="12" r="3"></circle>
-                                        <circle cx="12" cy="12" r="3"></circle>
-                                        <circle cx="20" cy="12" r="3"></circle>
-                                    </svg>
+                            }} className={`flex flex-col flex-shrink-0 text-left w-72 p-4 rounded-xl shadow-lg bg-gray-100 transition duration-200 
+                                ${draggedList?.listId === list.listId ? ' border-2 border-cyan-500' : 'hover:shadow-2xl'}`} >
+                            {/* List Header Style Adjustment */}
+                            <div className="flex justify-between items-center mb-3 pb-2 border-b border-gray-200">
+                                <h1 className="text-base text-cyan-900  font-lato font-bold  truncate">{list.listName}</h1>
+                                <button
+                                    className="text-gray-500 hover:text-red-600 transition duration-150 p-1 rounded-full hover:bg-gray-200"
+                                    onClick={() => deleteList(list.listId)}
+                                    aria-label={`Delete list ${list.listName}`}
+                                >
+                                    <MoreVertical className="w-5 h-5" />
                                 </button>
                             </div>
 
+                            {/* Cards Container Style Adjustment */}
                             <div
-                                className="cards-container mt-2"
+                                className="cards-container flex flex-col  gap-3 overflow-y-auto max-h-[calc(100vh-320px)] pr-2"
                                 onDragOver={handleCardDragOver}
                                 onDrop={e => {
                                     e.stopPropagation();
-                                    handleCardDrop(e, list.listId, -1);
+                                    handleCardDrop(e, list.listId, -1); // Drop to the end of the list
                                 }}
                             >
-                               {/* // In ProjectViews.tsx, update the card rendering section (around line 200)
-                                // Replace the card mapping with this to show checklist progress: */}
 
                                 {list.cards &&
                                     list.cards.length > 0 &&
                                     list.cards.map((card: any, cardIndex: number) => {
-                                        // Calculate checklist completion
+                                        // Calculate checklist completion (logic remains untouched)
                                         const checklist = card.checklist || [];
                                         let totalItems = 0;
                                         let completedItems = 0;
@@ -332,31 +358,39 @@ export default function ProjectViews() {
                                                 onDragOver={handleCardDragOver}
                                                 onDrop={e => {
                                                     e.stopPropagation();
-                                                    handleCardDrop(e, list.listId, cardIndex);
+                                                    handleCardDrop(e, list.listId, cardIndex); // Drop between cards
                                                 }}
-                                                className="p-2 m-1 bg-blue-200 rounded-md shadow-md cursor-pointer"
+                                             
+                                                className={`p-3 bg-white rounded-lg shadow-sm cursor-pointer border-t-2 border-cyan-500 
+                                                ${draggedCard?.cardId === card.cardId ? 'opacity-30 border-blue-600' : 'hover:shadow-md'} transition duration-150`}
                                             >
+                                                {/* Card content container - removed ml-9 to align content to the left */}
                                                 <div className="flex justify-between items-start">
                                                     <button
                                                         onClick={() => listDisplay(card, list.listId)}
-                                                        className="text-left flex-1 text-base"
+                                                        className="text-left flex-1 text-base font-lato text-gray-900 pr-2"
                                                     >
                                                         {card.cardname}
                                                     </button>
 
-                                                    <button onClick={() => cardArchived(list.listId, card.cardId)}>
-                                                        <Archive className="w-5 h-5" />
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); cardArchived(list.listId, card.cardId); }} className="text-gray-400 hover:text-red-500 p-1 rounded-md hover:bg-gray-100 transition duration-150"
+                                                        aria-label="Archive card"
+                                                    >
+                                                        <Archive className="w-4 h-4" />
                                                     </button>
                                                 </div>
 
-                                                {/* Display Checklist Progress Badge */}
+                                                {/* Display Checklist Progress Badge (Styling remains good, slightly adjusted margins) */}
                                                 {totalItems > 0 && (
-                                                    <div className="mt-2 flex items-center gap-2">
-                                                        <div className={`inline-flex items-center gap-1 px-2 py-1 rounded text-sm font-semibold ${completedItems === totalItems
-                                                                ? 'bg-green-500 text-white'
-                                                                : 'bg-gray-700 text-white'
-                                                            }`}>
-                                                            <SquareCheck className="w-4 h-4" />
+                                                    <div className="mt-3 flex items-center">
+                                                        <div
+                                                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${completedItems === totalItems
+                                                                ? 'bg-green-600 text-white'
+                                                                : 'bg-yellow-400 text-gray-900'
+                                                                }`}
+                                                        >
+                                                            <SquareCheck className="w-3 h-3" />
                                                             {completedItems}/{totalItems}
                                                         </div>
                                                     </div>
@@ -365,6 +399,8 @@ export default function ProjectViews() {
                                         );
                                     })
                                 }
+
+                                {/* Add Card Input Area (Positioned correctly at the bottom of the list) */}
                                 {cardVisible[list.listId] ? (
                                     <AddCard
                                         addCard={() => addCard(list.listId)}
@@ -374,39 +410,52 @@ export default function ProjectViews() {
                                         listId={list.listId}
                                     />
                                 ) : (
-                                    <div className="flex flex-row mt-2">
-                                        <button className="text-base" onClick={() => showAddCard(list.listId)}>
-                                            &#43;
+                                    <div className="flex mt-3">
+                                        <button
+                                            className="flex items-center text-sm font-semibold text-gray-600 hover:text-cyan-600 hover:bg-gray-200 p-2 rounded-lg w-full transition duration-150"
+                                            onClick={() => showAddCard(list.listId)}
+                                        >
+                                            <Plus className="w-4 h-4 mr-1" />
+                                            Add a card
                                         </button>
-                                        <h1 className="mt-1 text-gray-900 text-base ml-2">Add Card</h1>
                                     </div>
                                 )}
                             </div>
                         </div>
                     ))}
 
-                <div className="flex flex-row md:flex-row gap-2 md:ml-11 p-2 mr-5 ml-5 mt-3 md:w-1/2 lg:w-1/5 rounded-xl bg-gradient-to-bl from-blue-300 to-blue-200">
-                    {list ? (
-                        <AddList onClose={addListClose} addList={addLists} listName={listName} onListNameChange={value => setListName(value)} />
-                    ) : (
-                        <>
-                            <button className="text-2xl ml-3" onClick={() => setList(true)}>
-                                &#43;
+                {/* Add New List Button/Form - Adjusted alignment and background */}
+                <div className="flex-shrink-0 w-72 mt-0">
+                    <div className="p-3 rounded-xl shadow-md bg-white">
+                        {list ? (
+                            <AddList
+                                onClose={addListClose}
+                                addList={addLists}
+                                listName={listName}
+                                onListNameChange={value => setListName(value)}
+                            />
+                        ) : (
+                            <button
+                                className="flex items-center text-sm font-semibold text-gray-700 hover:text-cyan-800 w-full p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-150"
+                                onClick={() => setList(true)}
+                            >
+                                <Plus className="w-4 h-4 mr-2" />
+                                Add another list
                             </button>
-                            <h1 className="text-base pt-1 pb-1 ml-2">Add another list</h1>
-                        </>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
 
+            {/* Card View Popup (no changes needed) */}
             {isPopupOpen && selectedCard && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-                    <CardViewDisplay 
-                        onClose={handleClose} 
-                        cardName={selectedCard.cardname} 
-                        onCardNameChange={value => setSelectedCard({ ...selectedCard, cardname: value })} 
-                        listId={selectedCard.listId} 
-                        cardId={selectedCard.cardId} 
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 p-4">
+                    <CardViewDisplay
+                        onClose={handleClose}
+                        cardName={selectedCard.cardname}
+                        onCardNameChange={value => setSelectedCard({ ...selectedCard, cardname: value })}
+                        listId={selectedCard.listId}
+                        cardId={selectedCard.cardId}
                     />
                 </div>
             )}

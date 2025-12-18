@@ -15,7 +15,8 @@ interface InputComponentProps {
 
 
 export default function InputComponent({ className, name, inputmode, inputType, inputValue, pattern, placeholder, inputId, inputOnChange, style, required }: InputComponentProps) {
-    const inputClass = `border border-gray-300  py-2  w-full md:w-1/2 lg:w-2/3 rounded-md  bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-none ${className} `
+    const inputClass = ` w-full  pr- py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-none transition duration-150 lg:w-full px-9 ${className}  '
+`
     return (
         <div >
 

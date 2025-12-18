@@ -32,11 +32,11 @@ const TaskCompletionChart = () => {
       className="bg-white-500 rounded-xl  shadow-xl p-10 w-full h-full md:w-full  "
 
     >
-      <h3 className="text-xl font-bold md:text-2xl">
-        Task Completion Trend
+      <h3 className="text-xl font-lato md:text-xl ">
+        {/* Task Completion Trend */}
       </h3>
 
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height="90%">
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tick={{ fontSize: 20 }} />
@@ -44,9 +44,9 @@ const TaskCompletionChart = () => {
           <Tooltip />
           <Bar
             dataKey="tasks"
-            fill="#5d7cff"
+            fill="#2c95a3ff"
             radius={[8, 8, 0, 0]}
-            barSize={25}
+            barSize={35}
           />
         </BarChart>
       </ResponsiveContainer>

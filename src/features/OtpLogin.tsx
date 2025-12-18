@@ -5,58 +5,111 @@ import { toast } from 'react-toastify';
 import ButtonComponent from './ButtonComponent';
 import InputComponent from './InputComponent';
 import { Mail } from 'lucide-react';
-import verifyOtp from '../api/verifyOtp.api';
+import verifyOtp from '../api/verifyOtp.api'; // Keep the import even if unused here
 
 export default function OtpLogin() {
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
-  
 
     function emailId(e: React.ChangeEvent<HTMLInputElement>) {
         setEmail(e.target.value)
     }
-    // const handleSendOtp = async () => {
-    //     await sendOtp(email);
-    //     navigate('/sendOtp'); // move to OTP input page
-    // };
+
     const handleSendOtp = async () => {
-
-        // if (!email) return toast.error("Please enter email!");
         try {
-
             const res = await sendOtp(email); // API call to /auth/send-otp
             console.log("res email", res.data)
             toast.success(res.data.message); // "OTP sent successfully"
-            // verifyOtp.OtpLogin(res.data.user, res.data.access_token, res.data.refresh_token);
 
-            navigate('/SendOtp', { state: { email: email } }); // pass email to OTP page
+            // Navigate to the SendOtp component, passing the email for verification
+            navigate('/SendOtp', { state: { email: email } });
         } catch (err: any) {
             toast.error(err.response?.data?.message || "Failed to send OTP");
         }
     };
+
     return (
-        <div className=' border border-gray-300 md:px-0  p-1  bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl mx-auto m-10 border-t-0 shadow-xl w-full  md:w-1/2 lg:w-1/3  pb-6 font-sans  '>
-            <form>
-                <p className="text-2xl text-white mb-3 rounded-t-xl bg-blue-600 p-3 font-bold">Task Manager</p>
+        // Outer container for the dark background (consistent with previous pages)
+        <div className="min-h-screen flex items-center justify-center bg-slate-900 font-sans p-4">
 
-                <div className='flex flex-col'>
-                    <span className="font-sans text-xl font-bold text-blue-600">Well Come Back</span>
-                    <span className="text-xm pb-4 font-lighter text-gray-500">OTP verification</span>
+            {/* Animated Background Elements (Optional for polish) */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-lighten filter blur-3xl opacity-10 animate-[pulse_4s_ease-in-out_infinite]"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-lighten filter blur-3xl opacity-10 animate-[pulse_6s_ease-in-out_infinite_reverse]"></div>
+            </div>
 
+            {/* OTP Card Container */}
+            <div className="relative z-10 w-full max-w-md">
+
+                {/* Optional Glowing Border Effect */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl opacity-20 blur-md transition duration-500 animate-[gradientMove_3s_ease_infinite] bg-[length:200%_200%]"></div>
+                <style>{`
+                  @keyframes gradientMove {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                  }
+                `}</style>
+
+                {/* Card Content: White, professional, rounded */}
+                <div className='relative bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-gray-100'>
+
+                    <form onSubmit={(e) => { e.preventDefault(); handleSendOtp(); }} className='flex flex-col items-center text-center'>
+
+                        {/* 1. Header Area - Unified Branding */}
+                        <div className="flex flex-col items-center mb-6 w-full">
+                            {/* Logo Icon */}
+                            <div className="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center text-2xl text-white shadow-lg mb-3">
+                                {/* Using the SVG checkmark icon for TaskFlow branding */}
+                                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-9 0V3a2 2 0 012-2h3m-3 0h4m-4 0a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2H9z"></path></svg>
+                            </div>
+
+                            <h2 className="text-2xl font-extrabold text-slate-800 tracking-tight">OTP Verification</h2>
+                            <p className="text-sm text-gray-500 mt-1">Enter your email to receive a verification code.</p>
+                        </div>
+
+                        {/* 2. Email Field Group */}
+                        <div className='w-full px-2 md:px-6 mb-6'>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 text-left">Email Address</label>
+
+                            <div className="relative">
+                                {/* Icon is positioned consistently inside the input */}
+                                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+
+                                {/* InputComponent styling is clean and uses focus ring */}
+                                <InputComponent
+                                    inputType="email"
+                                    inputValue={email}
+                                    inputId="email"
+                                    inputOnChange={emailId}
+                                    placeholder='you@gmail.com'
+                                    // Professional Input Style
+                                    className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 md:w-full lg:w-full'
+                                />
+                            </div>
+                        </div>
+
+                        {/* 3. Send OTP Button */}
+                        <div className='w-full px-2 md:px-6'>
+                            <ButtonComponent
+                                onClick={handleSendOtp}
+                                name="Send OTP"
+                                buttonType="button" // Changed to submit to fire the form handler
+                                // Professional button styling
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-base font-semibold text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-150"
+                            />
+                        </div>
+
+                        {/* 4. Register Link */}
+                        {/* <div className="mt-6 text-center text-sm text-gray-600">
+                            Don't have an account?{' '} */}
+                            {/* <Link to="/signUp" className='font-semibold text-blue-600 hover:text-blue-700'>
+                                Register here
+                            </Link> */}
+                        {/* </div> */}
+                    </form>
                 </div>
-                <div className=' flex flex-col px-2 md:px-0'>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 mr-72  md:mr-[62%]">Email</label>
-                    <div className="relative">
-                        <Mail className="absolute  left-3 lg:left-[15%] top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 lg:left-12 " />
-                        < InputComponent inputType="email" inputValue={email} inputId="email" inputOnChange={emailId} className='md:mr-6 pl-11 lg:pl-11' placeholder='you@gmail.com' />
-
-                    </div>
-                    <ButtonComponent onClick={handleSendOtp} name="verify OTP" buttonType="button"  className="h-11 pt-2 mt-3"/>
-                    {
-                        <p id="paragraph">Don't have an account? <Link to="/signUp" className='text-indigo-600 hover:text-indigo-700 font-semibold'>Register here</Link></p>
-                    }
-                </div> 
-            </form>  </div>
-               
+            </div>
+        </div>
     );
 }

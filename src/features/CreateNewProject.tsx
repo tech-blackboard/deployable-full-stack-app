@@ -97,16 +97,19 @@ export default function CreateNewProjects() {
     }
 
     return (
-        <div className="relative shadow-xl border-2 rounded-xl w-full md:w-1/2 lg:w-1/3 mx-auto mt-3 mb-9">
+        <div className=" bg-slate-800 items-center justify-center min-h-screen flex font-sans p-4">
+
+     
+        <div className=" bg-gray-100 relative shadow-xl border-2 rounded-xl w-full md:w-1/2 lg:w-1/3 mx-auto mt-3 mb-9 px-11">
 
             <form>
-                <div className="flex flex-row md:px-0 px-9 md:justify-between px-11">
-                    <h1 className="text-left text-xl font-semibold font-sans md:px-0 md:ml-14 p-7 ">Create New Project</h1>
+                <div className="flex flex-row md:justify-between">
+                    <h1 className="text-left text-xl font-bold md:px-0 md:ml-14 p-7 ">Create New Project</h1>
                     <button className="absolute top-5  right-9 text-4xl transition-transform duration-100 hover:rotate-90 " onClick={closeButton}>&times;</button>
 
                 </div>
                
-                <div className="flex flex-col mb-3 px-9 md:px-0">
+                <div className="flex flex-col mb-3">
                     {/* <label className="text-base text-left md:ml-[17%] font-sans  font-semibold">Project Name *</label> */}
                     <InputComponent inputType="text" placeholder="  project name " inputValue={projectName} inputOnChange={createProjectName} />
                 </div>
@@ -132,7 +135,7 @@ export default function CreateNewProjects() {
 
                 <div className="flex flex-col mb-3 px-9 md:px-0"> 
                     {/* <label className=" text-base font-semibold text-left md:ml-[17%] font-sans ">Project Category</label> */}
-                    <select className="border  p-1 rounded-md w-full md:w-1/2 lg:w-2/3 mx-auto text-base  " onChange={ProjectCategories}>
+                        <select className="border  p-1 rounded-md w-full md:w-1/2 lg:w-2/3 mx-auto text-base  pr- py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 lg:w-full px-9" onChange={ProjectCategories}>
                         <option value="-" disabled selected>---select project category--- </option>
                         <option value="Web Development">Web Development</option>
                         <option>Mobile App</option>
@@ -146,14 +149,13 @@ export default function CreateNewProjects() {
                     <InputComponent inputType="text" inputOnChange={projectTeamMembers} placeholder='  Team Members ' />
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center  md:gap-9   mb-3  px-11 md:px-0">
-                    <ButtonComponent className="bg-blue-600 hover:bg-blue-700 w-44 md:mt-3 w-full h-9 pb-9 " name="Create New Project" onClick={createNewProject} />
-                    <ButtonComponent className="bg-gray-500 hover:bg-gray-600 md:mt-3 w-full h-9 pb-9" name="Cancel" />
+                <div className="flex flex-col md:flex-row justify-center  md:gap-12   mb-3  px-11 md:px-0">
+                    <ButtonComponent className="border-transparent hover:bg-cyan-700 w-44 md:mt-3 w-full h-9 pb-9 " name="Create New Project" onClick={createNewProject} buttonType={'button'} />
+                    <ButtonComponent className="bg-gray-500 hover:bg-gray-600 md:mt-3 w-full h-9 pb-9" name="Cancel" buttonType={'button'} />
 
                 </div>
             </form>
-
-            
-        </div>
+            </div> 
+              </div>
     )
 }
