@@ -16,7 +16,7 @@ export default function SendOtp() {
     const handleVerifyOtp = async () => {
         if (!otp) return toast.error("Enter OTP!");
         try {
-            const res = await verifyOtp(email, otp);
+            const res = await verifyOtp(email, otp, "LOGIN");
             console.log("res from sendotp page ", res)
             console.log("OTP verification response:", otp);
 

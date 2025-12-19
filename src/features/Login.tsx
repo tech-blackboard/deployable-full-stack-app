@@ -9,7 +9,7 @@ import loginUser from '../api/auth.api';
 import { useContext } from "react";
 import { AuthContext } from '../context/AuthContext';
 import SendOtp from './SendOtp';
-import sendOtp from '../api/sendOtp.api';
+import sendOtp from '../api/sendLoginOtp.api';
 
 // No changes to imports, interfaces, or functions.
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import sendOtp from '../api/sendOtp.api';
+import sendOtp from '../api/sendLoginOtp.api';
 import { toast } from 'react-toastify';
 import ButtonComponent from './ButtonComponent';
 import InputComponent from './InputComponent';
 import { Mail } from 'lucide-react';
-import verifyOtp from '../api/verifyOtp.api'; // Keep the import even if unused here
+import sendLoginOtp from '../api/sendLoginOtp.api';
 
 export default function OtpLogin() {
     const [email, setEmail] = useState('');
@@ -14,10 +14,16 @@ export default function OtpLogin() {
     function emailId(e: React.ChangeEvent<HTMLInputElement>) {
         setEmail(e.target.value)
     }
+ 
 
     const handleSendOtp = async () => {
+        if (!email || email.trim() === "") {
+            toast.error("Please enter a valid email");
+            return;
+        }
+        console.log("email form state.",email)
         try {
-            const res = await sendOtp(email); // API call to /auth/send-otp
+            const res = await sendLoginOtp(email); // API call to /auth/send-otp
             console.log("res email", res.data)
             toast.success(res.data.message); // "OTP sent successfully"
 
@@ -100,13 +106,13 @@ export default function OtpLogin() {
                             />
                         </div>
 
-                        {/* 4. Register Link */}
-                        {/* <div className="mt-6 text-center text-sm text-gray-600">
-                            Don't have an account?{' '} */}
-                            {/* <Link to="/signUp" className='font-semibold text-blue-600 hover:text-blue-700'>
-                                Register here
-                            </Link> */}
-                        {/* </div> */}
+                        {/* <div className="mt-4  text-sm text-gray-600">
+                            <Link to="/forgot-password" className="font-semibold text-cyan-600 hover:text-cyan-700">
+                                Forgot Password?
+                            </Link>
+                        </div> */}
+
+                      
                     </form>
                 </div>
             </div>

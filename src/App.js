@@ -33,6 +33,9 @@ import OtpLogin from './features/OtpLogin';
 import ProfileDropDown from './features/ProfileDropDown';
 import ProjectViewMinimal from './features/ProjectViewMinimal';
 import ProjectProvider from './features/ProjectContext'
+import ResetPassword from './features/ResetPassword'
+import ForgotPassword from "./features/ForgotPassword";
+import VerifyForgotOtp from "./features/VerifyForgotOtp";
 function App() {
   return (
    <div className="App">
@@ -58,8 +61,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
             <Route path="/OtpLogin" element={<OtpLogin />} />
-            <Route path="/dashboard" element={<DashBoard />}
-            />
+            <Route path="/dashboard" element={<DashBoard />}/>
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/verify-forgot-otp" element={<VerifyForgotOtp />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/dashboard" element={
