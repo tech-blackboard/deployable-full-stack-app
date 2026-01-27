@@ -6,7 +6,7 @@ export default async function VerifyForgotOtps(email: string, otp: string) {
 
     const cleanOtp = otp.toString().trim();
 
-    const response = await axiosInstance.post("/auth/verify-forgot-otp", {
+    const response = await axiosInstance.post("/auth/verify-otp", {
         email,
         otp: cleanOtp,
     });

@@ -25,7 +25,7 @@ export default function VerifyForgotOtp() {
         <div className=" min-h-screen flex items-center justify-center bg-slate-900 font-sans ">
 
             <div className="flex flex-col items-center p-10 border-transparent bg-white rounded-md  text-green-800 font-lato">
-            <h2 className="text-xl font-semibold mb-4">Enter OTP</h2>
+            <h2 className="text-xl color-indigo-50 font-semibold mb-4">Enter OTP</h2>
 
             <input
                     className="border p-2 rounded w-full text-center"

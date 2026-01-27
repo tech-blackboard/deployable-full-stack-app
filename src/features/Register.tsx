@@ -281,14 +281,14 @@ export default function Register() {
                                 name="Create Account"
                                 onClick={handleSignUp}
                                 buttonType='button'
-                                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150'
+                                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-base font-semibold text-white bg-blue-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150'
                             />
                         </div>
 
                         {/* Sign In Link */}
                         <div className="mt-6 text-center text-sm text-gray-600">
                             Already have an Account?{' '}
-                            <Link to="/Login" className='font-semibold text-cyan-600 hover:text-blue-700'>
+                            <Link to="/Login" className='font-semibold text-cyan-600 hover:text-cyan-700'>
                                 Sign in
                             </Link>
                         </div>

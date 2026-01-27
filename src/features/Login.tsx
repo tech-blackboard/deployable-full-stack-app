@@ -105,7 +105,7 @@ export default function Login() {
 
             {/* Animated Background Elements (Optional, but adds polish) */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-lighten filter blur-3xl opacity-10 animate-[pulse_4s_ease-in-out_infinite]"></div>
+                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-700/20 rounded-full mix-blend-lighten filter blur-3xl opacity-10 animate-[pulse_4s_ease-in-out_infinite]"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-lighten filter blur-3xl opacity-10 animate-[pulse_6s_ease-in-out_infinite_reverse]"></div>
             </div>
 
@@ -158,7 +158,7 @@ export default function Login() {
                                     inputOnChange={emailId}
                                     placeholder='you@gmail.com'
                                     // Merged all styling for a clean look:
-                                    className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 lg:w-full'
+                                    className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-cyan-500 transition duration-150 lg:w-full'
                                 />
                             </div>
                         </div>
@@ -181,7 +181,7 @@ export default function Login() {
                                     inputOnChange={password}
                                     placeholder="••••••••"
                                     // Merged all styling for a clean look:
-                                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150  lg:w-full"
+                                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-cyan-700 transition duration-150  lg:w-full"
                                 />
 
                                 {/* Eye Toggle Button */}
@@ -199,7 +199,7 @@ export default function Login() {
                         <div className="w-full px-2 md:px-6 text-right mb-6">
                             <a
                                 href="/forgot-password"
-                                className="text-sm font-medium text-cyan-600 hover:text-blue-500 transition-colors"
+                                className="text-sm font-medium text-cyan-600 hover:text-cyan-700 transition-colors"
                             >
                                 Forgot password?
                             </a>
@@ -219,7 +219,7 @@ export default function Login() {
                         {/* 5. Register Link */}
                         <div className="mt-6 text-center text-sm text-gray-600">
                             Don't have an account?{' '}
-                            <Link to="/signUp" className='font-semibold text-cyan-600 hover:text-blue-700'>
+                            <Link to="/signUp" className='font-semibold text-cyan-600 hover:text-cyan-700'>
                                 Register here
                             </Link>
                         </div>
